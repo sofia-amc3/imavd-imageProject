@@ -115,8 +115,10 @@ namespace IMAVD___ImageInfo
         {
             if (pictureBox2.Image != null)
             {
-                SaveFileDialog dialog = new SaveFileDialog();
-                dialog.Filter = "Images|*.png;*.bmp;*.jpg";
+                SaveFileDialog dialog = new SaveFileDialog
+                {
+                    Filter = "Images|*.png;*.bmp;*.jpg"
+                };
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -207,8 +209,7 @@ namespace IMAVD___ImageInfo
 
             bmGraphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
 
-            // Draw the original image on the temporary bitmap, resizing it using
-
+            // Draws the original image on the temporary bitmap, resizing it using
             // the calculated values of targetWidth and targetHeight.
 
             int HorizLeft = (int)(OriginalImage.Width / 2) - (int)((OriginalImage.Width / 2) / (zoomValue.Value / 100));
@@ -229,11 +230,14 @@ namespace IMAVD___ImageInfo
             pictureBox2.Refresh();
         }
 
-        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)  
         {
             int index = e.Item.Index;
 
+            // when clicking a menu icon shows side tab
             tabControl2.Visible = true;
+
+            // selects preferred tab according to the clicked icon 
             tabControl2.SelectedTab = tabControl2.TabPages[index];
             e.Item.Selected = false;
         }

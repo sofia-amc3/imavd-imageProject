@@ -127,11 +127,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\03. Trabalho 01 - Imagem\\program\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj",
+      "projectUniqueName": "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj",
       "projectName": "IMAVD - ImageInfo",
-      "projectPath": "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\03. Trabalho 01 - Imagem\\program\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj",
+      "projectPath": "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj",
       "packagesPath": "C:\\Users\\SAP-PSC6-G7\\.nuget\\packages\\",
-      "outputPath": "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\03. Trabalho 01 - Imagem\\program\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\obj\\",
+      "outputPath": "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SAP-PSC6-G7\\AppData\\Roaming\\NuGet\\NuGet.Config",
