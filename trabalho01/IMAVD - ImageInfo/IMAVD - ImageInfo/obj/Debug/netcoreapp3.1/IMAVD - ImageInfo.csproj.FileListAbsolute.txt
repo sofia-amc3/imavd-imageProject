@@ -130,3 +130,4 @@ D:\01. Work\01. University - ISEP (MEI)\01. Pré-Requisitos\09. Imagem, Áudio e
 D:\01. Work\01. University - ISEP (MEI)\01. Pré-Requisitos\09. Imagem, Áudio e Vídeo Digital\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.dll
 D:\01. Work\01. University - ISEP (MEI)\01. Pré-Requisitos\09. Imagem, Áudio e Vídeo Digital\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.pdb
 D:\01. Work\01. University - ISEP (MEI)\01. Pré-Requisitos\09. Imagem, Áudio e Vídeo Digital\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.genruntimeconfig.cache
+D:\01. Work\01. University - ISEP (MEI)\01. Pré-Requisitos\09. Imagem, Áudio e Vídeo Digital\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD___ImageInfo.Properties.Resources.resources

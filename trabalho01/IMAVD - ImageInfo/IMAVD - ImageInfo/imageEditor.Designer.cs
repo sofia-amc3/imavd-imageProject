@@ -30,10 +30,10 @@ namespace IMAVD___ImageInfo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(imageEditor));
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(imageEditor));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ldBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,14 +64,15 @@ namespace IMAVD___ImageInfo
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.detailsProperties = new System.Windows.Forms.TabPage();
             this.detailsDimension = new System.Windows.Forms.TabPage();
             this.detailsColorSearch = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
-            this.detailsProperties = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,9 +81,9 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
+            this.detailsProperties.SuspendLayout();
             this.detailsDimension.SuspendLayout();
             this.detailsColorSearch.SuspendLayout();
-            this.detailsProperties.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -274,7 +275,7 @@ namespace IMAVD___ImageInfo
             this.svImagebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.svImagebtn.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.svImagebtn.ForeColor = System.Drawing.Color.White;
-            this.svImagebtn.Location = new System.Drawing.Point(832, 624);
+            this.svImagebtn.Location = new System.Drawing.Point(832, 625);
             this.svImagebtn.Name = "svImagebtn";
             this.svImagebtn.Size = new System.Drawing.Size(119, 32);
             this.svImagebtn.TabIndex = 6;
@@ -319,6 +320,7 @@ namespace IMAVD___ImageInfo
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Location = new System.Drawing.Point(28, 82);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(923, 519);
@@ -398,6 +400,7 @@ namespace IMAVD___ImageInfo
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Black;
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.svImagebtn);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.listView1);
@@ -409,6 +412,22 @@ namespace IMAVD___ImageInfo
             this.tabPage2.Size = new System.Drawing.Size(1274, 691);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(28, 625);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 32);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "LOAD IMAGE";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.ldBtn_Click);
             // 
             // label13
             // 
@@ -444,55 +463,21 @@ namespace IMAVD___ImageInfo
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.White;
-            this.imageList1.Images.SetKeyName(0, "crop.png");
-            this.imageList1.Images.SetKeyName(1, "crop.png");
+            this.imageList1.Images.SetKeyName(0, "properties.png");
+            this.imageList1.Images.SetKeyName(1, "colorSearch.png");
             this.imageList1.Images.SetKeyName(2, "crop.png");
             // 
             // tabControl2
             // 
+            this.tabControl2.Controls.Add(this.detailsProperties);
             this.tabControl2.Controls.Add(this.detailsDimension);
             this.tabControl2.Controls.Add(this.detailsColorSearch);
-            this.tabControl2.Controls.Add(this.detailsProperties);
             this.tabControl2.Location = new System.Drawing.Point(970, -39);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(304, 773);
             this.tabControl2.TabIndex = 10;
             this.tabControl2.Visible = false;
-            // 
-            // detailsDimension
-            // 
-            this.detailsDimension.BackColor = System.Drawing.Color.Black;
-            this.detailsDimension.Controls.Add(this.label3);
-            this.detailsDimension.Controls.Add(this.zoomValue);
-            this.detailsDimension.ForeColor = System.Drawing.Color.Black;
-            this.detailsDimension.Location = new System.Drawing.Point(4, 25);
-            this.detailsDimension.Name = "detailsDimension";
-            this.detailsDimension.Padding = new System.Windows.Forms.Padding(3);
-            this.detailsDimension.Size = new System.Drawing.Size(296, 744);
-            this.detailsDimension.TabIndex = 1;
-            this.detailsDimension.Text = "tabPage4";
-            // 
-            // detailsColorSearch
-            // 
-            this.detailsColorSearch.BackColor = System.Drawing.Color.Black;
-            this.detailsColorSearch.Controls.Add(this.label12);
-            this.detailsColorSearch.Controls.Add(this.chckClrBtn);
-            this.detailsColorSearch.Controls.Add(this.pictureBox2);
-            this.detailsColorSearch.Location = new System.Drawing.Point(4, 25);
-            this.detailsColorSearch.Name = "detailsColorSearch";
-            this.detailsColorSearch.Size = new System.Drawing.Size(296, 744);
-            this.detailsColorSearch.TabIndex = 2;
-            this.detailsColorSearch.Text = "tabPage5";
-            // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(-8, 47);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(10, 658);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "label12";
             // 
             // detailsProperties
             // 
@@ -517,6 +502,40 @@ namespace IMAVD___ImageInfo
             this.detailsProperties.TabIndex = 0;
             this.detailsProperties.Text = "tabPage3";
             // 
+            // detailsDimension
+            // 
+            this.detailsDimension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.detailsDimension.Controls.Add(this.label3);
+            this.detailsDimension.Controls.Add(this.zoomValue);
+            this.detailsDimension.ForeColor = System.Drawing.Color.Black;
+            this.detailsDimension.Location = new System.Drawing.Point(4, 25);
+            this.detailsDimension.Name = "detailsDimension";
+            this.detailsDimension.Padding = new System.Windows.Forms.Padding(3);
+            this.detailsDimension.Size = new System.Drawing.Size(296, 744);
+            this.detailsDimension.TabIndex = 1;
+            this.detailsDimension.Text = "tabPage4";
+            // 
+            // detailsColorSearch
+            // 
+            this.detailsColorSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.detailsColorSearch.Controls.Add(this.label12);
+            this.detailsColorSearch.Controls.Add(this.chckClrBtn);
+            this.detailsColorSearch.Controls.Add(this.pictureBox2);
+            this.detailsColorSearch.Location = new System.Drawing.Point(4, 25);
+            this.detailsColorSearch.Name = "detailsColorSearch";
+            this.detailsColorSearch.Size = new System.Drawing.Size(296, 744);
+            this.detailsColorSearch.TabIndex = 2;
+            this.detailsColorSearch.Text = "tabPage5";
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(-8, 47);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(10, 658);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "label12";
+            // 
             // imageEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -540,11 +559,11 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
+            this.detailsProperties.ResumeLayout(false);
+            this.detailsProperties.PerformLayout();
             this.detailsDimension.ResumeLayout(false);
             this.detailsDimension.PerformLayout();
             this.detailsColorSearch.ResumeLayout(false);
-            this.detailsProperties.ResumeLayout(false);
-            this.detailsProperties.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -590,6 +609,7 @@ namespace IMAVD___ImageInfo
         private System.Windows.Forms.TabPage detailsColorSearch;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -111,9 +111,9 @@ namespace IMAVD___ImageInfo
             }
         }
 
-        private void svImagebtn_Click(object sender, EventArgs e)
+        private void svImagebtn_Click(object sender, EventArgs e) // -------------------------------------------  MUDAR PARA PICTUREBOX2
         {
-            if (pictureBox2.Image != null)
+            if (pictureBox1.Image != null)
             {
                 SaveFileDialog dialog = new SaveFileDialog
                 {
@@ -122,9 +122,9 @@ namespace IMAVD___ImageInfo
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    Bitmap bmp = new Bitmap(pictureBox2.Image, pictureBox2.ClientSize.Width, pictureBox2.ClientSize.Height);
+                    //Bitmap bmp = new Bitmap(pictureBox2.Image, pictureBox2.ClientSize.Width, pictureBox2.ClientSize.Height);
                     //drawImage.DrawToBitmap(bmp, new Rectangle(0, 0, width, height);
-                    bmp.Save(dialog.FileName, ImageFormat.Jpeg);
+                    pictureBox1.Image.Save(dialog.FileName, ImageFormat.Jpeg);
                 }
             }
         }
