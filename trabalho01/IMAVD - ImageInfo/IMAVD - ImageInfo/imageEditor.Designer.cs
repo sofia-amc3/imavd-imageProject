@@ -31,9 +31,9 @@ namespace IMAVD___ImageInfo
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(imageEditor));
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 0);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("", 1);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("", 2);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ldBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,6 +71,7 @@ namespace IMAVD___ImageInfo
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.detailsProperties = new System.Windows.Forms.TabPage();
             this.detailsDimension = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.detailsColorSearch = new System.Windows.Forms.TabPage();
             this.colorSelected = new System.Windows.Forms.Label();
@@ -91,7 +92,6 @@ namespace IMAVD___ImageInfo
             this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -318,7 +318,7 @@ namespace IMAVD___ImageInfo
             // 
             // zoomValue
             // 
-            this.zoomValue.Location = new System.Drawing.Point(36, 126);
+            this.zoomValue.Location = new System.Drawing.Point(689, 34);
             this.zoomValue.Maximum = new decimal(new int[] {
             500,
             0,
@@ -344,7 +344,7 @@ namespace IMAVD___ImageInfo
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(34, 96);
+            this.label3.Location = new System.Drawing.Point(746, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 16);
             this.label3.TabIndex = 8;
@@ -433,7 +433,10 @@ namespace IMAVD___ImageInfo
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Black;
+            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.zoomValue);
             this.tabPage2.Controls.Add(this.svImagebtn);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.listView1);
@@ -478,14 +481,14 @@ namespace IMAVD___ImageInfo
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4,
-            listViewItem5,
-            listViewItem6});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3});
             this.listView1.LargeImageList = this.imageList1;
             this.listView1.Location = new System.Drawing.Point(28, 24);
             this.listView1.Name = "listView1";
             this.listView1.Scrollable = false;
-            this.listView1.Size = new System.Drawing.Size(936, 34);
+            this.listView1.Size = new System.Drawing.Size(697, 34);
             this.listView1.SmallImageList = this.imageList1;
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -538,10 +541,7 @@ namespace IMAVD___ImageInfo
             // detailsDimension
             // 
             this.detailsDimension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.detailsDimension.Controls.Add(this.comboBox1);
             this.detailsDimension.Controls.Add(this.label16);
-            this.detailsDimension.Controls.Add(this.label3);
-            this.detailsDimension.Controls.Add(this.zoomValue);
             this.detailsDimension.ForeColor = System.Drawing.Color.Black;
             this.detailsDimension.Location = new System.Drawing.Point(4, 25);
             this.detailsDimension.Name = "detailsDimension";
@@ -549,6 +549,22 @@ namespace IMAVD___ImageInfo
             this.detailsDimension.Size = new System.Drawing.Size(296, 744);
             this.detailsDimension.TabIndex = 1;
             this.detailsDimension.Text = "tabPage4";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "50%",
+            "100% (Default)",
+            "200%",
+            "300%",
+            "400%",
+            "500%"});
+            this.comboBox1.Location = new System.Drawing.Point(799, 34);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(152, 24);
+            this.comboBox1.TabIndex = 10;
             // 
             // label16
             // 
@@ -558,7 +574,7 @@ namespace IMAVD___ImageInfo
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(236, 30);
             this.label16.TabIndex = 9;
-            this.label16.Text = "DIMENSION";
+            this.label16.Text = "CROP / RESIZE";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // detailsColorSearch
@@ -792,22 +808,6 @@ namespace IMAVD___ImageInfo
             this.label23.Size = new System.Drawing.Size(75, 75);
             this.label23.TabIndex = 20;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "50%",
-            "100% (Default)",
-            "200%",
-            "300%",
-            "400%",
-            "500%"});
-            this.comboBox1.Location = new System.Drawing.Point(36, 164);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(223, 24);
-            this.comboBox1.TabIndex = 10;
-            // 
             // imageEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -830,11 +830,11 @@ namespace IMAVD___ImageInfo
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabControl2.ResumeLayout(false);
             this.detailsProperties.ResumeLayout(false);
             this.detailsProperties.PerformLayout();
             this.detailsDimension.ResumeLayout(false);
-            this.detailsDimension.PerformLayout();
             this.detailsColorSearch.ResumeLayout(false);
             this.detailsColorSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blueValue)).EndInit();
