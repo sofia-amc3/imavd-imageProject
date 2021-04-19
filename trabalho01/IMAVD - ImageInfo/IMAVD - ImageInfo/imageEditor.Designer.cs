@@ -31,9 +31,9 @@ namespace IMAVD___ImageInfo
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(imageEditor));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 0);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("", 1);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("", 2);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ldBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -73,23 +73,25 @@ namespace IMAVD___ImageInfo
             this.detailsDimension = new System.Windows.Forms.TabPage();
             this.label16 = new System.Windows.Forms.Label();
             this.detailsColorSearch = new System.Windows.Forms.TabPage();
+            this.colorSelected = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.blueValue = new System.Windows.Forms.NumericUpDown();
+            this.label21 = new System.Windows.Forms.Label();
+            this.greenValue = new System.Windows.Forms.NumericUpDown();
+            this.label20 = new System.Windows.Forms.Label();
+            this.redValue = new System.Windows.Forms.NumericUpDown();
+            this.label19 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.redValue = new System.Windows.Forms.NumericUpDown();
-            this.label21 = new System.Windows.Forms.Label();
-            this.greenValue = new System.Windows.Forms.NumericUpDown();
-            this.label22 = new System.Windows.Forms.Label();
-            this.blueValue = new System.Windows.Forms.NumericUpDown();
-            this.colorSelected = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -101,12 +103,12 @@ namespace IMAVD___ImageInfo
             this.detailsProperties.SuspendLayout();
             this.detailsDimension.SuspendLayout();
             this.detailsColorSearch.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.redValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.greenValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blueValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.greenValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.redValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -273,13 +275,13 @@ namespace IMAVD___ImageInfo
             // 
             // chckClrBtn
             // 
-            this.chckClrBtn.BackColor = System.Drawing.Color.Transparent;
+            this.chckClrBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.chckClrBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chckClrBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.chckClrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chckClrBtn.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.chckClrBtn.ForeColor = System.Drawing.Color.White;
-            this.chckClrBtn.Location = new System.Drawing.Point(33, 332);
+            this.chckClrBtn.Location = new System.Drawing.Point(33, 319);
             this.chckClrBtn.Name = "chckClrBtn";
             this.chckClrBtn.Size = new System.Drawing.Size(222, 32);
             this.chckClrBtn.TabIndex = 1;
@@ -289,9 +291,11 @@ namespace IMAVD___ImageInfo
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(19, 26);
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 26);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(184, 187);
+            this.pictureBox2.Size = new System.Drawing.Size(222, 152);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
@@ -314,7 +318,7 @@ namespace IMAVD___ImageInfo
             // 
             // zoomValue
             // 
-            this.zoomValue.Location = new System.Drawing.Point(42, 122);
+            this.zoomValue.Location = new System.Drawing.Point(36, 126);
             this.zoomValue.Maximum = new decimal(new int[] {
             500,
             0,
@@ -340,7 +344,7 @@ namespace IMAVD___ImageInfo
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(42, 96);
+            this.label3.Location = new System.Drawing.Point(34, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 16);
             this.label3.TabIndex = 8;
@@ -474,9 +478,9 @@ namespace IMAVD___ImageInfo
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
+            listViewItem4,
+            listViewItem5,
+            listViewItem6});
             this.listView1.LargeImageList = this.imageList1;
             this.listView1.Location = new System.Drawing.Point(28, 24);
             this.listView1.Name = "listView1";
@@ -492,9 +496,9 @@ namespace IMAVD___ImageInfo
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.White;
-            this.imageList1.Images.SetKeyName(0, "info.jpg");
-            this.imageList1.Images.SetKeyName(1, "crop.jpg");
-            this.imageList1.Images.SetKeyName(2, "colorSearch.jpg");
+            this.imageList1.Images.SetKeyName(0, "info.png");
+            this.imageList1.Images.SetKeyName(1, "crop.png");
+            this.imageList1.Images.SetKeyName(2, "colorSearch.png");
             // 
             // tabControl2
             // 
@@ -534,6 +538,7 @@ namespace IMAVD___ImageInfo
             // detailsDimension
             // 
             this.detailsDimension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.detailsDimension.Controls.Add(this.comboBox1);
             this.detailsDimension.Controls.Add(this.label16);
             this.detailsDimension.Controls.Add(this.label3);
             this.detailsDimension.Controls.Add(this.zoomValue);
@@ -581,24 +586,169 @@ namespace IMAVD___ImageInfo
             this.detailsColorSearch.TabIndex = 2;
             this.detailsColorSearch.Text = "tabPage5";
             // 
+            // colorSelected
+            // 
+            this.colorSelected.BackColor = System.Drawing.Color.Black;
+            this.colorSelected.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colorSelected.ForeColor = System.Drawing.Color.Black;
+            this.colorSelected.Location = new System.Drawing.Point(176, 217);
+            this.colorSelected.Name = "colorSelected";
+            this.colorSelected.Size = new System.Drawing.Size(73, 73);
+            this.colorSelected.TabIndex = 19;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(31, 272);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(39, 16);
+            this.label22.TabIndex = 18;
+            this.label22.Text = "Blue:";
+            // 
+            // blueValue
+            // 
+            this.blueValue.Location = new System.Drawing.Point(83, 270);
+            this.blueValue.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.blueValue.Name = "blueValue";
+            this.blueValue.Size = new System.Drawing.Size(51, 22);
+            this.blueValue.TabIndex = 17;
+            this.blueValue.ValueChanged += new System.EventHandler(this.colorValue_ValueChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(31, 244);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(51, 16);
+            this.label21.TabIndex = 16;
+            this.label21.Text = "Green: ";
+            // 
+            // greenValue
+            // 
+            this.greenValue.Location = new System.Drawing.Point(83, 242);
+            this.greenValue.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.greenValue.Name = "greenValue";
+            this.greenValue.Size = new System.Drawing.Size(51, 22);
+            this.greenValue.TabIndex = 15;
+            this.greenValue.ValueChanged += new System.EventHandler(this.colorValue_ValueChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(31, 216);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(38, 16);
+            this.label20.TabIndex = 14;
+            this.label20.Text = "Red: ";
+            // 
+            // redValue
+            // 
+            this.redValue.Location = new System.Drawing.Point(83, 214);
+            this.redValue.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.redValue.Name = "redValue";
+            this.redValue.Size = new System.Drawing.Size(51, 22);
+            this.redValue.TabIndex = 13;
+            this.redValue.ValueChanged += new System.EventHandler(this.colorValue_ValueChanged);
+            // 
+            // label19
+            // 
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(79, 152);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(184, 40);
+            this.label19.TabIndex = 12;
+            this.label19.Text = "Choose a color on the dialogue.";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.White;
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox5.InitialImage = null;
+            this.pictureBox5.Location = new System.Drawing.Point(33, 152);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox5.TabIndex = 11;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            // 
+            // label18
+            // 
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(79, 96);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(184, 30);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Choose a color on the image.";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.White;
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Location = new System.Drawing.Point(33, 96);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox4.TabIndex = 9;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(33, 391);
+            this.panel1.Location = new System.Drawing.Point(33, 390);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(222, 280);
             this.panel1.TabIndex = 8;
+            this.panel1.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 248);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(222, 32);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "SAVE PREVIEW IMAGE";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label15
             // 
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(19, 227);
+            this.label15.Location = new System.Drawing.Point(0, 191);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(184, 50);
+            this.label15.Size = new System.Drawing.Size(222, 33);
             this.label15.TabIndex = 6;
-            this.label15.Text = "The pixels in the image represent the existing pixels on the selected color.";
+            this.label15.Text = "There are X pixels in YYYYYYYY color.";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label14
@@ -632,132 +782,31 @@ namespace IMAVD___ImageInfo
             this.label12.TabIndex = 5;
             this.label12.Text = "label12";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.White;
-            this.pictureBox4.Location = new System.Drawing.Point(33, 96);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox4.TabIndex = 9;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label18
-            // 
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(79, 96);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(184, 40);
-            this.label18.TabIndex = 10;
-            this.label18.Text = "Choose a color on the image.";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label19
-            // 
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(79, 152);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(184, 40);
-            this.label19.TabIndex = 12;
-            this.label19.Text = "Choose a color on the dialogue.";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.Location = new System.Drawing.Point(33, 152);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox5.TabIndex = 11;
-            this.pictureBox5.TabStop = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(33, 228);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(38, 16);
-            this.label20.TabIndex = 14;
-            this.label20.Text = "Red: ";
-            // 
-            // redValue
-            // 
-            this.redValue.Location = new System.Drawing.Point(85, 226);
-            this.redValue.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.redValue.Name = "redValue";
-            this.redValue.Size = new System.Drawing.Size(51, 22);
-            this.redValue.TabIndex = 13;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(33, 256);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(51, 16);
-            this.label21.TabIndex = 16;
-            this.label21.Text = "Green: ";
-            // 
-            // greenValue
-            // 
-            this.greenValue.Location = new System.Drawing.Point(85, 254);
-            this.greenValue.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.greenValue.Name = "greenValue";
-            this.greenValue.Size = new System.Drawing.Size(51, 22);
-            this.greenValue.TabIndex = 15;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(33, 284);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(39, 16);
-            this.label22.TabIndex = 18;
-            this.label22.Text = "Blue:";
-            // 
-            // blueValue
-            // 
-            this.blueValue.Location = new System.Drawing.Point(85, 282);
-            this.blueValue.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.blueValue.Name = "blueValue";
-            this.blueValue.Size = new System.Drawing.Size(51, 22);
-            this.blueValue.TabIndex = 17;
-            // 
-            // colorSelected
-            // 
-            this.colorSelected.BackColor = System.Drawing.Color.Lime;
-            this.colorSelected.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colorSelected.ForeColor = System.Drawing.Color.Black;
-            this.colorSelected.Location = new System.Drawing.Point(178, 229);
-            this.colorSelected.Name = "colorSelected";
-            this.colorSelected.Size = new System.Drawing.Size(73, 73);
-            this.colorSelected.TabIndex = 19;
-            // 
             // label23
             // 
             this.label23.BackColor = System.Drawing.Color.White;
             this.label23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(177, 228);
+            this.label23.Location = new System.Drawing.Point(175, 216);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(75, 75);
             this.label23.TabIndex = 20;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "50%",
+            "100% (Default)",
+            "200%",
+            "300%",
+            "400%",
+            "500%"});
+            this.comboBox1.Location = new System.Drawing.Point(36, 164);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(223, 24);
+            this.comboBox1.TabIndex = 10;
             // 
             // imageEditor
             // 
@@ -788,12 +837,12 @@ namespace IMAVD___ImageInfo
             this.detailsDimension.PerformLayout();
             this.detailsColorSearch.ResumeLayout(false);
             this.detailsColorSearch.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.redValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.greenValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blueValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.greenValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.redValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -857,6 +906,8 @@ namespace IMAVD___ImageInfo
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

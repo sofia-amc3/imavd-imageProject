@@ -26,6 +26,7 @@ namespace IMAVD___ImageInfo
         Bitmap OriginalImage;
         Bitmap CheckColorImage;
         bool IsColorFound;
+        bool canSelectColor = false;
         int countPixels;
 
 
@@ -56,8 +57,9 @@ namespace IMAVD___ImageInfo
         }
 
 
-        private void colorPicked(Color clr)
+        private void chckClrBtn_Click(object sender, EventArgs e)
         {
+            Color clr = colorSelected.BackColor;
             CheckColorImage = (Bitmap)OriginalImage.Clone();
 
             countPixels = 0;
@@ -66,52 +68,49 @@ namespace IMAVD___ImageInfo
             {
                 for (int j = 0; j < pictureBox1.Image.Width; j++)
                 {
-                    //Get the color at each pixel
+                    //Gets the color of each pixel
                     Color now_color = OriginalImage.GetPixel(j, i);
 
-                    //Compare Pixel's Color ARGB property with the picked color's ARGB property 
+                    //Compares Pixel's Color ARGB property with the picked color's ARGB property 
                     if (now_color.ToArgb() == clr.ToArgb())
                     {
-                        CheckColorImage.SetPixel(j, i, Color.FromArgb(255, 255, 0, 0));
                         countPixels++;
+                    } 
+                    else
+                    {
+                        CheckColorImage.SetPixel(j, i, Color.FromArgb(90, now_color.R, now_color.G, now_color.B)); // Sets other pixels (non selected) to transparent
                     }
                 }
             }
 
             pictureBox2.Image = CheckColorImage;
-            MessageBox.Show("There are " + countPixels + " " + clr.Name + " pixels.");
+            panel1.Visible = true;
+            label15.Text = "There are " + countPixels + " " + clr.Name + " pixels.";
         }
 
-        private void chckClrBtn_Click(object sender, EventArgs e)
-        {
-            ColorDialog colorDlg = new ColorDialog();
-            countPixels = 0;
-
-            if (colorDlg.ShowDialog() == DialogResult.OK)
-            {
-                colorPicked(colorDlg.Color);
-            }
-        }
 
         private void pictureBox1_Click(object sender, MouseEventArgs e)
         {
-            if (pictureBox1.Image != null)
+            if (pictureBox1.Image != null && canSelectColor)
             {
-                Color colorPicked_ = new Bitmap(pictureBox1.Image, pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height).GetPixel(e.X, e.Y);
+                Color colorPicked = new Bitmap(pictureBox1.Image, pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height).GetPixel(e.X, e.Y);
+
+                setColorValues(colorPicked);
+                canSelectColor = false;
 
                 //MessageBox.Show(e.X + "," + e.Y);
 
-                colorPicked(colorPicked_);
+                //colorPicked(colorPicked_);
 
-                CheckColorImage.SetPixel(e.X, e.Y, Color.FromArgb(255, 0, 0, 0));
+                /*CheckColorImage.SetPixel(e.X, e.Y, Color.FromArgb(255, 0, 0, 0));
                 CheckColorImage.SetPixel(e.X - 1, e.Y, Color.FromArgb(255, 0, 0, 0));
                 CheckColorImage.SetPixel(e.X, e.Y - 1, Color.FromArgb(255, 0, 0, 0));
                 CheckColorImage.SetPixel(e.X + 1, e.Y, Color.FromArgb(255, 0, 0, 0));
-                CheckColorImage.SetPixel(e.X, e.Y + 1, Color.FromArgb(255, 0, 0, 0));
+                CheckColorImage.SetPixel(e.X, e.Y + 1, Color.FromArgb(255, 0, 0, 0));*/
             }
         }
 
-        private void svImagebtn_Click(object sender, EventArgs e) // -------------------------------------------  MUDAR PARA PICTUREBOX2
+        private void svImagebtn_Click(object sender, EventArgs e) 
         {
             if (pictureBox1.Image != null)
             {
@@ -242,6 +241,52 @@ namespace IMAVD___ImageInfo
             e.Item.Selected = false;
         }
 
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDlg = new ColorDialog();
+            countPixels = 0;
+
+            if (colorDlg.ShowDialog() == DialogResult.OK)
+            {
+                setColorValues(colorDlg.Color);
+            }
+        }
+
+        private void setColorValues(Color color)
+        {
+            redValue.Value = color.R;
+            greenValue.Value = color.G;
+            blueValue.Value = color.B;
+
+            colorSelected.BackColor = color; // Sets label background color to RGB color
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            canSelectColor = true;
+        }
+
+        private void colorValue_ValueChanged(object sender, EventArgs e)
+        {
+            Color color = Color.FromArgb(255, (int) redValue.Value, (int) greenValue.Value, (int) blueValue.Value);
+            colorSelected.BackColor = color;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (pictureBox2.Image != null)
+            {
+                SaveFileDialog dialog = new SaveFileDialog
+                {
+                    Filter = "Images|*.png;*.bmp;*.jpg"
+                };
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox2.Image.Save(dialog.FileName, ImageFormat.Jpeg);
+                }
+            }
+        }
 
         /*private void zoomValue_Enter(object sender, EventArgs e)
         {
