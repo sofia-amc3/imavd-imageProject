@@ -59,11 +59,12 @@ namespace IMAVD___ImageInfo
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -71,9 +72,9 @@ namespace IMAVD___ImageInfo
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.detailsProperties = new System.Windows.Forms.TabPage();
             this.detailsDimension = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.detailsColorSearch = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
             this.colorSelected = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.blueValue = new System.Windows.Forms.NumericUpDown();
@@ -122,7 +123,7 @@ namespace IMAVD___ImageInfo
             this.ldBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.ldBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ldBtn.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ldBtn.Location = new System.Drawing.Point(570, 426);
+            this.ldBtn.Location = new System.Drawing.Point(650, 429);
             this.ldBtn.Name = "ldBtn";
             this.ldBtn.Size = new System.Drawing.Size(157, 51);
             this.ldBtn.TabIndex = 1;
@@ -281,9 +282,9 @@ namespace IMAVD___ImageInfo
             this.chckClrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chckClrBtn.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.chckClrBtn.ForeColor = System.Drawing.Color.White;
-            this.chckClrBtn.Location = new System.Drawing.Point(33, 319);
+            this.chckClrBtn.Location = new System.Drawing.Point(75, 318);
             this.chckClrBtn.Name = "chckClrBtn";
-            this.chckClrBtn.Size = new System.Drawing.Size(222, 32);
+            this.chckClrBtn.Size = new System.Drawing.Size(144, 32);
             this.chckClrBtn.TabIndex = 1;
             this.chckClrBtn.Text = "CHECK COLOR";
             this.chckClrBtn.UseVisualStyleBackColor = false;
@@ -375,11 +376,11 @@ namespace IMAVD___ImageInfo
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Black;
-            this.tabPage1.Controls.Add(this.pictureBox3);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.ldBtn);
+            this.tabPage1.Controls.Add(this.pictureBox3);
             this.tabPage1.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage1.ForeColor = System.Drawing.Color.White;
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -389,21 +390,12 @@ namespace IMAVD___ImageInfo
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.LightGray;
-            this.pictureBox3.Location = new System.Drawing.Point(172, 199);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(334, 278);
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Montserrat", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(559, 259);
+            this.label11.Location = new System.Drawing.Point(639, 262);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(392, 73);
             this.label11.TabIndex = 4;
@@ -413,7 +405,7 @@ namespace IMAVD___ImageInfo
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(570, 355);
+            this.label10.Location = new System.Drawing.Point(650, 358);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(383, 26);
             this.label10.TabIndex = 3;
@@ -424,11 +416,22 @@ namespace IMAVD___ImageInfo
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Montserrat", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(559, 182);
+            this.label9.Location = new System.Drawing.Point(639, 185);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(150, 73);
             this.label9.TabIndex = 2;
             this.label9.Text = "MTS";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(180, 117);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(478, 470);
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
             // 
             // tabPage2
             // 
@@ -448,6 +451,22 @@ namespace IMAVD___ImageInfo
             this.tabPage2.Size = new System.Drawing.Size(1274, 691);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "50%",
+            "100% (Default)",
+            "200%",
+            "300%",
+            "400%",
+            "500%"});
+            this.comboBox1.Location = new System.Drawing.Point(799, 34);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(152, 24);
+            this.comboBox1.TabIndex = 10;
             // 
             // button1
             // 
@@ -550,22 +569,6 @@ namespace IMAVD___ImageInfo
             this.detailsDimension.TabIndex = 1;
             this.detailsDimension.Text = "tabPage4";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "50%",
-            "100% (Default)",
-            "200%",
-            "300%",
-            "400%",
-            "500%"});
-            this.comboBox1.Location = new System.Drawing.Point(799, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 24);
-            this.comboBox1.TabIndex = 10;
-            // 
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Montserrat Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -580,6 +583,7 @@ namespace IMAVD___ImageInfo
             // detailsColorSearch
             // 
             this.detailsColorSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.detailsColorSearch.Controls.Add(this.label24);
             this.detailsColorSearch.Controls.Add(this.colorSelected);
             this.detailsColorSearch.Controls.Add(this.label22);
             this.detailsColorSearch.Controls.Add(this.blueValue);
@@ -601,6 +605,13 @@ namespace IMAVD___ImageInfo
             this.detailsColorSearch.Size = new System.Drawing.Size(296, 744);
             this.detailsColorSearch.TabIndex = 2;
             this.detailsColorSearch.Text = "tabPage5";
+            // 
+            // label24
+            // 
+            this.label24.Location = new System.Drawing.Point(24, 96);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(10, 30);
+            this.label24.TabIndex = 21;
             // 
             // colorSelected
             // 
@@ -749,11 +760,11 @@ namespace IMAVD___ImageInfo
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 248);
+            this.button2.Location = new System.Drawing.Point(42, 248);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(222, 32);
+            this.button2.Size = new System.Drawing.Size(144, 32);
             this.button2.TabIndex = 13;
-            this.button2.Text = "SAVE PREVIEW IMAGE";
+            this.button2.Text = "APPLY CHANGES";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -908,6 +919,7 @@ namespace IMAVD___ImageInfo
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label24;
     }
 }
 
