@@ -29,6 +29,10 @@ namespace IMAVD___ImageInfo
         bool canSelectColor = false;
         int countPixels;
 
+        float imgScale = 0,
+              imgVerticalMargin = 0,
+              imgHorizontalMargin = 0;
+
 
         private void ldBtn_Click(object sender, EventArgs e)
         {
@@ -54,6 +58,8 @@ namespace IMAVD___ImageInfo
             }
 
             chckClrBtn.Enabled = true;
+
+            this.imgResize();
         }
 
 
@@ -88,15 +94,65 @@ namespace IMAVD___ImageInfo
             label15.Text = "There are " + countPixels + " " + clr.Name + " pixels.";
         }
 
+        private void imgResize()
+        {
+            float imgWidth = pictureBox1.Image.Width,
+                  imgHeight = pictureBox1.Image.Height,
+                  pictureBoxWidth = pictureBox1.ClientSize.Width,
+                  pictureBoxHeight = pictureBox1.ClientSize.Height,
+                  imgAspect = imgWidth / imgHeight,
+                  pictureBoxAspect = pictureBoxWidth / pictureBoxHeight;
+
+            if (imgAspect < pictureBoxAspect) // imgWidth < pictureBox1.ClientSize.Width
+            {
+                this.imgScale = pictureBoxHeight / imgHeight;
+                float width = imgWidth * this.imgScale;
+                this.imgHorizontalMargin = (pictureBox1.ClientSize.Width - width) / 2;
+            }
+            else // imgHeight < pictureBox1.ClientSize.Height
+            {
+                this.imgScale = pictureBoxWidth / imgWidth;
+                float height = imgHeight * this.imgScale;
+                this.imgVerticalMargin = (pictureBox1.ClientSize.Height - height) / 2;
+            }
+        }
+
+        private bool mouseIsHoverImage(int mouseX, int mouseY)
+        {
+            bool mouseInsideX = mouseX >= this.imgHorizontalMargin && mouseX <= pictureBox1.ClientSize.Width - this.imgHorizontalMargin,
+                 mouseInsideY = mouseY >= this.imgVerticalMargin && mouseY <= pictureBox1.ClientSize.Height - this.imgVerticalMargin;
+
+            if (mouseInsideX && mouseInsideY)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
 
         private void pictureBox1_Click(object sender, MouseEventArgs e)
         {
             if (pictureBox1.Image != null && canSelectColor)
             {
-                Color colorPicked = new Bitmap(pictureBox1.Image, pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height).GetPixel(e.X, e.Y);
+                // Doesn't allow click if mouse is outside image
+                if (!this.mouseIsHoverImage(e.Location.X, e.Location.Y))
+                {
+                    return;
+                }
+
+                float imgWidth = pictureBox1.Image.Width * this.imgScale,
+                      imgHeight = pictureBox1.Image.Height * this.imgScale;
+
+                Bitmap bitmap = new Bitmap(pictureBox1.Image, (int)Math.Round(imgWidth), (int)Math.Round(imgHeight));
+                Color colorPicked = bitmap.GetPixel(e.Location.X - (int) this.imgHorizontalMargin, e.Location.Y - (int)this.imgVerticalMargin);
 
                 setColorValues(colorPicked);
                 canSelectColor = false;
+                Cursor = Cursors.Default;
+
+                //bitmap = new Bitmap(pictureBox1.Image, pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height);
+                //pictureBox1.Image = bitmap;
 
                 //MessageBox.Show(e.X + "," + e.Y);
 
@@ -109,6 +165,38 @@ namespace IMAVD___ImageInfo
                 CheckColorImage.SetPixel(e.X, e.Y + 1, Color.FromArgb(255, 0, 0, 0));*/
             }
         }
+
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e) // Changes cursor only when its position is above the image
+        {
+            if (canSelectColor) return;
+
+            if (this.mouseIsHoverImage(e.Location.X, e.Location.Y))
+            {
+                Cursor = Cursors.SizeAll;
+            } else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+
+        private void buttons_MouseEnter(object sender, EventArgs e) // Changes buttons' design when the cursor is positioned above the button
+        {
+            Button btn = (Button)sender;
+
+            btn.ForeColor = Color.Black;
+            btn.BackColor = Color.White;
+        }
+
+        private void buttons_MouseLeave(object sender, EventArgs e) // Changes buttons' design when the cursor is positioned above the button
+        {
+            Button btn = (Button)sender;
+
+            btn.ForeColor = Color.White;
+            btn.BackColor = Color.Transparent;
+        }
+
 
         private void svImagebtn_Click(object sender, EventArgs e) 
         {
@@ -123,7 +211,7 @@ namespace IMAVD___ImageInfo
                 {
                     //Bitmap bmp = new Bitmap(pictureBox2.Image, pictureBox2.ClientSize.Width, pictureBox2.ClientSize.Height);
                     //drawImage.DrawToBitmap(bmp, new Rectangle(0, 0, width, height);
-                    pictureBox1.Image.Save(dialog.FileName, ImageFormat.Jpeg);
+                    pictureBox1.Image.Save(dialog.FileName, ImageFormat.Png);
                 }
             }
         }
@@ -224,9 +312,9 @@ namespace IMAVD___ImageInfo
                                  new Rectangle(0, 0, OriginalImage.Width, OriginalImage.Height),
                                  GraphicsUnit.Pixel);
 
-            pictureBox2.BackColor = SystemColors.Control;
-            pictureBox2.Image = tempBitmap;
-            pictureBox2.Refresh();
+            pictureBox1.BackColor = SystemColors.Control;
+            pictureBox1.Image = tempBitmap;
+            pictureBox1.Refresh();
         }
 
         private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)  
@@ -264,6 +352,7 @@ namespace IMAVD___ImageInfo
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             canSelectColor = true;
+            Cursor = Cursors.Cross;
         }
 
         private void colorValue_ValueChanged(object sender, EventArgs e)
@@ -274,19 +363,10 @@ namespace IMAVD___ImageInfo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (pictureBox2.Image != null)
-            {
-                SaveFileDialog dialog = new SaveFileDialog
-                {
-                    Filter = "Images|*.png;*.bmp;*.jpg"
-                };
-
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    pictureBox2.Image.Save(dialog.FileName, ImageFormat.Jpeg);
-                }
-            }
+            pictureBox1.Image = pictureBox2.Image;
+            panel1.Visible = false;
         }
+
 
         /*private void zoomValue_Enter(object sender, EventArgs e)
         {

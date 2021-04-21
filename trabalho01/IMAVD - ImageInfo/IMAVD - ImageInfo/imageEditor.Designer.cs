@@ -34,6 +34,7 @@ namespace IMAVD___ImageInfo
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 3);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ldBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -93,6 +94,15 @@ namespace IMAVD___ImageInfo
             this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.detailsFilters = new System.Windows.Forms.TabPage();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,6 +120,9 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.detailsFilters.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -130,6 +143,8 @@ namespace IMAVD___ImageInfo
             this.ldBtn.Text = "LOAD IMAGE";
             this.ldBtn.UseVisualStyleBackColor = false;
             this.ldBtn.Click += new System.EventHandler(this.ldBtn_Click);
+            this.ldBtn.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
+            this.ldBtn.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
             // label1
             // 
@@ -289,6 +304,8 @@ namespace IMAVD___ImageInfo
             this.chckClrBtn.Text = "CHECK COLOR";
             this.chckClrBtn.UseVisualStyleBackColor = false;
             this.chckClrBtn.Click += new System.EventHandler(this.chckClrBtn_Click);
+            this.chckClrBtn.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
+            this.chckClrBtn.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
             // pictureBox2
             // 
@@ -316,10 +333,12 @@ namespace IMAVD___ImageInfo
             this.svImagebtn.Text = "SAVE IMAGE";
             this.svImagebtn.UseVisualStyleBackColor = false;
             this.svImagebtn.Click += new System.EventHandler(this.svImagebtn_Click);
+            this.svImagebtn.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
+            this.svImagebtn.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
             // zoomValue
             // 
-            this.zoomValue.Location = new System.Drawing.Point(689, 34);
+            this.zoomValue.Location = new System.Drawing.Point(746, 34);
             this.zoomValue.Maximum = new decimal(new int[] {
             500,
             0,
@@ -345,7 +364,7 @@ namespace IMAVD___ImageInfo
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(746, 37);
+            this.label3.Location = new System.Drawing.Point(813, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 16);
             this.label3.TabIndex = 8;
@@ -362,6 +381,7 @@ namespace IMAVD___ImageInfo
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 
             // tabControl1
             // 
@@ -436,6 +456,8 @@ namespace IMAVD___ImageInfo
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Black;
+            this.tabPage2.Controls.Add(this.pictureBox7);
+            this.tabPage2.Controls.Add(this.pictureBox6);
             this.tabPage2.Controls.Add(this.comboBox1);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.button1);
@@ -458,14 +480,15 @@ namespace IMAVD___ImageInfo
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "50%",
-            "100% (Default)",
+            "100%",
+            "150%",
             "200%",
             "300%",
             "400%",
             "500%"});
-            this.comboBox1.Location = new System.Drawing.Point(799, 34);
+            this.comboBox1.Location = new System.Drawing.Point(866, 34);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 24);
+            this.comboBox1.Size = new System.Drawing.Size(85, 24);
             this.comboBox1.TabIndex = 10;
             // 
             // button1
@@ -483,6 +506,8 @@ namespace IMAVD___ImageInfo
             this.button1.Text = "LOAD NEW IMAGE";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.ldBtn_Click);
+            this.button1.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
+            this.button1.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
             // label13
             // 
@@ -502,7 +527,8 @@ namespace IMAVD___ImageInfo
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
-            listViewItem3});
+            listViewItem3,
+            listViewItem4});
             this.listView1.LargeImageList = this.imageList1;
             this.listView1.Location = new System.Drawing.Point(28, 24);
             this.listView1.Name = "listView1";
@@ -521,12 +547,14 @@ namespace IMAVD___ImageInfo
             this.imageList1.Images.SetKeyName(0, "info.png");
             this.imageList1.Images.SetKeyName(1, "crop.png");
             this.imageList1.Images.SetKeyName(2, "colorSearch.png");
+            this.imageList1.Images.SetKeyName(3, "filters.png");
             // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.detailsProperties);
             this.tabControl2.Controls.Add(this.detailsDimension);
             this.tabControl2.Controls.Add(this.detailsColorSearch);
+            this.tabControl2.Controls.Add(this.detailsFilters);
             this.tabControl2.Location = new System.Drawing.Point(970, -39);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -767,6 +795,8 @@ namespace IMAVD___ImageInfo
             this.button2.Text = "APPLY CHANGES";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
             // label15
             // 
@@ -819,6 +849,111 @@ namespace IMAVD___ImageInfo
             this.label23.Size = new System.Drawing.Size(75, 75);
             this.label23.TabIndex = 20;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.White;
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox6.InitialImage = null;
+            this.pictureBox6.Location = new System.Drawing.Point(458, 624);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.TabIndex = 22;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.White;
+            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.InitialImage = null;
+            this.pictureBox7.Location = new System.Drawing.Point(504, 624);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox7.TabIndex = 23;
+            this.pictureBox7.TabStop = false;
+            // 
+            // detailsFilters
+            // 
+            this.detailsFilters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.detailsFilters.Controls.Add(this.label30);
+            this.detailsFilters.Controls.Add(this.label29);
+            this.detailsFilters.Controls.Add(this.label28);
+            this.detailsFilters.Controls.Add(this.label27);
+            this.detailsFilters.Controls.Add(this.label26);
+            this.detailsFilters.Controls.Add(this.label25);
+            this.detailsFilters.Location = new System.Drawing.Point(4, 25);
+            this.detailsFilters.Name = "detailsFilters";
+            this.detailsFilters.Size = new System.Drawing.Size(296, 744);
+            this.detailsFilters.TabIndex = 3;
+            this.detailsFilters.Text = "detailsFilters";
+            // 
+            // label25
+            // 
+            this.label25.Font = new System.Drawing.Font("Montserrat Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(33, 44);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(236, 30);
+            this.label25.TabIndex = 3;
+            this.label25.Text = "ADJUSTMENTS";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.Location = new System.Drawing.Point(33, 96);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(77, 16);
+            this.label26.TabIndex = 24;
+            this.label26.Text = "Brightness:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(33, 168);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(63, 16);
+            this.label27.TabIndex = 25;
+            this.label27.Text = "Contrast:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(33, 239);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(59, 16);
+            this.label28.TabIndex = 26;
+            this.label28.Text = "Gamma:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(33, 310);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(90, 16);
+            this.label29.TabIndex = 27;
+            this.label29.Text = "Invert Colors:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label30.ForeColor = System.Drawing.Color.White;
+            this.label30.Location = new System.Drawing.Point(33, 384);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(50, 16);
+            this.label30.TabIndex = 28;
+            this.label30.Text = "Filters:";
+            // 
             // imageEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -854,6 +989,10 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.detailsFilters.ResumeLayout(false);
+            this.detailsFilters.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -920,6 +1059,15 @@ namespace IMAVD___ImageInfo
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.TabPage detailsFilters;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
     }
 }
 
