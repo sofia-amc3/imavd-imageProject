@@ -131,3 +131,32 @@ D:\01. Work\01. University - ISEP (MEI)\01. Pré-Requisitos\09. Imagem, Áudio e
 D:\01. Work\01. University - ISEP (MEI)\01. Pré-Requisitos\09. Imagem, Áudio e Vídeo Digital\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.pdb
 D:\01. Work\01. University - ISEP (MEI)\01. Pré-Requisitos\09. Imagem, Áudio e Vídeo Digital\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.genruntimeconfig.cache
 D:\01. Work\01. University - ISEP (MEI)\01. Pré-Requisitos\09. Imagem, Áudio e Vídeo Digital\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD___ImageInfo.Properties.Resources.resources
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\IMAVD - ImageInfo.exe
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\IMAVD - ImageInfo.deps.json
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\IMAVD - ImageInfo.runtimeconfig.json
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\IMAVD - ImageInfo.runtimeconfig.dev.json
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\IMAVD - ImageInfo.dll
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\IMAVD - ImageInfo.pdb
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\Magick.NET-Q8-AnyCPU.dll
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\Magick.NET.Core.dll
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\Magick.Native-Q8-x64.dll.so
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\Notice.txt
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\Magick.Native-Q8-x64.dll.so
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\Notice.txt
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\Magick.Native-Q8-x64.dll.dylib
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\Notice.txt
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Magick.Native-Q8-x64.dll
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Notice.txt
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Magick.Native-Q8-x86.dll
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Notice.txt
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.csprojAssemblyReference.cache
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD___ImageInfo.imageEditor.resources
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD___ImageInfo.Properties.Resources.resources
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.csproj.GenerateResource.cache
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.AssemblyInfoInputs.cache
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.AssemblyInfo.cs
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.csproj.CoreCompileInputs.cache
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.csproj.CopyComplete
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.dll
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.pdb
+C:\Users\tomas\ISEP\IMAVD\imavd-trabalhoGrupo\trabalho01\IMAVD - ImageInfo\IMAVD - ImageInfo\obj\Debug\netcoreapp3.1\IMAVD - ImageInfo.genruntimeconfig.cache

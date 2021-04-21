@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "S7anzn0Q7cw+quYFw/RJTFM+9TJsX2BVjlzJj63cjB0zc3yvL/Q6GuddTVNDovaDSYK8YqLySNSAiwFZnLYjKw==",
+  "dgSpecHash": "9mHrt+Z+0TSIR4XipLI2p2UGIDGOhnRWZ5PTqL5lK/O2r92eG3+8Y6VEznr/GyIuOZacLnN+VlpmP5nmMyYxUQ==",
   "success": true,
-  "projectFilePath": "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj",
+  "projectFilePath": "C:\\Users\\tomas\\ISEP\\IMAVD\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\SAP-PSC6-G7\\.nuget\\packages\\magick.net-q8-anycpu\\7.23.3\\magick.net-q8-anycpu.7.23.3.nupkg.sha512",
-    "C:\\Users\\SAP-PSC6-G7\\.nuget\\packages\\magick.net.core\\6.1.3\\magick.net.core.6.1.3.nupkg.sha512"
+    "C:\\Users\\tomas\\.nuget\\packages\\magick.net-q8-anycpu\\7.23.3\\magick.net-q8-anycpu.7.23.3.nupkg.sha512",
+    "C:\\Users\\tomas\\.nuget\\packages\\magick.net.core\\6.1.3\\magick.net.core.6.1.3.nupkg.sha512"
   ],
   "logs": []
 }

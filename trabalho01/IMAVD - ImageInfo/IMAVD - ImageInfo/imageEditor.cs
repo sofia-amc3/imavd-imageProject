@@ -355,6 +355,21 @@ namespace IMAVD___ImageInfo
             Cursor = Cursors.Cross;
         }
 
+        private void invertClrBtn_Click(object sender, EventArgs e)
+        {
+            Bitmap pic = new Bitmap(pictureBox1.Image);
+            for (int y = 0; (y <= (pic.Height - 1)); y++)
+            {
+                for (int x = 0; (x <= (pic.Width - 1)); x++)
+                {
+                    Color inv = pic.GetPixel(x, y);
+                    inv = Color.FromArgb(255, (255 - inv.R), (255 - inv.G), (255 - inv.B));
+                    pic.SetPixel(x, y, inv);
+                }
+            }
+            pictureBox1.Image = pic;
+        }
+
         private void colorValue_ValueChanged(object sender, EventArgs e)
         {
             Color color = Color.FromArgb(255, (int) redValue.Value, (int) greenValue.Value, (int) blueValue.Value);

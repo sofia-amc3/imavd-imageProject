@@ -65,6 +65,8 @@ namespace IMAVD___ImageInfo
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -94,15 +96,20 @@ namespace IMAVD___ImageInfo
             this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.detailsFilters = new System.Windows.Forms.TabPage();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
+            this.filterBtn_blue = new System.Windows.Forms.Button();
+            this.filterBtn_green = new System.Windows.Forms.Button();
+            this.filterBtn_red = new System.Windows.Forms.Button();
+            this.invertClrBtn = new System.Windows.Forms.Button();
+            this.gammaSlider = new System.Windows.Forms.TrackBar();
+            this.contrastSlider = new System.Windows.Forms.TrackBar();
+            this.brightnessSlider = new System.Windows.Forms.TrackBar();
             this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,6 +117,8 @@ namespace IMAVD___ImageInfo
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.detailsProperties.SuspendLayout();
             this.detailsDimension.SuspendLayout();
@@ -120,9 +129,10 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.detailsFilters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gammaSlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contrastSlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -135,7 +145,7 @@ namespace IMAVD___ImageInfo
             this.ldBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ldBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.ldBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ldBtn.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ldBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ldBtn.Location = new System.Drawing.Point(650, 429);
             this.ldBtn.Name = "ldBtn";
             this.ldBtn.Size = new System.Drawing.Size(157, 51);
@@ -148,7 +158,7 @@ namespace IMAVD___ImageInfo
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Montserrat Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(25, 42);
             this.label1.Name = "label1";
@@ -160,11 +170,11 @@ namespace IMAVD___ImageInfo
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(25, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 16);
+            this.label2.Size = new System.Drawing.Size(49, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Name:";
             // 
@@ -175,62 +185,62 @@ namespace IMAVD___ImageInfo
             this.imgCrtOn.Location = new System.Drawing.Point(28, 526);
             this.imgCrtOn.MaximumSize = new System.Drawing.Size(235, 0);
             this.imgCrtOn.Name = "imgCrtOn";
-            this.imgCrtOn.Size = new System.Drawing.Size(160, 16);
+            this.imgCrtOn.Size = new System.Drawing.Size(148, 15);
             this.imgCrtOn.TabIndex = 3;
             this.imgCrtOn.Text = "i.e.: December 20th, 2020";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(26, 168);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 16);
+            this.label4.Size = new System.Drawing.Size(74, 15);
             this.label4.TabIndex = 3;
             this.label4.Text = "Extension:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(28, 236);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 16);
+            this.label5.Size = new System.Drawing.Size(66, 15);
             this.label5.TabIndex = 3;
             this.label5.Text = "Location:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(27, 363);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 16);
+            this.label6.Size = new System.Drawing.Size(80, 15);
             this.label6.TabIndex = 3;
             this.label6.Text = "Dimension:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(28, 430);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 16);
+            this.label7.Size = new System.Drawing.Size(39, 15);
             this.label7.TabIndex = 3;
             this.label7.Text = "Size:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(27, 496);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 16);
+            this.label8.Size = new System.Drawing.Size(95, 15);
             this.label8.TabIndex = 3;
             this.label8.Text = "Date Created:";
             // 
@@ -241,7 +251,7 @@ namespace IMAVD___ImageInfo
             this.imgSize.Location = new System.Drawing.Point(28, 457);
             this.imgSize.MaximumSize = new System.Drawing.Size(235, 0);
             this.imgSize.Name = "imgSize";
-            this.imgSize.Size = new System.Drawing.Size(68, 16);
+            this.imgSize.Size = new System.Drawing.Size(66, 15);
             this.imgSize.TabIndex = 3;
             this.imgSize.Text = "i.e: 250MB";
             // 
@@ -252,7 +262,7 @@ namespace IMAVD___ImageInfo
             this.imgDim.Location = new System.Drawing.Point(28, 391);
             this.imgDim.MaximumSize = new System.Drawing.Size(235, 0);
             this.imgDim.Name = "imgDim";
-            this.imgDim.Size = new System.Drawing.Size(114, 16);
+            this.imgDim.Size = new System.Drawing.Size(107, 15);
             this.imgDim.TabIndex = 3;
             this.imgDim.Text = "i.e: 2000 x 2000px";
             // 
@@ -263,7 +273,7 @@ namespace IMAVD___ImageInfo
             this.imgLoc.Location = new System.Drawing.Point(28, 264);
             this.imgLoc.MaximumSize = new System.Drawing.Size(235, 0);
             this.imgLoc.Name = "imgLoc";
-            this.imgLoc.Size = new System.Drawing.Size(233, 48);
+            this.imgLoc.Size = new System.Drawing.Size(223, 30);
             this.imgLoc.TabIndex = 3;
             this.imgLoc.Text = "i.e: C:\\Documents\\ISEP\\IMAVD\\imagem.jpg\r\n";
             // 
@@ -274,7 +284,7 @@ namespace IMAVD___ImageInfo
             this.imgExt.Location = new System.Drawing.Point(28, 196);
             this.imgExt.MaximumSize = new System.Drawing.Size(235, 0);
             this.imgExt.Name = "imgExt";
-            this.imgExt.Size = new System.Drawing.Size(50, 16);
+            this.imgExt.Size = new System.Drawing.Size(49, 15);
             this.imgExt.TabIndex = 3;
             this.imgExt.Text = "i.e: JPG";
             // 
@@ -285,7 +295,7 @@ namespace IMAVD___ImageInfo
             this.imgName.Location = new System.Drawing.Point(28, 124);
             this.imgName.MaximumSize = new System.Drawing.Size(235, 0);
             this.imgName.Name = "imgName";
-            this.imgName.Size = new System.Drawing.Size(86, 16);
+            this.imgName.Size = new System.Drawing.Size(81, 15);
             this.imgName.TabIndex = 3;
             this.imgName.Text = "i.e: image.jpg";
             // 
@@ -295,7 +305,7 @@ namespace IMAVD___ImageInfo
             this.chckClrBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chckClrBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.chckClrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chckClrBtn.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.chckClrBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.chckClrBtn.ForeColor = System.Drawing.Color.White;
             this.chckClrBtn.Location = new System.Drawing.Point(75, 318);
             this.chckClrBtn.Name = "chckClrBtn";
@@ -324,7 +334,7 @@ namespace IMAVD___ImageInfo
             this.svImagebtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.svImagebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.svImagebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.svImagebtn.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.svImagebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.svImagebtn.ForeColor = System.Drawing.Color.White;
             this.svImagebtn.Location = new System.Drawing.Point(832, 625);
             this.svImagebtn.Name = "svImagebtn";
@@ -350,7 +360,7 @@ namespace IMAVD___ImageInfo
             0,
             0});
             this.zoomValue.Name = "zoomValue";
-            this.zoomValue.Size = new System.Drawing.Size(51, 22);
+            this.zoomValue.Size = new System.Drawing.Size(51, 21);
             this.zoomValue.TabIndex = 7;
             this.zoomValue.Value = new decimal(new int[] {
             100,
@@ -362,11 +372,11 @@ namespace IMAVD___ImageInfo
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(813, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
+            this.label3.Size = new System.Drawing.Size(47, 15);
             this.label3.TabIndex = 8;
             this.label3.Text = "Zoom:";
             // 
@@ -401,44 +411,44 @@ namespace IMAVD___ImageInfo
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.ldBtn);
             this.tabPage1.Controls.Add(this.pictureBox3);
-            this.tabPage1.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage1.ForeColor = System.Drawing.Color.White;
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1274, 691);
+            this.tabPage1.Size = new System.Drawing.Size(1274, 692);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Montserrat", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(639, 262);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(392, 73);
+            this.label11.Size = new System.Drawing.Size(336, 61);
             this.label11.TabIndex = 4;
             this.label11.Text = "Image Editor";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.Location = new System.Drawing.Point(650, 358);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(383, 26);
+            this.label10.Size = new System.Drawing.Size(331, 24);
             this.label10.TabIndex = 3;
             this.label10.Text = "Please load your image to start editing.";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Montserrat", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(639, 185);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(150, 73);
+            this.label9.Size = new System.Drawing.Size(141, 61);
             this.label9.TabIndex = 2;
             this.label9.Text = "MTS";
             // 
@@ -467,12 +477,36 @@ namespace IMAVD___ImageInfo
             this.tabPage2.Controls.Add(this.listView1);
             this.tabPage2.Controls.Add(this.tabControl2);
             this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1274, 691);
+            this.tabPage2.Size = new System.Drawing.Size(1274, 692);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.White;
+            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.InitialImage = null;
+            this.pictureBox7.Location = new System.Drawing.Point(504, 624);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox7.TabIndex = 23;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.White;
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox6.InitialImage = null;
+            this.pictureBox6.Location = new System.Drawing.Point(458, 624);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.TabIndex = 22;
+            this.pictureBox6.TabStop = false;
             // 
             // comboBox1
             // 
@@ -488,7 +522,7 @@ namespace IMAVD___ImageInfo
             "500%"});
             this.comboBox1.Location = new System.Drawing.Point(866, 34);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(85, 24);
+            this.comboBox1.Size = new System.Drawing.Size(85, 23);
             this.comboBox1.TabIndex = 10;
             // 
             // button1
@@ -497,7 +531,7 @@ namespace IMAVD___ImageInfo
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(28, 625);
             this.button1.Name = "button1";
@@ -578,10 +612,10 @@ namespace IMAVD___ImageInfo
             this.detailsProperties.Controls.Add(this.imgLoc);
             this.detailsProperties.Controls.Add(this.label5);
             this.detailsProperties.Controls.Add(this.label4);
-            this.detailsProperties.Location = new System.Drawing.Point(4, 25);
+            this.detailsProperties.Location = new System.Drawing.Point(4, 24);
             this.detailsProperties.Name = "detailsProperties";
             this.detailsProperties.Padding = new System.Windows.Forms.Padding(3);
-            this.detailsProperties.Size = new System.Drawing.Size(296, 744);
+            this.detailsProperties.Size = new System.Drawing.Size(296, 745);
             this.detailsProperties.TabIndex = 0;
             this.detailsProperties.Text = "tabPage3";
             // 
@@ -590,16 +624,16 @@ namespace IMAVD___ImageInfo
             this.detailsDimension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.detailsDimension.Controls.Add(this.label16);
             this.detailsDimension.ForeColor = System.Drawing.Color.Black;
-            this.detailsDimension.Location = new System.Drawing.Point(4, 25);
+            this.detailsDimension.Location = new System.Drawing.Point(4, 24);
             this.detailsDimension.Name = "detailsDimension";
             this.detailsDimension.Padding = new System.Windows.Forms.Padding(3);
-            this.detailsDimension.Size = new System.Drawing.Size(296, 744);
+            this.detailsDimension.Size = new System.Drawing.Size(296, 745);
             this.detailsDimension.TabIndex = 1;
             this.detailsDimension.Text = "tabPage4";
             // 
             // label16
             // 
-            this.label16.Font = new System.Drawing.Font("Montserrat Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(32, 42);
             this.label16.Name = "label16";
@@ -628,9 +662,9 @@ namespace IMAVD___ImageInfo
             this.detailsColorSearch.Controls.Add(this.label12);
             this.detailsColorSearch.Controls.Add(this.chckClrBtn);
             this.detailsColorSearch.Controls.Add(this.label23);
-            this.detailsColorSearch.Location = new System.Drawing.Point(4, 25);
+            this.detailsColorSearch.Location = new System.Drawing.Point(4, 24);
             this.detailsColorSearch.Name = "detailsColorSearch";
-            this.detailsColorSearch.Size = new System.Drawing.Size(296, 744);
+            this.detailsColorSearch.Size = new System.Drawing.Size(296, 745);
             this.detailsColorSearch.TabIndex = 2;
             this.detailsColorSearch.Text = "tabPage5";
             // 
@@ -654,11 +688,11 @@ namespace IMAVD___ImageInfo
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label22.ForeColor = System.Drawing.Color.White;
             this.label22.Location = new System.Drawing.Point(31, 272);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(39, 16);
+            this.label22.Size = new System.Drawing.Size(40, 15);
             this.label22.TabIndex = 18;
             this.label22.Text = "Blue:";
             // 
@@ -671,18 +705,18 @@ namespace IMAVD___ImageInfo
             0,
             0});
             this.blueValue.Name = "blueValue";
-            this.blueValue.Size = new System.Drawing.Size(51, 22);
+            this.blueValue.Size = new System.Drawing.Size(51, 21);
             this.blueValue.TabIndex = 17;
             this.blueValue.ValueChanged += new System.EventHandler(this.colorValue_ValueChanged);
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label21.ForeColor = System.Drawing.Color.White;
             this.label21.Location = new System.Drawing.Point(31, 244);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(51, 16);
+            this.label21.Size = new System.Drawing.Size(54, 15);
             this.label21.TabIndex = 16;
             this.label21.Text = "Green: ";
             // 
@@ -695,18 +729,18 @@ namespace IMAVD___ImageInfo
             0,
             0});
             this.greenValue.Name = "greenValue";
-            this.greenValue.Size = new System.Drawing.Size(51, 22);
+            this.greenValue.Size = new System.Drawing.Size(51, 21);
             this.greenValue.TabIndex = 15;
             this.greenValue.ValueChanged += new System.EventHandler(this.colorValue_ValueChanged);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(31, 216);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(38, 16);
+            this.label20.Size = new System.Drawing.Size(41, 15);
             this.label20.TabIndex = 14;
             this.label20.Text = "Red: ";
             // 
@@ -719,7 +753,7 @@ namespace IMAVD___ImageInfo
             0,
             0});
             this.redValue.Name = "redValue";
-            this.redValue.Size = new System.Drawing.Size(51, 22);
+            this.redValue.Size = new System.Drawing.Size(51, 21);
             this.redValue.TabIndex = 13;
             this.redValue.ValueChanged += new System.EventHandler(this.colorValue_ValueChanged);
             // 
@@ -786,7 +820,7 @@ namespace IMAVD___ImageInfo
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(42, 248);
             this.button2.Name = "button2";
@@ -810,7 +844,7 @@ namespace IMAVD___ImageInfo
             // 
             // label14
             // 
-            this.label14.Font = new System.Drawing.Font("Montserrat ExtraBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(19, 2);
             this.label14.Name = "label14";
@@ -821,7 +855,7 @@ namespace IMAVD___ImageInfo
             // 
             // label17
             // 
-            this.label17.Font = new System.Drawing.Font("Montserrat Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(33, 39);
             this.label17.Name = "label17";
@@ -849,48 +883,162 @@ namespace IMAVD___ImageInfo
             this.label23.Size = new System.Drawing.Size(75, 75);
             this.label23.TabIndex = 20;
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.White;
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox6.InitialImage = null;
-            this.pictureBox6.Location = new System.Drawing.Point(458, 624);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox6.TabIndex = 22;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.White;
-            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.InitialImage = null;
-            this.pictureBox7.Location = new System.Drawing.Point(504, 624);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox7.TabIndex = 23;
-            this.pictureBox7.TabStop = false;
-            // 
             // detailsFilters
             // 
             this.detailsFilters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.detailsFilters.Controls.Add(this.filterBtn_blue);
+            this.detailsFilters.Controls.Add(this.filterBtn_green);
+            this.detailsFilters.Controls.Add(this.filterBtn_red);
+            this.detailsFilters.Controls.Add(this.invertClrBtn);
+            this.detailsFilters.Controls.Add(this.gammaSlider);
+            this.detailsFilters.Controls.Add(this.contrastSlider);
+            this.detailsFilters.Controls.Add(this.brightnessSlider);
             this.detailsFilters.Controls.Add(this.label30);
             this.detailsFilters.Controls.Add(this.label29);
             this.detailsFilters.Controls.Add(this.label28);
             this.detailsFilters.Controls.Add(this.label27);
             this.detailsFilters.Controls.Add(this.label26);
             this.detailsFilters.Controls.Add(this.label25);
-            this.detailsFilters.Location = new System.Drawing.Point(4, 25);
+            this.detailsFilters.Location = new System.Drawing.Point(4, 24);
             this.detailsFilters.Name = "detailsFilters";
-            this.detailsFilters.Size = new System.Drawing.Size(296, 744);
+            this.detailsFilters.Size = new System.Drawing.Size(296, 745);
             this.detailsFilters.TabIndex = 3;
             this.detailsFilters.Text = "detailsFilters";
             // 
+            // filterBtn_blue
+            // 
+            this.filterBtn_blue.BackColor = System.Drawing.Color.Blue;
+            this.filterBtn_blue.Location = new System.Drawing.Point(204, 413);
+            this.filterBtn_blue.Name = "filterBtn_blue";
+            this.filterBtn_blue.Size = new System.Drawing.Size(50, 50);
+            this.filterBtn_blue.TabIndex = 35;
+            this.filterBtn_blue.Tag = "blue";
+            this.filterBtn_blue.Text = " ";
+            this.filterBtn_blue.UseVisualStyleBackColor = false;
+            // 
+            // filterBtn_green
+            // 
+            this.filterBtn_green.BackColor = System.Drawing.Color.Lime;
+            this.filterBtn_green.Location = new System.Drawing.Point(126, 413);
+            this.filterBtn_green.Name = "filterBtn_green";
+            this.filterBtn_green.Size = new System.Drawing.Size(50, 50);
+            this.filterBtn_green.TabIndex = 34;
+            this.filterBtn_green.Tag = "green";
+            this.filterBtn_green.Text = " ";
+            this.filterBtn_green.UseVisualStyleBackColor = false;
+            // 
+            // filterBtn_red
+            // 
+            this.filterBtn_red.BackColor = System.Drawing.Color.Red;
+            this.filterBtn_red.Location = new System.Drawing.Point(49, 413);
+            this.filterBtn_red.Name = "filterBtn_red";
+            this.filterBtn_red.Size = new System.Drawing.Size(50, 50);
+            this.filterBtn_red.TabIndex = 33;
+            this.filterBtn_red.Tag = "red";
+            this.filterBtn_red.Text = " ";
+            this.filterBtn_red.UseVisualStyleBackColor = false;
+            // 
+            // invertClrBtn
+            // 
+            this.invertClrBtn.Location = new System.Drawing.Point(49, 343);
+            this.invertClrBtn.Name = "invertClrBtn";
+            this.invertClrBtn.Size = new System.Drawing.Size(96, 23);
+            this.invertClrBtn.TabIndex = 32;
+            this.invertClrBtn.Text = "Invert Color";
+            this.invertClrBtn.UseVisualStyleBackColor = true;
+            this.invertClrBtn.Click += new System.EventHandler(this.invertClrBtn_Click);
+            // 
+            // gammaSlider
+            // 
+            this.gammaSlider.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.gammaSlider.LargeChange = 1;
+            this.gammaSlider.Location = new System.Drawing.Point(33, 262);
+            this.gammaSlider.Maximum = 255;
+            this.gammaSlider.Minimum = -255;
+            this.gammaSlider.Name = "gammaSlider";
+            this.gammaSlider.Size = new System.Drawing.Size(238, 45);
+            this.gammaSlider.TabIndex = 31;
+            // 
+            // contrastSlider
+            // 
+            this.contrastSlider.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.contrastSlider.LargeChange = 1;
+            this.contrastSlider.Location = new System.Drawing.Point(33, 191);
+            this.contrastSlider.Maximum = 255;
+            this.contrastSlider.Minimum = -255;
+            this.contrastSlider.Name = "contrastSlider";
+            this.contrastSlider.Size = new System.Drawing.Size(238, 45);
+            this.contrastSlider.TabIndex = 30;
+            // 
+            // brightnessSlider
+            // 
+            this.brightnessSlider.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.brightnessSlider.LargeChange = 1;
+            this.brightnessSlider.Location = new System.Drawing.Point(33, 120);
+            this.brightnessSlider.Maximum = 255;
+            this.brightnessSlider.Minimum = -255;
+            this.brightnessSlider.Name = "brightnessSlider";
+            this.brightnessSlider.Size = new System.Drawing.Size(238, 45);
+            this.brightnessSlider.TabIndex = 29;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label30.ForeColor = System.Drawing.Color.White;
+            this.label30.Location = new System.Drawing.Point(33, 384);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(51, 15);
+            this.label30.TabIndex = 28;
+            this.label30.Text = "Filters:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(33, 310);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(91, 15);
+            this.label29.TabIndex = 27;
+            this.label29.Text = "Invert Colors:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(33, 239);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(61, 15);
+            this.label28.TabIndex = 26;
+            this.label28.Text = "Gamma:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(33, 168);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(64, 15);
+            this.label27.TabIndex = 25;
+            this.label27.Text = "Contrast:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.Location = new System.Drawing.Point(33, 96);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(79, 15);
+            this.label26.TabIndex = 24;
+            this.label26.Text = "Brightness:";
+            // 
             // label25
             // 
-            this.label25.Font = new System.Drawing.Font("Montserrat Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label25.ForeColor = System.Drawing.Color.White;
             this.label25.Location = new System.Drawing.Point(33, 44);
             this.label25.Name = "label25";
@@ -899,69 +1047,14 @@ namespace IMAVD___ImageInfo
             this.label25.Text = "ADJUSTMENTS";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(33, 96);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(77, 16);
-            this.label26.TabIndex = 24;
-            this.label26.Text = "Brightness:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(33, 168);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(63, 16);
-            this.label27.TabIndex = 25;
-            this.label27.Text = "Contrast:";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(33, 239);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(59, 16);
-            this.label28.TabIndex = 26;
-            this.label28.Text = "Gamma:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(33, 310);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(90, 16);
-            this.label29.TabIndex = 27;
-            this.label29.Text = "Invert Colors:";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(33, 384);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(50, 16);
-            this.label30.TabIndex = 28;
-            this.label30.Text = "Filters:";
-            // 
             // imageEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.tabControl1);
-            this.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1280, 720);
@@ -977,6 +1070,8 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.detailsProperties.ResumeLayout(false);
             this.detailsProperties.PerformLayout();
@@ -989,10 +1084,11 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.detailsFilters.ResumeLayout(false);
             this.detailsFilters.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gammaSlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contrastSlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessSlider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1068,6 +1164,13 @@ namespace IMAVD___ImageInfo
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TrackBar brightnessSlider;
+        private System.Windows.Forms.Button filterBtn_blue;
+        private System.Windows.Forms.Button filterBtn_green;
+        private System.Windows.Forms.Button filterBtn_red;
+        private System.Windows.Forms.Button invertClrBtn;
+        private System.Windows.Forms.TrackBar gammaSlider;
+        private System.Windows.Forms.TrackBar contrastSlider;
     }
 }
 
