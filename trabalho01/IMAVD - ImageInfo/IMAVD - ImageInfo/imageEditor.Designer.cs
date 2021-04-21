@@ -110,6 +110,7 @@ namespace IMAVD___ImageInfo
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.brightLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -886,6 +887,7 @@ namespace IMAVD___ImageInfo
             // detailsFilters
             // 
             this.detailsFilters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.detailsFilters.Controls.Add(this.brightLbl);
             this.detailsFilters.Controls.Add(this.filterBtn_blue);
             this.detailsFilters.Controls.Add(this.filterBtn_green);
             this.detailsFilters.Controls.Add(this.filterBtn_red);
@@ -915,6 +917,7 @@ namespace IMAVD___ImageInfo
             this.filterBtn_blue.Tag = "blue";
             this.filterBtn_blue.Text = " ";
             this.filterBtn_blue.UseVisualStyleBackColor = false;
+            this.filterBtn_blue.Click += new System.EventHandler(this.filterBtn_Click);
             // 
             // filterBtn_green
             // 
@@ -926,6 +929,7 @@ namespace IMAVD___ImageInfo
             this.filterBtn_green.Tag = "green";
             this.filterBtn_green.Text = " ";
             this.filterBtn_green.UseVisualStyleBackColor = false;
+            this.filterBtn_green.Click += new System.EventHandler(this.filterBtn_Click);
             // 
             // filterBtn_red
             // 
@@ -937,6 +941,7 @@ namespace IMAVD___ImageInfo
             this.filterBtn_red.Tag = "red";
             this.filterBtn_red.Text = " ";
             this.filterBtn_red.UseVisualStyleBackColor = false;
+            this.filterBtn_red.Click += new System.EventHandler(this.filterBtn_Click);
             // 
             // invertClrBtn
             // 
@@ -980,6 +985,7 @@ namespace IMAVD___ImageInfo
             this.brightnessSlider.Name = "brightnessSlider";
             this.brightnessSlider.Size = new System.Drawing.Size(238, 45);
             this.brightnessSlider.TabIndex = 29;
+            this.brightnessSlider.Scroll += new System.EventHandler(this.brightnessSlider_Scroll);
             // 
             // label30
             // 
@@ -1046,6 +1052,16 @@ namespace IMAVD___ImageInfo
             this.label25.TabIndex = 3;
             this.label25.Text = "ADJUSTMENTS";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // brightLbl
+            // 
+            this.brightLbl.AutoSize = true;
+            this.brightLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.brightLbl.Location = new System.Drawing.Point(118, 97);
+            this.brightLbl.Name = "brightLbl";
+            this.brightLbl.Size = new System.Drawing.Size(14, 15);
+            this.brightLbl.TabIndex = 36;
+            this.brightLbl.Text = "0";
             // 
             // imageEditor
             // 
@@ -1171,6 +1187,7 @@ namespace IMAVD___ImageInfo
         private System.Windows.Forms.Button invertClrBtn;
         private System.Windows.Forms.TrackBar gammaSlider;
         private System.Windows.Forms.TrackBar contrastSlider;
+        private System.Windows.Forms.Label brightLbl;
     }
 }
 

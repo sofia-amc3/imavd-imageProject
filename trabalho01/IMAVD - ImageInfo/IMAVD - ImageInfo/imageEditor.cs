@@ -370,6 +370,59 @@ namespace IMAVD___ImageInfo
             pictureBox1.Image = pic;
         }
 
+        private void filterBtn_Click(object sender, EventArgs e)
+        {
+            switch (((Control)sender).Tag.ToString())
+            {
+                case "red":
+                    break;
+                case "green":
+                    break;
+                case "blue":
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+        private void brightnessSlider_Scroll(object sender, EventArgs e)
+        {
+            // Make the ColorMatrix.
+            float b = (float)(brightnessSlider.Value+255)/255;
+            ColorMatrix cm = new ColorMatrix(new float[][]
+                {
+            new float[] {b, 0, 0, 0, 0},
+            new float[] {0, b, 0, 0, 0},
+            new float[] {0, 0, b, 0, 0},
+            new float[] {0, 0, 0, 1, 0},
+            new float[] {0, 0, 0, 0, 1},
+                });
+            ImageAttributes attributes = new ImageAttributes();
+            attributes.SetColorMatrix(cm);
+
+            // Draw the image onto the new bitmap while applying
+            // the new ColorMatrix.
+            Point[] points =
+            {
+        new Point(0, 0),
+        new Point(OriginalImage.Width, 0),
+        new Point(0, OriginalImage.Height),
+    };
+            Rectangle rect = new Rectangle(0, 0, OriginalImage.Width, OriginalImage.Height);
+
+            // Make the result bitmap.
+            Bitmap bm = new Bitmap(OriginalImage.Width, OriginalImage.Height);
+            using (Graphics gr = Graphics.FromImage(bm))
+            {
+                gr.DrawImage(OriginalImage, points, rect,
+                    GraphicsUnit.Pixel, attributes);
+            }
+
+            brightLbl.Text = brightnessSlider.Value.ToString();
+            // Return the result.
+            pictureBox1.Image = bm;
+        }
+        
         private void colorValue_ValueChanged(object sender, EventArgs e)
         {
             Color color = Color.FromArgb(255, (int) redValue.Value, (int) greenValue.Value, (int) blueValue.Value);
