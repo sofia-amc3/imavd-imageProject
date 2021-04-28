@@ -94,10 +94,11 @@ namespace IMAVD___ImageInfo
                 if (label.GetType() == typeof(Label))
                 {
                     ((Label)label).UseCompatibleTextRendering = true;
-
+                    /*
                     if (label.Name.Contains("label"))
                         label.Font = new Font(pfc.Families[1], label.Font.Size);
                     else
+                        */
                         label.Font = new Font(pfc.Families[0], label.Font.Size);
 
                 }
@@ -166,7 +167,7 @@ namespace IMAVD___ImageInfo
                     } 
                     else
                     {
-                        CheckColorImage.SetPixel(j, i, Color.FromArgb(90, now_color.R, now_color.G, now_color.B)); // Sets other pixels (non selected) to transparent
+                        CheckColorImage.SetPixel(j, i, Color.FromArgb(trackBar1.Value, now_color.R, now_color.G, now_color.B)); // Sets other pixels (non selected) to transparent
                     }
                 }
             }
@@ -174,6 +175,18 @@ namespace IMAVD___ImageInfo
             pictureBox2.Image = CheckColorImage;
             panel1.Visible = true;
             label15.Text = "There are " + countPixels + " " + clr.Name + " pixels.";
+        }
+
+        // Adjusts opacity value on pictureBox2 (preview)
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        // Applies check color changes
+        private void button2_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = pictureBox2.Image;
         }
 
         private void imgResize()
@@ -404,7 +417,7 @@ namespace IMAVD___ImageInfo
                 for (int x = 0; (x <= (pic.Width - 1)); x++)
                 {
                     Color color = pic.GetPixel(x, y);
-                    pic.SetPixel(x, y, Color.FromArgb(255, color.R * r, color.G * g, color.B * b));
+                    pic.SetPixel(x, y, Color.FromArgb(color.A, color.R * r, color.G * g, color.B * b));
                 }
             }
             pictureBox1.Image = pic;
@@ -576,12 +589,6 @@ namespace IMAVD___ImageInfo
         {
             Color color = Color.FromArgb(255, (int) redValue.Value, (int) greenValue.Value, (int) blueValue.Value);
             colorSelected.BackColor = color;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Image = pictureBox2.Image;
-            panel1.Visible = false;
         }
 
 
