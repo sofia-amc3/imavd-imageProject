@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ImageMagick;
+using System.Drawing.Text;
+using System.Runtime.InteropServices;
 
 namespace IMAVD___ImageInfo
 {
@@ -19,6 +21,7 @@ namespace IMAVD___ImageInfo
         public imageEditor()
         {
             InitializeComponent();
+            InitializeFont();
             chckClrBtn.Enabled = false;
         }
 
@@ -32,6 +35,77 @@ namespace IMAVD___ImageInfo
         float imgScale = 0,
               imgVerticalMargin = 0,
               imgHorizontalMargin = 0;
+
+        public List<Control> GetControls(Control control, Type type)
+        {
+            var controls = control.Controls.Cast<Control>();
+
+            return controls.SelectMany(ctrl => GetControls(ctrl, type))
+                                      .Concat(controls)
+                                      .Where(c => c.GetType() == type).ToList();
+        }
+
+        private void InitializeFont()
+        {
+            //Create your private font collection object.
+            PrivateFontCollection pfc = new PrivateFontCollection();
+
+            //Select your font from the resources.
+            //My font here is "Digireu.ttf"
+            // int fontLength = Properties.Resources.Digireu.Length;
+            int[] fontsLength =
+            {
+                Properties.Resources.Montserrat_Regular.Length,
+                Properties.Resources.Montserrat_Italic.Length,
+                Properties.Resources.Montserrat_Medium.Length,
+                Properties.Resources.Montserrat_SemiBold.Length,
+                Properties.Resources.Montserrat_Bold.Length,
+                Properties.Resources.Montserrat_ExtraBold.Length
+            };
+
+            // create a buffer to read in to
+            byte[][] fontsData =
+            {
+                Properties.Resources.Montserrat_Regular,
+                Properties.Resources.Montserrat_Italic,
+                Properties.Resources.Montserrat_Medium,
+                Properties.Resources.Montserrat_SemiBold,
+                Properties.Resources.Montserrat_Bold,
+                Properties.Resources.Montserrat_ExtraBold
+            };
+
+            for (int i = 0; i < fontsLength.Length; i++)
+            {
+                // create an unsafe memory block for the font data
+                System.IntPtr data = Marshal.AllocCoTaskMem(fontsLength[i]);
+
+                // copy the bytes to the unsafe memory block
+                Marshal.Copy(fontsData[i], 0, data, fontsLength[i]);
+
+                // pass the font to the font collection
+                pfc.AddMemoryFont(data, fontsLength[i]);
+            }
+
+            List<Control> labels = GetControls(this, typeof(Label));
+            List<Control> buttons = GetControls(this, typeof(Button));
+
+            foreach (Control label in labels)
+            {
+                if (label.GetType() == typeof(Label))
+                {
+                    ((Label)label).UseCompatibleTextRendering = true;
+
+                    if (label.Name.Contains("label"))
+                        label.Font = new Font(pfc.Families[1], label.Font.Size);
+                    else
+                        label.Font = new Font(pfc.Families[0], label.Font.Size);
+
+                }
+            }
+
+          //  foreach (Control button in buttons)
+               // button.Font = new Font(pfc.Families[3], button.Font.Size);
+        }
 
 
         private void ldBtn_Click(object sender, EventArgs e)
@@ -53,6 +127,11 @@ namespace IMAVD___ImageInfo
                 imgDim.Text = OriginalImage.Width + " x " + OriginalImage.Height;
                 imgSize.Text = OriginalImage_info.Length + " bytes";
                 imgCrtOn.Text = OriginalImage_info.CreationTime.ToString();
+
+                panel2.Location = new Point(
+                    imgLoc.Location.X,
+                    imgLoc.Location.Y + imgLoc.Height + 20
+                );
 
                 tabControl1.SelectedTab = tabPage2;
             }
@@ -215,17 +294,10 @@ namespace IMAVD___ImageInfo
                 }
             }
         }
-        
-        private void numericUpDown1_KeyUp(object sender, KeyEventArgs e)
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (zoomValue.Value < 50)
-            {
-                zoomValue.Value = 50;
-            }
-            if (zoomValue.Value > 500)
-            {
-                zoomValue.Value = 500;
-            }
+            int zoomValue = Int32.Parse(comboBox1.SelectedItem.ToString().Replace('%', ' ').Trim());  // Converts string to int
 
             Bitmap tempBitmap = new Bitmap(pictureBox1.Image, pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height);
 
@@ -240,57 +312,7 @@ namespace IMAVD___ImageInfo
 
             // First clear the image with the current backcolor
 
-            //bmGraphics.Clear(_BackColor);
 
-            // Set the interpolationmode since we are resizing an image here
-
-            bmGraphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-
-            // Draw the original image on the temporary bitmap, resizing it using
-
-            // the calculated values of targetWidth and targetHeight.
-
-            int HorizLeft = (int)(OriginalImage.Width / 2) - ((int)(OriginalImage.Width / 2) / (int)(zoomValue.Value / 100));
-            int VertiTop = (int)(OriginalImage.Height / 2) - ((int)(OriginalImage.Width / 2) / (int)(zoomValue.Value / 100));
-
-
-            int HorizRight = (int)(OriginalImage.Width / 2) + ((int)(OriginalImage.Width / 2) / (int)(zoomValue.Value / 100));
-            int VertiBottom = (int)(OriginalImage.Height / 2) + ((int)(OriginalImage.Width / 2) / (int)(zoomValue.Value / 100));
-
-
-            bmGraphics.DrawImage(OriginalImage,
-                                 new Rectangle(HorizLeft, VertiTop, HorizRight, VertiBottom),
-                                 new Rectangle(0, 0, OriginalImage.Width, OriginalImage.Height),
-                                 GraphicsUnit.Pixel);
-
-            pictureBox2.Refresh();
-        }
-
-        private void zoomValue_ValueChanged(object sender, EventArgs e)
-        {
-            if (zoomValue.Value < 50)
-            {
-                zoomValue.Value = 50;
-            }
-            if (zoomValue.Value > 500)
-            {
-                zoomValue.Value = 500;
-            }
-
-            Bitmap tempBitmap = new Bitmap(pictureBox1.Image, pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height);
-
-            // Set the resolution of the bitmap to match the original resolution.
-
-            tempBitmap.SetResolution(OriginalImage.HorizontalResolution,
-                                     OriginalImage.VerticalResolution);
-
-            // Create a Graphics object to further edit the temporary bitmap
-
-            Graphics bmGraphics = Graphics.FromImage(tempBitmap);
-
-            // First clear the image with the current backcolor
-
-            
 
             // Set the interpolationmode since we are resizing an image here
 
@@ -299,16 +321,16 @@ namespace IMAVD___ImageInfo
             // Draws the original image on the temporary bitmap, resizing it using
             // the calculated values of targetWidth and targetHeight.
 
-            int HorizLeft = (int)(OriginalImage.Width / 2) - (int)((OriginalImage.Width / 2) / (zoomValue.Value / 100));
-            int VertiTop = (int)(OriginalImage.Height / 2) - (int)((OriginalImage.Height / 2) / (zoomValue.Value / 100));
+            int HorizLeft = (int)(OriginalImage.Width / 2) - (int)((OriginalImage.Width / 2) / (zoomValue / 100));
+            int VertiTop = (int)(OriginalImage.Height / 2) - (int)((OriginalImage.Height / 2) / (zoomValue / 100));
 
 
-            int HorizRight = (int)(OriginalImage.Width / 2) + (int)((OriginalImage.Width / 2) / (zoomValue.Value / 100));
-            int VertiBottom = (int)(OriginalImage.Height / 2) + (int)((OriginalImage.Height / 2) / (zoomValue.Value / 100));
+            int HorizRight = (int)(OriginalImage.Width / 2) + (int)((OriginalImage.Width / 2) / (zoomValue / 100));
+            int VertiBottom = (int)(OriginalImage.Height / 2) + (int)((OriginalImage.Height / 2) / (zoomValue / 100));
 
 
             bmGraphics.DrawImage(OriginalImage,
-                                 new Rectangle(0, 0, (int)(pictureBox1.ClientSize.Width* (zoomValue.Value / 100)), (int)(pictureBox1.ClientSize.Height * (zoomValue.Value / 100))),
+                                 new Rectangle(0, 0, (int)(pictureBox1.ClientSize.Width * (zoomValue / 100)), (int)(pictureBox1.ClientSize.Height * (zoomValue / 100))),
                                  new Rectangle(0, 0, OriginalImage.Width, OriginalImage.Height),
                                  GraphicsUnit.Pixel);
 
@@ -368,6 +390,23 @@ namespace IMAVD___ImageInfo
                 }
             }
             pictureBox1.Image = pic;
+            if (invertClrBtn.Text.Equals("INVERT COLORS")) invertClrBtn.Text = "REVERT COLORS";
+            else invertClrBtn.Text = "INVERT COLORS";
+            
+        }
+
+        private void applyFilter(int r, int g, int b)
+        {
+            Bitmap pic = new Bitmap(pictureBox1.Image);
+            for (int y = 0; (y <= (pic.Height - 1)); y++)
+            {
+                for (int x = 0; (x <= (pic.Width - 1)); x++)
+                {
+                    Color color = pic.GetPixel(x, y);
+                    pic.SetPixel(x, y, Color.FromArgb(255, color.R * r, color.G * g, color.B * b));
+                }
+            }
+            pictureBox1.Image = pic;
         }
 
         private void filterBtn_Click(object sender, EventArgs e)
@@ -375,28 +414,31 @@ namespace IMAVD___ImageInfo
             switch (((Control)sender).Tag.ToString())
             {
                 case "red":
+                    applyFilter(1, 0, 0);
                     break;
                 case "green":
+                    applyFilter(0, 1, 0);
                     break;
                 case "blue":
+                    applyFilter(0, 0, 1);
                     break;
                 default:
                     break;
             }
         }
-        
-        private void brightnessSlider_Scroll(object sender, EventArgs e)
+
+        private void setBrightness()
         {
             // Make the ColorMatrix.
-            float b = (float)(brightnessSlider.Value+255)/255;
+            float b = (float)(brightnessSlider.Value + 255) / 255;
             ColorMatrix cm = new ColorMatrix(new float[][]
-                {
+            {
             new float[] {b, 0, 0, 0, 0},
             new float[] {0, b, 0, 0, 0},
             new float[] {0, 0, b, 0, 0},
             new float[] {0, 0, 0, 1, 0},
             new float[] {0, 0, 0, 0, 1},
-                });
+            });
             ImageAttributes attributes = new ImageAttributes();
             attributes.SetColorMatrix(cm);
 
@@ -404,10 +446,10 @@ namespace IMAVD___ImageInfo
             // the new ColorMatrix.
             Point[] points =
             {
-        new Point(0, 0),
-        new Point(OriginalImage.Width, 0),
-        new Point(0, OriginalImage.Height),
-    };
+            new Point(0, 0),
+            new Point(OriginalImage.Width, 0),
+            new Point(0, OriginalImage.Height),
+            };
             Rectangle rect = new Rectangle(0, 0, OriginalImage.Width, OriginalImage.Height);
 
             // Make the result bitmap.
@@ -418,11 +460,72 @@ namespace IMAVD___ImageInfo
                     GraphicsUnit.Pixel, attributes);
             }
 
-            brightLbl.Text = brightnessSlider.Value.ToString();
             // Return the result.
             pictureBox1.Image = bm;
         }
         
+        private void brightnessSlider_Scroll(object sender, EventArgs e)
+        {
+            brightnessValue.Value = brightnessSlider.Value;
+            setBrightness();
+        }
+
+        private void brightnessValue_ValueChanged(object sender, EventArgs e)
+        {
+            brightnessSlider.Value = (int) brightnessValue.Value;
+            setBrightness();
+        }
+
+        private void cutImageFourAreas()
+        {
+
+        }
+
+        private void cutImageTwoAreas()
+        {
+
+        }
+
+        private void cutImageSuperiorCorner()
+        {
+            Bitmap img = new Bitmap(pictureBox1.Image);
+
+            for(int i = 1; i < img.Height; i++)
+            {
+                for(int j = img.Width - 1; j > img.Width - 1 - i; j--)
+                {
+                    img.SetPixel(j, i, Color.Transparent);
+                }
+            }
+
+            pictureBox1.Image = img;
+        }
+
+        private void cutImageInferiorCorner()
+        {
+            Bitmap img = new Bitmap(pictureBox1.Image);
+
+            for (int i = 0; i < img.Height; i++)
+            {
+                for (int j = 0; j < img.Width - 1 - i; j++)
+                {
+                    img.SetPixel(j, i, Color.Transparent);
+                }
+            }
+
+            pictureBox1.Image = img;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            bool[] radioBtnChecked = { radioButton1.Checked, radioButton2.Checked, radioButton3.Checked, radioButton4.Checked };
+
+            if(radioBtnChecked[0]) this.cutImageFourAreas();
+            else if (radioBtnChecked[1]) this.cutImageTwoAreas();
+            else if (radioBtnChecked[2]) this.cutImageSuperiorCorner();
+            else if (radioBtnChecked[3]) this.cutImageInferiorCorner();
+        }
+
         private void colorValue_ValueChanged(object sender, EventArgs e)
         {
             Color color = Color.FromArgb(255, (int) redValue.Value, (int) greenValue.Value, (int) blueValue.Value);
