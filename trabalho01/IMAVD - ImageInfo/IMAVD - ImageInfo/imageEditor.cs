@@ -133,6 +133,9 @@ namespace IMAVD___ImageInfo
                     imgLoc.Location.Y + imgLoc.Height + 20
                 );
 
+                numericUpDown5.Maximum = pictureBox1.Image.Width;
+                numericUpDown4.Maximum = pictureBox1.Image.Height;
+
                 tabControl1.SelectedTab = tabPage2;
             }
 
@@ -312,8 +315,6 @@ namespace IMAVD___ImageInfo
 
             // First clear the image with the current backcolor
 
-
-
             // Set the interpolationmode since we are resizing an image here
 
             bmGraphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
@@ -476,23 +477,14 @@ namespace IMAVD___ImageInfo
             setBrightness();
         }
 
-        private void cutImageFourAreas()
-        {
-
-        }
-
-        private void cutImageTwoAreas()
-        {
-
-        }
-
-        private void cutImageSuperiorCorner()
+        // Cuts the image in two triangles
+        private void topCorner_Click(object sender, EventArgs e)
         {
             Bitmap img = new Bitmap(pictureBox1.Image);
 
-            for(int i = 1; i < img.Height; i++)
+            for (int i = 1; i < img.Height; i++)
             {
-                for(int j = img.Width - 1; j > img.Width - 1 - i; j--)
+                for (int j = img.Width - 1; j > img.Width - 1 - i; j--)
                 {
                     img.SetPixel(j, i, Color.Transparent);
                 }
@@ -501,7 +493,7 @@ namespace IMAVD___ImageInfo
             pictureBox1.Image = img;
         }
 
-        private void cutImageInferiorCorner()
+        private void bottomCorner_Click(object sender, EventArgs e)
         {
             Bitmap img = new Bitmap(pictureBox1.Image);
 
@@ -516,14 +508,68 @@ namespace IMAVD___ImageInfo
             pictureBox1.Image = img;
         }
 
+        // Cuts the image in four areas
+        private void fourAreas_topLeft_Click(object sender, EventArgs e)
+        {
+            Image img = pictureBox1.Image;
+            Rectangle rect = new Rectangle(0, 0, img.Width / 2, img.Height / 2);
+            this.cropImg(rect);
+        }
+
+        private void fourAreas_topRight_Click(object sender, EventArgs e)
+        {
+            Image img = pictureBox1.Image;
+            Rectangle rect = new Rectangle(img.Width / 2, 0, img.Width, img.Height / 2);
+            this.cropImg(rect);
+        }
+
+        private void fourAreas_bottomLeft_Click(object sender, EventArgs e)
+        {
+            Image img = pictureBox1.Image;
+            Rectangle rect = new Rectangle(0, img.Height / 2, img.Width / 2, img.Height);
+            this.cropImg(rect);
+        }
+
+        private void fourAreas_bottomRight_Click(object sender, EventArgs e)
+        {
+            Image img = pictureBox1.Image;
+            Rectangle rect = new Rectangle(img.Width / 2, img.Height / 2, img.Width, img.Height);
+            this.cropImg(rect);
+        }
+
+        // Cuts the image in two areas
+        private void twoAreas_top_Click(object sender, EventArgs e)
+        {
+            Image img = pictureBox1.Image;
+            Rectangle rect = new Rectangle(0, 0, img.Width, img.Height / 2);
+            this.cropImg(rect);
+        }
+
+        private void twoAreas_bottom_Click(object sender, EventArgs e)
+        {
+            Image img = pictureBox1.Image;
+            Rectangle rect = new Rectangle(0, img.Height / 2, img.Width, img.Height);
+            this.cropImg(rect);
+        }
+
+        private void cropImg(Rectangle rectangle)
+        {
+            Bitmap newImg = new Bitmap(rectangle.Width, rectangle.Height);
+            Graphics graphics = Graphics.FromImage(newImg);
+
+            Point ulCorner = new Point(rectangle.X, rectangle.Y),
+                  urCorner = new Point(rectangle.X + rectangle.Width, rectangle.Y),
+                  blCorner = new Point(rectangle.X, rectangle.Y + rectangle.Height);
+            Point[] desPoints = { ulCorner, urCorner, blCorner };
+
+            graphics.DrawImage(pictureBox1.Image, desPoints, rectangle, GraphicsUnit.Pixel);
+            pictureBox1.Image = newImg;
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            bool[] radioBtnChecked = { radioButton1.Checked, radioButton2.Checked, radioButton3.Checked, radioButton4.Checked };
-
-            if(radioBtnChecked[0]) this.cutImageFourAreas();
-            else if (radioBtnChecked[1]) this.cutImageTwoAreas();
-            else if (radioBtnChecked[2]) this.cutImageSuperiorCorner();
-            else if (radioBtnChecked[3]) this.cutImageInferiorCorner();
+            if (button3.Text.Equals("CROP")) button3.Text = "DONE";
+            else button3.Text = "CROP";
         }
 
         private void colorValue_ValueChanged(object sender, EventArgs e)
