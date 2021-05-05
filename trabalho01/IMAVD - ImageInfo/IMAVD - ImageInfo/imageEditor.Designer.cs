@@ -84,7 +84,6 @@ namespace IMAVD___ImageInfo
             this.detailsProperties = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.detailsDimension = new System.Windows.Forms.TabPage();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label40 = new System.Windows.Forms.Label();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
@@ -149,6 +148,7 @@ namespace IMAVD___ImageInfo
             this.label54 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.detailsFilters = new System.Windows.Forms.TabPage();
+            this.label55 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label31 = new System.Windows.Forms.Label();
@@ -176,7 +176,6 @@ namespace IMAVD___ImageInfo
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -189,7 +188,6 @@ namespace IMAVD___ImageInfo
             this.detailsProperties.SuspendLayout();
             this.panel2.SuspendLayout();
             this.detailsDimension.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             this.detailsCut.SuspendLayout();
@@ -688,12 +686,12 @@ namespace IMAVD___ImageInfo
             this.imageList1.TransparentColor = System.Drawing.Color.White;
             this.imageList1.Images.SetKeyName(0, "info.png");
             this.imageList1.Images.SetKeyName(1, "crop.png");
-            this.imageList1.Images.SetKeyName(2, "crop.png");
-            this.imageList1.Images.SetKeyName(3, "crop.png");
+            this.imageList1.Images.SetKeyName(2, "cut.png");
+            this.imageList1.Images.SetKeyName(3, "transform.png");
             this.imageList1.Images.SetKeyName(4, "colorSearch.png");
-            this.imageList1.Images.SetKeyName(5, "colorDialogue.png");
+            this.imageList1.Images.SetKeyName(5, "chromakey.png");
             this.imageList1.Images.SetKeyName(6, "filters.png");
-            this.imageList1.Images.SetKeyName(7, "colorDialogue.png");
+            this.imageList1.Images.SetKeyName(7, "insert.png");
             // 
             // tabControl2
             // 
@@ -746,7 +744,6 @@ namespace IMAVD___ImageInfo
             // detailsDimension
             // 
             this.detailsDimension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.detailsDimension.Controls.Add(this.pictureBox15);
             this.detailsDimension.Controls.Add(this.checkBox1);
             this.detailsDimension.Controls.Add(this.label40);
             this.detailsDimension.Controls.Add(this.numericUpDown4);
@@ -764,20 +761,11 @@ namespace IMAVD___ImageInfo
             this.detailsDimension.TabIndex = 1;
             this.detailsDimension.Text = "tabPage4";
             // 
-            // pictureBox15
-            // 
-            this.pictureBox15.BackColor = System.Drawing.Color.White;
-            this.pictureBox15.Location = new System.Drawing.Point(32, 134);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(236, 101);
-            this.pictureBox15.TabIndex = 50;
-            this.pictureBox15.TabStop = false;
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(32, 437);
+            this.checkBox1.Location = new System.Drawing.Point(32, 312);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(145, 19);
             this.checkBox1.TabIndex = 49;
@@ -789,7 +777,7 @@ namespace IMAVD___ImageInfo
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label40.ForeColor = System.Drawing.Color.White;
-            this.label40.Location = new System.Drawing.Point(31, 401);
+            this.label40.Location = new System.Drawing.Point(31, 276);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(57, 15);
             this.label40.TabIndex = 48;
@@ -800,7 +788,7 @@ namespace IMAVD___ImageInfo
             this.numericUpDown4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.numericUpDown4.DecimalPlaces = 1;
             this.numericUpDown4.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown4.Location = new System.Drawing.Point(88, 399);
+            this.numericUpDown4.Location = new System.Drawing.Point(88, 274);
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(61, 21);
             this.numericUpDown4.TabIndex = 47;
@@ -815,7 +803,7 @@ namespace IMAVD___ImageInfo
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label41.ForeColor = System.Drawing.Color.White;
-            this.label41.Location = new System.Drawing.Point(31, 373);
+            this.label41.Location = new System.Drawing.Point(31, 248);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(51, 15);
             this.label41.TabIndex = 46;
@@ -826,7 +814,7 @@ namespace IMAVD___ImageInfo
             this.numericUpDown5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.numericUpDown5.DecimalPlaces = 1;
             this.numericUpDown5.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown5.Location = new System.Drawing.Point(88, 371);
+            this.numericUpDown5.Location = new System.Drawing.Point(88, 246);
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(61, 21);
             this.numericUpDown5.TabIndex = 45;
@@ -841,7 +829,7 @@ namespace IMAVD___ImageInfo
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(32, 334);
+            this.label38.Location = new System.Drawing.Point(32, 209);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(99, 15);
             this.label38.TabIndex = 25;
@@ -855,7 +843,7 @@ namespace IMAVD___ImageInfo
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(32, 259);
+            this.button3.Location = new System.Drawing.Point(32, 134);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(236, 32);
             this.button3.TabIndex = 24;
@@ -922,6 +910,7 @@ namespace IMAVD___ImageInfo
             // bottomCorner
             // 
             this.bottomCorner.BackColor = System.Drawing.Color.White;
+            this.bottomCorner.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomCorner.BackgroundImage")));
             this.bottomCorner.Location = new System.Drawing.Point(162, 521);
             this.bottomCorner.Name = "bottomCorner";
             this.bottomCorner.Size = new System.Drawing.Size(105, 105);
@@ -932,6 +921,7 @@ namespace IMAVD___ImageInfo
             // topCorner
             // 
             this.topCorner.BackColor = System.Drawing.Color.White;
+            this.topCorner.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("topCorner.BackgroundImage")));
             this.topCorner.Location = new System.Drawing.Point(31, 521);
             this.topCorner.Name = "topCorner";
             this.topCorner.Size = new System.Drawing.Size(105, 105);
@@ -942,6 +932,7 @@ namespace IMAVD___ImageInfo
             // twoAreas_bottom
             // 
             this.twoAreas_bottom.BackColor = System.Drawing.Color.White;
+            this.twoAreas_bottom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("twoAreas_bottom.BackgroundImage")));
             this.twoAreas_bottom.Location = new System.Drawing.Point(162, 392);
             this.twoAreas_bottom.Name = "twoAreas_bottom";
             this.twoAreas_bottom.Size = new System.Drawing.Size(105, 105);
@@ -952,6 +943,7 @@ namespace IMAVD___ImageInfo
             // twoAreas_top
             // 
             this.twoAreas_top.BackColor = System.Drawing.Color.White;
+            this.twoAreas_top.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("twoAreas_top.BackgroundImage")));
             this.twoAreas_top.Location = new System.Drawing.Point(31, 392);
             this.twoAreas_top.Name = "twoAreas_top";
             this.twoAreas_top.Size = new System.Drawing.Size(105, 105);
@@ -962,6 +954,7 @@ namespace IMAVD___ImageInfo
             // fourAreas_bottomRight
             // 
             this.fourAreas_bottomRight.BackColor = System.Drawing.Color.White;
+            this.fourAreas_bottomRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fourAreas_bottomRight.BackgroundImage")));
             this.fourAreas_bottomRight.Location = new System.Drawing.Point(162, 259);
             this.fourAreas_bottomRight.Name = "fourAreas_bottomRight";
             this.fourAreas_bottomRight.Size = new System.Drawing.Size(105, 105);
@@ -972,6 +965,7 @@ namespace IMAVD___ImageInfo
             // fourAreas_bottomLeft
             // 
             this.fourAreas_bottomLeft.BackColor = System.Drawing.Color.White;
+            this.fourAreas_bottomLeft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fourAreas_bottomLeft.BackgroundImage")));
             this.fourAreas_bottomLeft.Location = new System.Drawing.Point(31, 259);
             this.fourAreas_bottomLeft.Name = "fourAreas_bottomLeft";
             this.fourAreas_bottomLeft.Size = new System.Drawing.Size(105, 105);
@@ -982,6 +976,7 @@ namespace IMAVD___ImageInfo
             // fourAreas_topRight
             // 
             this.fourAreas_topRight.BackColor = System.Drawing.Color.White;
+            this.fourAreas_topRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fourAreas_topRight.BackgroundImage")));
             this.fourAreas_topRight.Location = new System.Drawing.Point(162, 130);
             this.fourAreas_topRight.Name = "fourAreas_topRight";
             this.fourAreas_topRight.Size = new System.Drawing.Size(105, 105);
@@ -1019,6 +1014,7 @@ namespace IMAVD___ImageInfo
             // fourAreas_topLeft
             // 
             this.fourAreas_topLeft.BackColor = System.Drawing.Color.White;
+            this.fourAreas_topLeft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fourAreas_topLeft.BackgroundImage")));
             this.fourAreas_topLeft.Location = new System.Drawing.Point(31, 130);
             this.fourAreas_topLeft.Name = "fourAreas_topLeft";
             this.fourAreas_topLeft.Size = new System.Drawing.Size(105, 105);
@@ -1550,6 +1546,17 @@ namespace IMAVD___ImageInfo
             this.detailsFilters.TabIndex = 3;
             this.detailsFilters.Text = "detailsFilters";
             // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label55.ForeColor = System.Drawing.Color.White;
+            this.label55.Location = new System.Drawing.Point(39, 559);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(107, 15);
+            this.label55.TabIndex = 47;
+            this.label55.Text = "Color Inversion:";
+            // 
             // label29
             // 
             this.label29.AutoSize = true;
@@ -1933,17 +1940,6 @@ namespace IMAVD___ImageInfo
             this.label37.Text = "INSERT OBJECT";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label55.ForeColor = System.Drawing.Color.White;
-            this.label55.Location = new System.Drawing.Point(39, 559);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(107, 15);
-            this.label55.TabIndex = 47;
-            this.label55.Text = "Color Inversion:";
-            // 
             // imageEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1975,7 +1971,6 @@ namespace IMAVD___ImageInfo
             this.panel2.PerformLayout();
             this.detailsDimension.ResumeLayout(false);
             this.detailsDimension.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             this.detailsCut.ResumeLayout(false);
@@ -2157,7 +2152,6 @@ namespace IMAVD___ImageInfo
         private Button button2;
         private TrackBar trackBar1;
         private Label label62;
-        private PictureBox pictureBox15;
         private PictureBox pictureBox14;
         private PictureBox pictureBox13;
         private Button button5;
