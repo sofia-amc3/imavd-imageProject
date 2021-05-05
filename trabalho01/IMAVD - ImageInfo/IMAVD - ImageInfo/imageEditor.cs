@@ -491,15 +491,22 @@ namespace IMAVD___ImageInfo
         }
 
         // Cuts the image in two triangles
+
         private void topCorner_Click(object sender, EventArgs e)
         {
             Bitmap img = new Bitmap(pictureBox1.Image);
 
-            for (int i = 1; i < img.Height; i++)
+            // Função y = ax + b
+            float a = img.Height / img.Width, // y1 - y2 / x1 - x2 --> img.Height - 0 / img.Width - 0
+                  b = img.Height;
+
+            for (int x = 0; x < img.Width; x++)
             {
-                for (int j = img.Width - 1; j > img.Width - 1 - i; j--)
+                int y = (int)Math.Round(a * x + b);
+
+                for (int i = y; i < img.Height; i++)
                 {
-                    img.SetPixel(j, i, Color.Transparent);
+                    img.SetPixel(x, i, Color.Transparent);
                 }
             }
 
@@ -510,11 +517,17 @@ namespace IMAVD___ImageInfo
         {
             Bitmap img = new Bitmap(pictureBox1.Image);
 
-            for (int i = 0; i < img.Height; i++)
+            // Função y = ax + b
+            float a = img.Height / img.Width, // y1 - y2 / x1 - x2 --> img.Height - 0 / img.Width - 0
+                  b = img.Height;
+
+            for (int x = 0; x < img.Width; x++)
             {
-                for (int j = 0; j < img.Width - 1 - i; j++)
+                int y = (int)Math.Round(a * x + b);
+
+                for (int i = 0; i < y; i++)
                 {
-                    img.SetPixel(j, i, Color.Transparent);
+                    img.SetPixel(x, i, Color.Transparent);
                 }
             }
 
