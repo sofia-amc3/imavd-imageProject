@@ -28,7 +28,7 @@ namespace IMAVD___ImageInfo
         FileInfo OriginalImage_info;
         Bitmap OriginalImage;
         Bitmap CheckColorImage;
-        bool IsColorFound;
+        //bool IsColorFound;
         bool canSelectColor = false;
         int countPixels;
 
@@ -398,6 +398,32 @@ namespace IMAVD___ImageInfo
             Cursor = Cursors.Cross;
         }
 
+        /*private void removeChromakey()
+        {
+            Color color = label56.BackColor;
+            int threshold = trackBar2.Value;
+            Bitmap bitmap = new Bitmap(pictureBox1.Image);
+
+            for (int i = 0; i < pictureBox1.Image.Height; i++)
+            {
+                for (int j = 0; j < pictureBox1.Image.Width; j++)
+                {
+                    // Checks if pixel color is inside the threshold's range
+                    Color pixelColor = OriginalImage.GetPixel(j, i);
+                    bool red = pixelColor.R <= threshold,
+                         green = pixelColor.G >= 255 - threshold,
+                         blue = pixelColor.B <= threshold;
+                    int alpha = 255;
+
+                    if (red && green && blue) alpha = 0;
+
+                    bitmap.SetPixel(j, i, Color.FromArgb(alpha, pixelColor.R, pixelColor.G, pixelColor.B));
+                }
+            }
+
+            pictureBox1.Image = bitmap;
+        }*/
+
         private void invertClrBtn_Click(object sender, EventArgs e)
         {
             Bitmap pic = new Bitmap(pictureBox1.Image);
@@ -413,7 +439,6 @@ namespace IMAVD___ImageInfo
             pictureBox1.Image = pic;
             if (invertClrBtn.Text.Equals("INVERT COLORS")) invertClrBtn.Text = "REVERT COLORS";
             else invertClrBtn.Text = "INVERT COLORS";
-            
         }
 
         private void applyFilter(int r, int g, int b)
@@ -614,6 +639,51 @@ namespace IMAVD___ImageInfo
 
             imageMultiply.Dispose();
             pictureBox1.Image = newImage;
+        }
+
+        private void numericUpDown6_ValueChanged(object sender, EventArgs e)
+        {
+            float angle = (float)numericUpDown6.Value;
+            Image image = pictureBox1.Image;
+            Bitmap bitmap = new Bitmap(image.Width, image.Height);
+            Graphics graphics = Graphics.FromImage(bitmap);
+
+            // Posiciona a imagem no centro de rotação e volta a colocá-la na posição original
+            graphics.TranslateTransform(image.Width / 2.0f, image.Height / 2.0f);
+            graphics.RotateTransform(angle);
+            graphics.TranslateTransform(-image.Width / 2.0f, -image.Height / 2.0f);
+            graphics.DrawImage(image, 0, 0, image.Width, image.Height);
+            graphics.Dispose();
+
+            pictureBox1.Image = bitmap;
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            Image image = pictureBox1.Image;
+            Bitmap bitmap = new Bitmap(image.Width, image.Height);
+            Graphics graphics = Graphics.FromImage(bitmap);
+
+            graphics.ScaleTransform(1, -1);
+            graphics.TranslateTransform(0, -image.Height);
+            graphics.DrawImage(image, 0, 0, image.Width, image.Height);
+            graphics.Dispose();
+
+            pictureBox1.Image = bitmap;
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            Image image = pictureBox1.Image;
+            Bitmap bitmap = new Bitmap(image.Width, image.Height);
+            Graphics graphics = Graphics.FromImage(bitmap);
+
+            graphics.ScaleTransform(-1, 1);
+            graphics.TranslateTransform(-image.Width, 0);
+            graphics.DrawImage(image, 0, 0, image.Width, image.Height);
+            graphics.Dispose();
+
+            pictureBox1.Image = bitmap;
         }
 
         private void button3_Click(object sender, EventArgs e)

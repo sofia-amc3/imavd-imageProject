@@ -33,14 +33,14 @@ namespace IMAVD___ImageInfo
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(imageEditor));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 3);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("", 4);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("", 5);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("", 6);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 7);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 0);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("", 1);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("", 2);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("", 3);
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("", 4);
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("", 5);
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("", 6);
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("", 7);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ldBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -123,7 +123,7 @@ namespace IMAVD___ImageInfo
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.label46 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.detailsColorSearch = new System.Windows.Forms.TabPage();
+            this.detailsFindColor = new System.Windows.Forms.TabPage();
             this.label24 = new System.Windows.Forms.Label();
             this.colorSelected = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -137,17 +137,11 @@ namespace IMAVD___ImageInfo
             this.label18 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.label62 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.detailsColorReplace = new System.Windows.Forms.TabPage();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
             this.detailsFilters = new System.Windows.Forms.TabPage();
             this.label55 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -177,6 +171,21 @@ namespace IMAVD___ImageInfo
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
+            this.detailsColorReplace = new System.Windows.Forms.TabPage();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label61 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label62 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -209,15 +218,13 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            this.detailsColorSearch.SuspendLayout();
+            this.detailsFindColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blueValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.redValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            this.detailsColorReplace.SuspendLayout();
             this.detailsFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -229,6 +236,11 @@ namespace IMAVD___ImageInfo
             this.detailsInsert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            this.detailsColorReplace.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -404,9 +416,9 @@ namespace IMAVD___ImageInfo
             this.chckClrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chckClrBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.chckClrBtn.ForeColor = System.Drawing.Color.White;
-            this.chckClrBtn.Location = new System.Drawing.Point(75, 318);
+            this.chckClrBtn.Location = new System.Drawing.Point(36, 291);
             this.chckClrBtn.Name = "chckClrBtn";
-            this.chckClrBtn.Size = new System.Drawing.Size(144, 32);
+            this.chckClrBtn.Size = new System.Drawing.Size(222, 32);
             this.chckClrBtn.TabIndex = 1;
             this.chckClrBtn.Text = "CHECK COLOR";
             this.chckClrBtn.UseVisualStyleBackColor = false;
@@ -418,9 +430,9 @@ namespace IMAVD___ImageInfo
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 26);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 22);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(222, 118);
+            this.pictureBox2.Size = new System.Drawing.Size(222, 125);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
@@ -433,7 +445,7 @@ namespace IMAVD___ImageInfo
             this.svImagebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.svImagebtn.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.svImagebtn.ForeColor = System.Drawing.Color.White;
-            this.svImagebtn.Location = new System.Drawing.Point(832, 625);
+            this.svImagebtn.Location = new System.Drawing.Point(831, 625);
             this.svImagebtn.Name = "svImagebtn";
             this.svImagebtn.Size = new System.Drawing.Size(119, 32);
             this.svImagebtn.TabIndex = 6;
@@ -449,7 +461,7 @@ namespace IMAVD___ImageInfo
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(813, 37);
+            this.label3.Location = new System.Drawing.Point(812, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 15);
             this.label3.TabIndex = 8;
@@ -461,7 +473,7 @@ namespace IMAVD___ImageInfo
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Location = new System.Drawing.Point(28, 82);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(922, 519);
+            this.pictureBox1.Size = new System.Drawing.Size(921, 516);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -623,7 +635,7 @@ namespace IMAVD___ImageInfo
             "300%",
             "400%",
             "500%"});
-            this.comboBox1.Location = new System.Drawing.Point(866, 34);
+            this.comboBox1.Location = new System.Drawing.Point(865, 34);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(85, 23);
             this.comboBox1.TabIndex = 10;
@@ -663,14 +675,14 @@ namespace IMAVD___ImageInfo
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16});
             this.listView1.LargeImageList = this.imageList1;
             this.listView1.Location = new System.Drawing.Point(28, 24);
             this.listView1.Name = "listView1";
@@ -701,7 +713,7 @@ namespace IMAVD___ImageInfo
             this.tabControl2.Controls.Add(this.detailsDimension);
             this.tabControl2.Controls.Add(this.detailsCut);
             this.tabControl2.Controls.Add(this.detailsTransform);
-            this.tabControl2.Controls.Add(this.detailsColorSearch);
+            this.tabControl2.Controls.Add(this.detailsFindColor);
             this.tabControl2.Controls.Add(this.detailsColorReplace);
             this.tabControl2.Controls.Add(this.detailsFilters);
             this.tabControl2.Controls.Add(this.detailsInsert);
@@ -1175,6 +1187,7 @@ namespace IMAVD___ImageInfo
             this.pictureBox12.Size = new System.Drawing.Size(45, 45);
             this.pictureBox12.TabIndex = 52;
             this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // pictureBox8
             // 
@@ -1185,6 +1198,7 @@ namespace IMAVD___ImageInfo
             this.pictureBox8.Size = new System.Drawing.Size(45, 45);
             this.pictureBox8.TabIndex = 51;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // label48
             // 
@@ -1215,6 +1229,7 @@ namespace IMAVD___ImageInfo
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(53, 21);
             this.numericUpDown6.TabIndex = 48;
+            this.numericUpDown6.ValueChanged += new System.EventHandler(this.numericUpDown6_ValueChanged);
             // 
             // label46
             // 
@@ -1238,35 +1253,35 @@ namespace IMAVD___ImageInfo
             this.label35.Text = "TRANSFORM";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // detailsColorSearch
+            // detailsFindColor
             // 
-            this.detailsColorSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.detailsColorSearch.Controls.Add(this.label24);
-            this.detailsColorSearch.Controls.Add(this.colorSelected);
-            this.detailsColorSearch.Controls.Add(this.label22);
-            this.detailsColorSearch.Controls.Add(this.blueValue);
-            this.detailsColorSearch.Controls.Add(this.label21);
-            this.detailsColorSearch.Controls.Add(this.greenValue);
-            this.detailsColorSearch.Controls.Add(this.label20);
-            this.detailsColorSearch.Controls.Add(this.redValue);
-            this.detailsColorSearch.Controls.Add(this.label19);
-            this.detailsColorSearch.Controls.Add(this.pictureBox5);
-            this.detailsColorSearch.Controls.Add(this.label18);
-            this.detailsColorSearch.Controls.Add(this.pictureBox4);
-            this.detailsColorSearch.Controls.Add(this.panel1);
-            this.detailsColorSearch.Controls.Add(this.label17);
-            this.detailsColorSearch.Controls.Add(this.label12);
-            this.detailsColorSearch.Controls.Add(this.chckClrBtn);
-            this.detailsColorSearch.Controls.Add(this.label23);
-            this.detailsColorSearch.Location = new System.Drawing.Point(4, 24);
-            this.detailsColorSearch.Name = "detailsColorSearch";
-            this.detailsColorSearch.Size = new System.Drawing.Size(296, 745);
-            this.detailsColorSearch.TabIndex = 2;
-            this.detailsColorSearch.Text = "tabPage5";
+            this.detailsFindColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.detailsFindColor.Controls.Add(this.label24);
+            this.detailsFindColor.Controls.Add(this.colorSelected);
+            this.detailsFindColor.Controls.Add(this.label22);
+            this.detailsFindColor.Controls.Add(this.blueValue);
+            this.detailsFindColor.Controls.Add(this.label21);
+            this.detailsFindColor.Controls.Add(this.greenValue);
+            this.detailsFindColor.Controls.Add(this.label20);
+            this.detailsFindColor.Controls.Add(this.redValue);
+            this.detailsFindColor.Controls.Add(this.label19);
+            this.detailsFindColor.Controls.Add(this.pictureBox5);
+            this.detailsFindColor.Controls.Add(this.label18);
+            this.detailsFindColor.Controls.Add(this.pictureBox4);
+            this.detailsFindColor.Controls.Add(this.panel1);
+            this.detailsFindColor.Controls.Add(this.label17);
+            this.detailsFindColor.Controls.Add(this.label12);
+            this.detailsFindColor.Controls.Add(this.chckClrBtn);
+            this.detailsFindColor.Controls.Add(this.label23);
+            this.detailsFindColor.Location = new System.Drawing.Point(4, 24);
+            this.detailsFindColor.Name = "detailsFindColor";
+            this.detailsFindColor.Size = new System.Drawing.Size(296, 745);
+            this.detailsFindColor.TabIndex = 2;
+            this.detailsFindColor.Text = "tabPage5";
             // 
             // label24
             // 
-            this.label24.Location = new System.Drawing.Point(24, 96);
+            this.label24.Location = new System.Drawing.Point(27, 98);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(10, 30);
             this.label24.TabIndex = 21;
@@ -1276,7 +1291,7 @@ namespace IMAVD___ImageInfo
             this.colorSelected.BackColor = System.Drawing.Color.Black;
             this.colorSelected.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colorSelected.ForeColor = System.Drawing.Color.Black;
-            this.colorSelected.Location = new System.Drawing.Point(176, 217);
+            this.colorSelected.Location = new System.Drawing.Point(181, 193);
             this.colorSelected.Name = "colorSelected";
             this.colorSelected.Size = new System.Drawing.Size(73, 73);
             this.colorSelected.TabIndex = 19;
@@ -1286,7 +1301,7 @@ namespace IMAVD___ImageInfo
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(31, 272);
+            this.label22.Location = new System.Drawing.Point(36, 248);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(40, 15);
             this.label22.TabIndex = 18;
@@ -1296,7 +1311,7 @@ namespace IMAVD___ImageInfo
             // 
             this.blueValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.blueValue.ForeColor = System.Drawing.Color.White;
-            this.blueValue.Location = new System.Drawing.Point(85, 270);
+            this.blueValue.Location = new System.Drawing.Point(90, 246);
             this.blueValue.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1312,7 +1327,7 @@ namespace IMAVD___ImageInfo
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(31, 244);
+            this.label21.Location = new System.Drawing.Point(36, 220);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(54, 15);
             this.label21.TabIndex = 16;
@@ -1322,7 +1337,7 @@ namespace IMAVD___ImageInfo
             // 
             this.greenValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.greenValue.ForeColor = System.Drawing.Color.White;
-            this.greenValue.Location = new System.Drawing.Point(85, 242);
+            this.greenValue.Location = new System.Drawing.Point(90, 218);
             this.greenValue.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1338,7 +1353,7 @@ namespace IMAVD___ImageInfo
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(31, 216);
+            this.label20.Location = new System.Drawing.Point(36, 192);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(41, 15);
             this.label20.TabIndex = 14;
@@ -1348,7 +1363,7 @@ namespace IMAVD___ImageInfo
             // 
             this.redValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.redValue.ForeColor = System.Drawing.Color.White;
-            this.redValue.Location = new System.Drawing.Point(85, 214);
+            this.redValue.Location = new System.Drawing.Point(90, 190);
             this.redValue.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1362,9 +1377,9 @@ namespace IMAVD___ImageInfo
             // label19
             // 
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(79, 152);
+            this.label19.Location = new System.Drawing.Point(82, 138);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(184, 40);
+            this.label19.Size = new System.Drawing.Size(184, 30);
             this.label19.TabIndex = 12;
             this.label19.Text = "Choose a color on the dialogue.";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1375,7 +1390,7 @@ namespace IMAVD___ImageInfo
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
             this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.InitialImage = null;
-            this.pictureBox5.Location = new System.Drawing.Point(33, 152);
+            this.pictureBox5.Location = new System.Drawing.Point(36, 138);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(30, 30);
             this.pictureBox5.TabIndex = 11;
@@ -1385,7 +1400,7 @@ namespace IMAVD___ImageInfo
             // label18
             // 
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(79, 96);
+            this.label18.Location = new System.Drawing.Point(82, 97);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(184, 30);
             this.label18.TabIndex = 10;
@@ -1397,7 +1412,7 @@ namespace IMAVD___ImageInfo
             this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Location = new System.Drawing.Point(33, 96);
+            this.pictureBox4.Location = new System.Drawing.Point(36, 97);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(30, 30);
             this.pictureBox4.TabIndex = 9;
@@ -1406,63 +1421,19 @@ namespace IMAVD___ImageInfo
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.trackBar1);
-            this.panel1.Controls.Add(this.label62);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(33, 375);
+            this.panel1.Location = new System.Drawing.Point(36, 357);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(222, 297);
+            this.panel1.Size = new System.Drawing.Size(222, 214);
             this.panel1.TabIndex = 8;
             this.panel1.Visible = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(46, 265);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 32);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "APPLY CHANGES";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.trackBar1.AutoSize = false;
-            this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.trackBar1.LargeChange = 1;
-            this.trackBar1.Location = new System.Drawing.Point(0, 221);
-            this.trackBar1.Maximum = 255;
-            this.trackBar1.Minimum = -255;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(222, 21);
-            this.trackBar1.TabIndex = 31;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label62.ForeColor = System.Drawing.Color.White;
-            this.label62.Location = new System.Drawing.Point(7, 196);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(101, 15);
-            this.label62.TabIndex = 30;
-            this.label62.Text = "Adjust Opacity:";
             // 
             // label15
             // 
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(0, 160);
+            this.label15.Location = new System.Drawing.Point(0, 161);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(222, 33);
             this.label15.TabIndex = 6;
@@ -1475,7 +1446,7 @@ namespace IMAVD___ImageInfo
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(19, 2);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(184, 18);
+            this.label14.Size = new System.Drawing.Size(184, 21);
             this.label14.TabIndex = 5;
             this.label14.Text = "PREVIEW:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1488,7 +1459,7 @@ namespace IMAVD___ImageInfo
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(222, 30);
             this.label17.TabIndex = 7;
-            this.label17.Text = "COLOR SEARCH";
+            this.label17.Text = "FIND COLOR";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
@@ -1505,38 +1476,10 @@ namespace IMAVD___ImageInfo
             this.label23.BackColor = System.Drawing.Color.White;
             this.label23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(175, 216);
+            this.label23.Location = new System.Drawing.Point(180, 192);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(75, 75);
             this.label23.TabIndex = 20;
-            // 
-            // detailsColorReplace
-            // 
-            this.detailsColorReplace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.detailsColorReplace.Controls.Add(this.label54);
-            this.detailsColorReplace.Controls.Add(this.label36);
-            this.detailsColorReplace.Location = new System.Drawing.Point(4, 24);
-            this.detailsColorReplace.Name = "detailsColorReplace";
-            this.detailsColorReplace.Size = new System.Drawing.Size(296, 745);
-            this.detailsColorReplace.TabIndex = 6;
-            // 
-            // label54
-            // 
-            this.label54.Location = new System.Drawing.Point(25, 97);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(10, 30);
-            this.label54.TabIndex = 35;
-            // 
-            // label36
-            // 
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label36.ForeColor = System.Drawing.Color.White;
-            this.label36.Location = new System.Drawing.Point(31, 43);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(236, 30);
-            this.label36.TabIndex = 3;
-            this.label36.Text = "CREATE CHROMAKEY";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // detailsFilters
             // 
@@ -1966,6 +1909,176 @@ namespace IMAVD___ImageInfo
             this.label37.Text = "INSERT OBJECT";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // detailsColorReplace
+            // 
+            this.detailsColorReplace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.detailsColorReplace.Controls.Add(this.panel3);
+            this.detailsColorReplace.Controls.Add(this.label58);
+            this.detailsColorReplace.Controls.Add(this.label59);
+            this.detailsColorReplace.Controls.Add(this.label56);
+            this.detailsColorReplace.Controls.Add(this.label57);
+            this.detailsColorReplace.Controls.Add(this.pictureBox15);
+            this.detailsColorReplace.Controls.Add(this.label54);
+            this.detailsColorReplace.Location = new System.Drawing.Point(4, 24);
+            this.detailsColorReplace.Name = "detailsColorReplace";
+            this.detailsColorReplace.Size = new System.Drawing.Size(296, 745);
+            this.detailsColorReplace.TabIndex = 8;
+            this.detailsColorReplace.Text = "detailsColorReplace";
+            // 
+            // trackBar2
+            // 
+            this.trackBar2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.trackBar2.AutoSize = false;
+            this.trackBar2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.trackBar2.LargeChange = 1;
+            this.trackBar2.Location = new System.Drawing.Point(-1, 122);
+            this.trackBar2.Maximum = 255;
+            this.trackBar2.Minimum = -255;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(222, 21);
+            this.trackBar2.TabIndex = 35;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label36.ForeColor = System.Drawing.Color.White;
+            this.label36.Location = new System.Drawing.Point(3, 100);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(118, 15);
+            this.label36.TabIndex = 34;
+            this.label36.Text = "Adjust Threshold:";
+            // 
+            // label54
+            // 
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label54.ForeColor = System.Drawing.Color.White;
+            this.label54.Location = new System.Drawing.Point(37, 42);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(222, 30);
+            this.label54.TabIndex = 36;
+            this.label54.Text = "COLOR REPLACE";
+            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label56
+            // 
+            this.label56.Location = new System.Drawing.Point(30, 96);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(10, 30);
+            this.label56.TabIndex = 40;
+            // 
+            // label57
+            // 
+            this.label57.ForeColor = System.Drawing.Color.White;
+            this.label57.Location = new System.Drawing.Point(85, 97);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(184, 30);
+            this.label57.TabIndex = 39;
+            this.label57.Text = "Choose a color on the image.";
+            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.BackColor = System.Drawing.Color.White;
+            this.pictureBox15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox15.BackgroundImage")));
+            this.pictureBox15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox15.Location = new System.Drawing.Point(39, 97);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox15.TabIndex = 38;
+            this.pictureBox15.TabStop = false;
+            // 
+            // label58
+            // 
+            this.label58.BackColor = System.Drawing.Color.Black;
+            this.label58.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label58.ForeColor = System.Drawing.Color.Black;
+            this.label58.Location = new System.Drawing.Point(37, 155);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(222, 31);
+            this.label58.TabIndex = 41;
+            // 
+            // label59
+            // 
+            this.label59.BackColor = System.Drawing.Color.White;
+            this.label59.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label59.ForeColor = System.Drawing.Color.Black;
+            this.label59.Location = new System.Drawing.Point(36, 154);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(224, 33);
+            this.label59.TabIndex = 42;
+            // 
+            // label60
+            // 
+            this.label60.ForeColor = System.Drawing.Color.White;
+            this.label60.Location = new System.Drawing.Point(0, 0);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(223, 37);
+            this.label60.TabIndex = 43;
+            this.label60.Text = "Choose whether to maintain or remove the color you\'ve chosen.";
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkedListBox1.ForeColor = System.Drawing.Color.White;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Maintain this color",
+            "Remove this color"});
+            this.checkedListBox1.Location = new System.Drawing.Point(1, 41);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(222, 32);
+            this.checkedListBox1.TabIndex = 44;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label62);
+            this.panel3.Controls.Add(this.label61);
+            this.panel3.Controls.Add(this.trackBar1);
+            this.panel3.Controls.Add(this.label60);
+            this.panel3.Controls.Add(this.checkedListBox1);
+            this.panel3.Controls.Add(this.label36);
+            this.panel3.Controls.Add(this.trackBar2);
+            this.panel3.Location = new System.Drawing.Point(38, 215);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(221, 249);
+            this.panel3.TabIndex = 45;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label61.ForeColor = System.Drawing.Color.White;
+            this.label61.Location = new System.Drawing.Point(3, 169);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(101, 15);
+            this.label61.TabIndex = 45;
+            this.label61.Text = "Adjust Opacity:";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.trackBar1.AutoSize = false;
+            this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.trackBar1.LargeChange = 1;
+            this.trackBar1.Location = new System.Drawing.Point(0, 212);
+            this.trackBar1.Maximum = 255;
+            this.trackBar1.Minimum = -255;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(222, 21);
+            this.trackBar1.TabIndex = 46;
+            // 
+            // label62
+            // 
+            this.label62.ForeColor = System.Drawing.Color.White;
+            this.label62.Location = new System.Drawing.Point(3, 186);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(218, 22);
+            this.label62.TabIndex = 47;
+            this.label62.Text = "(of the remaining colors)";
+            // 
             // imageEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2019,17 +2132,14 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            this.detailsColorSearch.ResumeLayout(false);
-            this.detailsColorSearch.PerformLayout();
+            this.detailsFindColor.ResumeLayout(false);
+            this.detailsFindColor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blueValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.redValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            this.detailsColorReplace.ResumeLayout(false);
             this.detailsFilters.ResumeLayout(false);
             this.detailsFilters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -2042,6 +2152,12 @@ namespace IMAVD___ImageInfo
             this.detailsInsert.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            this.detailsColorReplace.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2082,7 +2198,7 @@ namespace IMAVD___ImageInfo
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage detailsProperties;
         private System.Windows.Forms.TabPage detailsDimension;
-        private System.Windows.Forms.TabPage detailsColorSearch;
+        private System.Windows.Forms.TabPage detailsFindColor;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button1;
@@ -2134,8 +2250,6 @@ namespace IMAVD___ImageInfo
         private Label label34;
         private TabPage detailsTransform;
         private Label label35;
-        private TabPage detailsColorReplace;
-        private Label label36;
         private TabPage detailsInsert;
         private Label label37;
         private PictureBox pictureBox11;
@@ -2174,16 +2288,27 @@ namespace IMAVD___ImageInfo
         private PictureBox pictureBox8;
         private Label label48;
         private Label label47;
-        private Label label54;
-        private Button button2;
-        private TrackBar trackBar1;
-        private Label label62;
         private PictureBox pictureBox13;
         private Button button4;
         private Label label55;
         private PictureBox pictureBox14;
         private Button button5;
         private Button button6;
+        private TabPage detailsColorReplace;
+        private Label label56;
+        private Label label57;
+        private PictureBox pictureBox15;
+        private Label label54;
+        private TrackBar trackBar2;
+        private Label label36;
+        private Panel panel3;
+        private Label label62;
+        private Label label61;
+        private TrackBar trackBar1;
+        private Label label60;
+        private CheckedListBox checkedListBox1;
+        private Label label58;
+        private Label label59;
     }
 }
 
