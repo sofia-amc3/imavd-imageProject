@@ -28,7 +28,6 @@ namespace IMAVD___ImageInfo
         FileInfo OriginalImage_info;
         Bitmap OriginalImage;
         Bitmap CheckColorImage;
-        //bool IsColorFound;
         bool canSelectColor = false;
         int countPixels;
 
@@ -177,12 +176,6 @@ namespace IMAVD___ImageInfo
             label15.Text = "There are " + countPixels + " " + clr.Name + " pixels.";
         }
 
-        // Adjusts opacity value on pictureBox2 (preview)
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
         // Applies check color changes
         private void button2_Click(object sender, EventArgs e)
         {
@@ -242,25 +235,16 @@ namespace IMAVD___ImageInfo
                 Bitmap bitmap = new Bitmap(pictureBox1.Image, (int)Math.Round(imgWidth), (int)Math.Round(imgHeight));
                 Color colorPicked = bitmap.GetPixel(e.Location.X - (int) this.imgHorizontalMargin, e.Location.Y - (int)this.imgVerticalMargin);
 
-                setColorValues(colorPicked);
+                if(tabControl2.SelectedTab == detailsFindColor) setColorValues(colorPicked);
+                else if(tabControl2.SelectedTab == detailsColorReplace)
+                {
+                    label58.BackColor = colorPicked;
+                    replaceColor();
+                }
                 canSelectColor = false;
                 Cursor = Cursors.Default;
-
-                //bitmap = new Bitmap(pictureBox1.Image, pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height);
-                //pictureBox1.Image = bitmap;
-
-                //MessageBox.Show(e.X + "," + e.Y);
-
-                //colorPicked(colorPicked_);
-
-                /*CheckColorImage.SetPixel(e.X, e.Y, Color.FromArgb(255, 0, 0, 0));
-                CheckColorImage.SetPixel(e.X - 1, e.Y, Color.FromArgb(255, 0, 0, 0));
-                CheckColorImage.SetPixel(e.X, e.Y - 1, Color.FromArgb(255, 0, 0, 0));
-                CheckColorImage.SetPixel(e.X + 1, e.Y, Color.FromArgb(255, 0, 0, 0));
-                CheckColorImage.SetPixel(e.X, e.Y + 1, Color.FromArgb(255, 0, 0, 0));*/
             }
         }
-
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e) // Changes cursor only when its position is above the image
         {
@@ -275,7 +259,7 @@ namespace IMAVD___ImageInfo
             }
         }
 
-        private void pictureBox1_MouseLeave(object sender, EventArgs e) // Changes cursor only when its position is above the image
+        private void pictureBox1_MouseLeave(object sender, EventArgs e) // Changes cursor to default when it's not above the image
         {
             if (canSelectColor) return;
             
@@ -392,16 +376,18 @@ namespace IMAVD___ImageInfo
             colorSelected.BackColor = color; // Sets label background color to RGB color
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void pictureBox4_Click(object sender, EventArgs e) // Picks a color on the image
         {
             canSelectColor = true;
             Cursor = Cursors.Cross;
         }
 
-        /*private void removeChromakey()
+        private void replaceColor()
         {
-            Color color = label56.BackColor;
+            Color color = label58.BackColor;
+            bool removeColor = removeBtn.Checked;
             int threshold = trackBar2.Value;
+            int opacity = trackBar1.Value;
             Bitmap bitmap = new Bitmap(pictureBox1.Image);
 
             for (int i = 0; i < pictureBox1.Image.Height; i++)
@@ -410,19 +396,21 @@ namespace IMAVD___ImageInfo
                 {
                     // Checks if pixel color is inside the threshold's range
                     Color pixelColor = OriginalImage.GetPixel(j, i);
-                    bool red = pixelColor.R <= threshold,
-                         green = pixelColor.G >= 255 - threshold,
-                         blue = pixelColor.B <= threshold;
+                    bool red = color.R - threshold <= pixelColor.R && pixelColor.R <= color.R + threshold,
+                         green = color.G - threshold <= pixelColor.G && pixelColor.G <= color.G + threshold,
+                         blue = color.B - threshold <= pixelColor.B && pixelColor.B <= color.B + threshold,
+                         pixelInsideRange = red && green && blue;
                     int alpha = 255;
 
-                    if (red && green && blue) alpha = 0;
+                    if (pixelInsideRange && removeColor) alpha = opacity;
+                    else if (!pixelInsideRange && !removeColor) alpha = opacity;
 
                     bitmap.SetPixel(j, i, Color.FromArgb(alpha, pixelColor.R, pixelColor.G, pixelColor.B));
                 }
             }
 
             pictureBox1.Image = bitmap;
-        }*/
+        }
 
         private void invertClrBtn_Click(object sender, EventArgs e)
         {
@@ -475,7 +463,7 @@ namespace IMAVD___ImageInfo
 
         private void setBrightness()
         {
-            // Make the ColorMatrix.
+            // Makes the ColorMatrix.
             float b = (float)(brightnessSlider.Value + 255) / 255;
             ColorMatrix cm = new ColorMatrix(new float[][]
             {
@@ -488,7 +476,7 @@ namespace IMAVD___ImageInfo
             ImageAttributes attributes = new ImageAttributes();
             attributes.SetColorMatrix(cm);
 
-            // Draw the image onto the new bitmap while applying
+            // Draws the image onto the new bitmap while applying
             // the new ColorMatrix.
             Point[] points =
             {
@@ -498,7 +486,7 @@ namespace IMAVD___ImageInfo
             };
             Rectangle rect = new Rectangle(0, 0, OriginalImage.Width, OriginalImage.Height);
 
-            // Make the result bitmap.
+            // Makes the result bitmap.
             Bitmap bm = new Bitmap(OriginalImage.Width, OriginalImage.Height);
             using (Graphics gr = Graphics.FromImage(bm))
             {
@@ -506,7 +494,7 @@ namespace IMAVD___ImageInfo
                     GraphicsUnit.Pixel, attributes);
             }
 
-            // Return the result.
+            // Returns the result.
             pictureBox1.Image = bm;
         }
         
@@ -523,7 +511,6 @@ namespace IMAVD___ImageInfo
         }
 
         // Cuts the image in two triangles
-
         private void topCorner_Click(object sender, EventArgs e)
         {
             Bitmap img = new Bitmap(pictureBox1.Image);
@@ -684,6 +671,11 @@ namespace IMAVD___ImageInfo
             graphics.Dispose();
 
             pictureBox1.Image = bitmap;
+        }
+
+        private void updateReplaceColor(object sender, EventArgs e)
+        {
+            replaceColor();
         }
 
         private void button3_Click(object sender, EventArgs e)
