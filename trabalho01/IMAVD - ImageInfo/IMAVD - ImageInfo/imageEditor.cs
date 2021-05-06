@@ -265,7 +265,7 @@ namespace IMAVD___ImageInfo
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e) // Changes cursor only when its position is above the image
         {
             if (canSelectColor) return;
-
+            
             if (this.mouseIsHoverImage(e.Location.X, e.Location.Y))
             {
                 Cursor = Cursors.SizeAll;
@@ -273,6 +273,13 @@ namespace IMAVD___ImageInfo
             {
                 Cursor = Cursors.Default;
             }
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e) // Changes cursor only when its position is above the image
+        {
+            if (canSelectColor) return;
+            
+            Cursor = Cursors.Default;
         }
 
 
@@ -497,12 +504,12 @@ namespace IMAVD___ImageInfo
             Bitmap img = new Bitmap(pictureBox1.Image);
 
             // Função y = ax + b
-            float a = img.Height / img.Width, // y1 - y2 / x1 - x2 --> img.Height - 0 / img.Width - 0
+            float a = img.Height / (float) img.Width, // y1 - y2 / x1 - x2 --> img.Height - 0 / img.Width - 0
                   b = img.Height;
 
             for (int x = 0; x < img.Width; x++)
             {
-                int y = (int)Math.Round(a * x + b);
+                int y = (int)Math.Round(b - a * x);
 
                 for (int i = y; i < img.Height; i++)
                 {
@@ -518,12 +525,12 @@ namespace IMAVD___ImageInfo
             Bitmap img = new Bitmap(pictureBox1.Image);
 
             // Função y = ax + b
-            float a = img.Height / img.Width, // y1 - y2 / x1 - x2 --> img.Height - 0 / img.Width - 0
+            float a = img.Height / (float) img.Width, // y1 - y2 / x1 - x2 --> img.Height - 0 / img.Width - 0
                   b = img.Height;
 
             for (int x = 0; x < img.Width; x++)
             {
-                int y = (int)Math.Round(a * x + b);
+                int y = (int)Math.Round(b - a * x);
 
                 for (int i = 0; i < y; i++)
                 {
@@ -545,21 +552,21 @@ namespace IMAVD___ImageInfo
         private void fourAreas_topRight_Click(object sender, EventArgs e)
         {
             Image img = pictureBox1.Image;
-            Rectangle rect = new Rectangle(img.Width / 2, 0, img.Width, img.Height / 2);
+            Rectangle rect = new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2);
             this.cropImg(rect);
         }
 
         private void fourAreas_bottomLeft_Click(object sender, EventArgs e)
         {
             Image img = pictureBox1.Image;
-            Rectangle rect = new Rectangle(0, img.Height / 2, img.Width / 2, img.Height);
+            Rectangle rect = new Rectangle(0, img.Height / 2, img.Width / 2, img.Height / 2);
             this.cropImg(rect);
         }
 
         private void fourAreas_bottomRight_Click(object sender, EventArgs e)
         {
             Image img = pictureBox1.Image;
-            Rectangle rect = new Rectangle(img.Width / 2, img.Height / 2, img.Width, img.Height);
+            Rectangle rect = new Rectangle(img.Width / 2, img.Height / 2, img.Width / 2, img.Height / 2);
             this.cropImg(rect);
         }
 
@@ -574,7 +581,7 @@ namespace IMAVD___ImageInfo
         private void twoAreas_bottom_Click(object sender, EventArgs e)
         {
             Image img = pictureBox1.Image;
-            Rectangle rect = new Rectangle(0, img.Height / 2, img.Width, img.Height);
+            Rectangle rect = new Rectangle(0, img.Height / 2, img.Width, img.Height / 2);
             this.cropImg(rect);
         }
 
@@ -582,14 +589,31 @@ namespace IMAVD___ImageInfo
         {
             Bitmap newImg = new Bitmap(rectangle.Width, rectangle.Height);
             Graphics graphics = Graphics.FromImage(newImg);
-
-            Point ulCorner = new Point(rectangle.X, rectangle.Y),
-                  urCorner = new Point(rectangle.X + rectangle.Width, rectangle.Y),
-                  blCorner = new Point(rectangle.X, rectangle.Y + rectangle.Height);
-            Point[] desPoints = { ulCorner, urCorner, blCorner };
-
-            graphics.DrawImage(pictureBox1.Image, desPoints, rectangle, GraphicsUnit.Pixel);
+            graphics.DrawImage(pictureBox1.Image, new Rectangle(0, 0, rectangle.Width, rectangle.Height), rectangle, GraphicsUnit.Pixel);
             pictureBox1.Image = newImg;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Image originalImage = pictureBox1.Image;
+            int rows = (int) numericUpDown8.Value,
+                columns = (int) numericUpDown7.Value;
+            int imgWidth = originalImage.Width / columns,
+                imgHeight = originalImage.Height * imgWidth / originalImage.Width; // altura original -> width original, nova altura -> nova width
+            Bitmap newImage = new Bitmap(originalImage.Width, (int)imgHeight * rows);
+            Graphics imageMultiply = Graphics.FromImage(newImage);
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    // Retira-se o i e o j para a imagem não ficar com linhas (arredondamentos)
+                    imageMultiply.DrawImage(originalImage, j * imgWidth - j, i * imgHeight - i, imgWidth, imgHeight);
+                }
+            }
+
+            imageMultiply.Dispose();
+            pictureBox1.Image = newImage;
         }
 
         private void button3_Click(object sender, EventArgs e)
