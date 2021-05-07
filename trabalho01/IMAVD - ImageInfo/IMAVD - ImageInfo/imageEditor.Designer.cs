@@ -1091,7 +1091,7 @@ namespace IMAVD___ImageInfo
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(31, 452);
+            this.button6.Location = new System.Drawing.Point(30, 454);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(235, 32);
             this.button6.TabIndex = 53;
@@ -1104,7 +1104,7 @@ namespace IMAVD___ImageInfo
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label52.ForeColor = System.Drawing.Color.White;
-            this.label52.Location = new System.Drawing.Point(31, 414);
+            this.label52.Location = new System.Drawing.Point(30, 416);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(62, 15);
             this.label52.TabIndex = 59;
@@ -1114,7 +1114,7 @@ namespace IMAVD___ImageInfo
             // 
             this.numericUpDown7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.numericUpDown7.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown7.Location = new System.Drawing.Point(102, 412);
+            this.numericUpDown7.Location = new System.Drawing.Point(101, 414);
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(45, 21);
             this.numericUpDown7.TabIndex = 58;
@@ -1129,7 +1129,7 @@ namespace IMAVD___ImageInfo
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label53.ForeColor = System.Drawing.Color.White;
-            this.label53.Location = new System.Drawing.Point(31, 386);
+            this.label53.Location = new System.Drawing.Point(30, 388);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(40, 15);
             this.label53.TabIndex = 57;
@@ -1139,7 +1139,7 @@ namespace IMAVD___ImageInfo
             // 
             this.numericUpDown8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.numericUpDown8.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown8.Location = new System.Drawing.Point(102, 384);
+            this.numericUpDown8.Location = new System.Drawing.Point(101, 386);
             this.numericUpDown8.Name = "numericUpDown8";
             this.numericUpDown8.Size = new System.Drawing.Size(45, 21);
             this.numericUpDown8.TabIndex = 56;
@@ -1154,7 +1154,7 @@ namespace IMAVD___ImageInfo
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label51.ForeColor = System.Drawing.Color.White;
-            this.label51.Location = new System.Drawing.Point(30, 353);
+            this.label51.Location = new System.Drawing.Point(29, 355);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(72, 15);
             this.label51.TabIndex = 55;
@@ -1163,9 +1163,9 @@ namespace IMAVD___ImageInfo
             // label50
             // 
             this.label50.ForeColor = System.Drawing.Color.White;
-            this.label50.Location = new System.Drawing.Point(116, 289);
+            this.label50.Location = new System.Drawing.Point(123, 290);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(70, 20);
+            this.label50.Size = new System.Drawing.Size(50, 20);
             this.label50.TabIndex = 54;
             this.label50.Text = "Vertical";
             this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1173,7 +1173,7 @@ namespace IMAVD___ImageInfo
             // label49
             // 
             this.label49.ForeColor = System.Drawing.Color.White;
-            this.label49.Location = new System.Drawing.Point(27, 288);
+            this.label49.Location = new System.Drawing.Point(24, 289);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(70, 20);
             this.label49.TabIndex = 53;
@@ -1183,10 +1183,13 @@ namespace IMAVD___ImageInfo
             // pictureBox12
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.White;
+            this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
+            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox12.Location = new System.Drawing.Point(128, 238);
+            this.pictureBox12.Location = new System.Drawing.Point(123, 237);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox12.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox12.TabIndex = 52;
             this.pictureBox12.TabStop = false;
             this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
@@ -1194,10 +1197,13 @@ namespace IMAVD___ImageInfo
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.White;
+            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox8.Location = new System.Drawing.Point(38, 237);
+            this.pictureBox8.Location = new System.Drawing.Point(33, 236);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox8.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 51;
             this.pictureBox8.TabStop = false;
             this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
@@ -1216,7 +1222,7 @@ namespace IMAVD___ImageInfo
             // label47
             // 
             this.label47.ForeColor = System.Drawing.Color.White;
-            this.label47.Location = new System.Drawing.Point(85, 127);
+            this.label47.Location = new System.Drawing.Point(90, 124);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(61, 20);
             this.label47.TabIndex = 49;
@@ -1227,7 +1233,7 @@ namespace IMAVD___ImageInfo
             // 
             this.numericUpDown6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.numericUpDown6.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown6.Location = new System.Drawing.Point(30, 129);
+            this.numericUpDown6.Location = new System.Drawing.Point(35, 126);
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(53, 21);
             this.numericUpDown6.TabIndex = 48;
