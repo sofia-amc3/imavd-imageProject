@@ -29,11 +29,14 @@ namespace IMAVD___ImageInfo
         Bitmap OriginalImage;
         Bitmap CheckColorImage;
         bool canSelectColor = false;
+        bool mouseOverTL, mouseOverTR, mouseOverBL, mouseOverBR;
         int countPixels;
-
         float imgScale = 0,
               imgVerticalMargin = 0,
               imgHorizontalMargin = 0;
+        Point mouseDownLocation;
+        Size cropRectOriginalSize = new Size(332, 237);
+
 
         public List<Control> GetControls(Control control, Type type)
         {
@@ -46,12 +49,8 @@ namespace IMAVD___ImageInfo
 
         private void InitializeFont()
         {
-            //Create your private font collection object.
             PrivateFontCollection pfc = new PrivateFontCollection();
 
-            //Select your font from the resources.
-            //My font here is "Digireu.ttf"
-            // int fontLength = Properties.Resources.Digireu.Length;
             int[] fontsLength =
             {
                 Properties.Resources.Montserrat_Regular.Length,
@@ -248,6 +247,7 @@ namespace IMAVD___ImageInfo
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e) // Changes cursor only when its position is above the image
         {
+            /*
             if (canSelectColor) return;
             
             if (this.mouseIsHoverImage(e.Location.X, e.Location.Y))
@@ -257,6 +257,7 @@ namespace IMAVD___ImageInfo
             {
                 Cursor = Cursors.Default;
             }
+            */
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e) // Changes cursor to default when it's not above the image
@@ -302,10 +303,10 @@ namespace IMAVD___ImageInfo
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        // Zoom
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) 
         {
             int zoomValue = Int32.Parse(comboBox1.SelectedItem.ToString().Replace('%', ' ').Trim());  // Converts string to int
-
             Bitmap tempBitmap = new Bitmap(pictureBox1.Image, pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height);
 
             // Set the resolution of the bitmap to match the original resolution.
@@ -596,13 +597,109 @@ namespace IMAVD___ImageInfo
             Rectangle rect = new Rectangle(0, img.Height / 2, img.Width, img.Height / 2);
             this.cropImg(rect);
         }
-
         private void cropImg(Rectangle rectangle)
         {
             Bitmap newImg = new Bitmap(rectangle.Width, rectangle.Height);
             Graphics graphics = Graphics.FromImage(newImg);
             graphics.DrawImage(pictureBox1.Image, new Rectangle(0, 0, rectangle.Width, rectangle.Height), rectangle, GraphicsUnit.Pixel);
             pictureBox1.Image = newImg;
+        }
+
+        private void button3_Click(object sender, EventArgs e) // Crop Image
+        {
+            if (button3.Text.Equals("CROP"))
+            {
+                button3.Text = "DONE";
+                cropRect.Visible = true;
+            }
+            else button3.Text = "CROP";
+        }
+
+        private bool pointsAreClose(Point p1, Point p2)
+        {
+            return Math.Abs(p1.X - p2.X) <= 5 && Math.Abs(p1.Y - p2.Y) <= 5;
+        }
+
+        private void cropRect_MouseDown(object sender, MouseEventArgs e)
+        {
+            Point mousePos = new Point(e.Location.X, e.Location.Y),
+                  cropRectTL = new Point(0, 0),
+                  cropRectTR = new Point(cropRect.Width, 0),
+                  cropRectBL = new Point(0, cropRect.Height),
+                  cropRectBR = new Point(cropRect.Width, cropRect.Height);
+
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                mouseOverTL = pointsAreClose(mousePos, cropRectTL);
+                mouseOverTR = pointsAreClose(mousePos, cropRectTR);
+                mouseOverBL = pointsAreClose(mousePos, cropRectBL);
+                mouseOverBR = pointsAreClose(mousePos, cropRectBR);
+                mouseDownLocation = e.Location;
+            }
+        }
+
+        private void cropRect_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                if (mouseOverTL)
+                {
+
+                }
+                else if (mouseOverTR)
+                {
+
+                }
+                else if (mouseOverBL)
+                {
+
+                }
+                else if (mouseOverBR)
+                {
+                    int width = cropRectOriginalSize.Width + e.X - mouseDownLocation.X,
+                        height = cropRectOriginalSize.Height + e.Y - mouseDownLocation.Y;
+                    cropRect.Size = new Size(width, height);
+                }
+                else
+                {
+                    int nextXPos = cropRect.Left + e.X - mouseDownLocation.X,
+                        nextYPos = cropRect.Top + e.Y - mouseDownLocation.Y;
+
+                    if (nextXPos < imgHorizontalMargin) cropRect.Left = (int) imgHorizontalMargin;
+                    else if (nextXPos + cropRect.Width > panel5.Width - imgHorizontalMargin) cropRect.Left = panel5.Width - (int)imgHorizontalMargin - cropRect.Width;
+                    else cropRect.Left += e.X - mouseDownLocation.X;
+
+                    if (nextYPos < imgVerticalMargin) cropRect.Top = (int)imgVerticalMargin;
+                    else if (nextYPos + cropRect.Height > panel5.Height - imgVerticalMargin) cropRect.Top = panel5.Height - (int)imgVerticalMargin - cropRect.Height;
+                    else cropRect.Top += e.Y - mouseDownLocation.Y;
+                }
+
+                return;
+            }
+
+            Point mousePos = new Point(e.Location.X, e.Location.Y),
+                  cropRectTL = new Point(0, 0),
+                  cropRectTR = new Point(cropRect.Width, 0),
+                  cropRectBL = new Point(0, cropRect.Height),
+                  cropRectBR = new Point(cropRect.Width, cropRect.Height);
+
+            mouseOverTL = pointsAreClose(mousePos, cropRectTL);
+            mouseOverTR = pointsAreClose(mousePos, cropRectTR);
+            mouseOverBL = pointsAreClose(mousePos, cropRectBL);
+            mouseOverBR = pointsAreClose(mousePos, cropRectBR);
+
+            bool mouseOverAnchorNWSE = mouseOverTL || mouseOverBR,
+                 mouseOverAnchorNESW = mouseOverBL || mouseOverTR;
+
+            if (mouseOverAnchorNWSE) Cursor = Cursors.SizeNWSE;
+            else if (mouseOverAnchorNESW) Cursor = Cursors.SizeNESW;
+            else Cursor = Cursors.SizeAll;
+        }
+
+        private void cropRect_MouseUp(object sender, MouseEventArgs e)
+        {
+            //cropRectOriginalSize.Width = cropRect.Width;
+            //cropRectOriginalSize.Height = cropRect.Height;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -678,10 +775,42 @@ namespace IMAVD___ImageInfo
             replaceColor();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        
+
+        private void panel5_MouseMove(object sender, MouseEventArgs e)
         {
-            if (button3.Text.Equals("CROP")) button3.Text = "DONE";
-            else button3.Text = "CROP";
+            
+        }
+
+        private void panel5_MouseDown(object sender, MouseEventArgs e)
+        {
+            /*
+            if (pointsAreClose(mousePos, cropRectTL))
+            else if (pointsAreClose(mousePos, cropRectTR))
+            else if (pointsAreClose(mousePos, cropRectBL)
+            else if (pointsAreClose(mousePos, cropRectBR))
+            else if ()
+                                */
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) // ---------------------------------------------------------------------------------------------------
+        {
+            int imgWidth = (int)pictureBox1.Image.Width,
+                imgHeight = (int)pictureBox1.Image.Height;
+
+            numericUpDown4.Value = imgHeight;
+            numericUpDown5.Value = imgWidth;
+            numericUpDown4.Maximum = imgHeight;
+            numericUpDown5.Maximum = imgWidth;
+
+            if (checkBox1.Checked) // Maintains aspect ratio of the image
+            {
+                
+            } else // Resizes freely
+            {
+
+            }
+           
         }
 
         private void colorValue_ValueChanged(object sender, EventArgs e)
