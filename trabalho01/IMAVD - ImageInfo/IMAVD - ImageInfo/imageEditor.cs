@@ -217,7 +217,6 @@ namespace IMAVD___ImageInfo
             return false;
         }
 
-
         private void pictureBox1_Click(object sender, MouseEventArgs e)
         {
             if (pictureBox1.Image != null && canSelectColor)
@@ -243,21 +242,6 @@ namespace IMAVD___ImageInfo
                 canSelectColor = false;
                 Cursor = Cursors.Default;
             }
-        }
-
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e) // Changes cursor only when its position is above the image
-        {
-            /*
-            if (canSelectColor) return;
-            
-            if (this.mouseIsHoverImage(e.Location.X, e.Location.Y))
-            {
-                Cursor = Cursors.SizeAll;
-            } else
-            {
-                Cursor = Cursors.Default;
-            }
-            */
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e) // Changes cursor to default when it's not above the image
@@ -612,7 +596,20 @@ namespace IMAVD___ImageInfo
                 button3.Text = "DONE";
                 cropRect.Visible = true;
             }
-            else button3.Text = "CROP";
+            else
+            {
+                Rectangle cropArea = new Rectangle(cropRect.Left - (int)imgHorizontalMargin, cropRect.Top - (int)imgVerticalMargin, cropRect.Width, cropRect.Height);
+
+                button3.Text = "CROP";
+                cropRect.Visible = false;
+
+                cropArea.X = (int) (cropArea.X / imgScale);
+                cropArea.Y = (int)(cropArea.Y / imgScale);
+                cropArea.Width = (int)(cropArea.Width / imgScale);
+                cropArea.Height = (int)(cropArea.Height / imgScale);
+                cropImg(cropArea);
+                imgResize();
+            }
         }
 
         private bool pointsAreClose(Point p1, Point p2)
@@ -630,29 +627,40 @@ namespace IMAVD___ImageInfo
 
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
+                mouseDownLocation = e.Location;
+                
                 mouseOverTL = pointsAreClose(mousePos, cropRectTL);
                 mouseOverTR = pointsAreClose(mousePos, cropRectTR);
                 mouseOverBL = pointsAreClose(mousePos, cropRectBL);
                 mouseOverBR = pointsAreClose(mousePos, cropRectBR);
-                mouseDownLocation = e.Location;
             }
         }
 
-        private void cropRect_MouseMove(object sender, MouseEventArgs e)
+        private void cropRect_MouseMove(object sender, MouseEventArgs e) // FALTAM IF'S DAS MARGENS --------------------------------------------------------------------
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 if (mouseOverTL)
                 {
-
+                    int width = cropRect.Width - (e.X - mouseDownLocation.X),
+                        height = cropRect.Height - (e.Y - mouseDownLocation.Y);
+                    cropRect.Size = new Size(width, height);
+                    cropRect.Left += e.X - mouseDownLocation.X;
+                    cropRect.Top += e.Y - mouseDownLocation.Y;
                 }
                 else if (mouseOverTR)
                 {
-
+                    int width = cropRectOriginalSize.Width + e.X - mouseDownLocation.X,
+                        height = cropRect.Height - (e.Y - mouseDownLocation.Y);
+                    cropRect.Size = new Size(width, height);
+                    cropRect.Top += e.Y - mouseDownLocation.Y;
                 }
                 else if (mouseOverBL)
                 {
-
+                    int width = cropRect.Width - (e.X - mouseDownLocation.X),
+                        height = cropRectOriginalSize.Height + e.Y - mouseDownLocation.Y;
+                    cropRect.Size = new Size(width, height);
+                    cropRect.Left += e.X - mouseDownLocation.X;
                 }
                 else if (mouseOverBR)
                 {
@@ -674,6 +682,13 @@ namespace IMAVD___ImageInfo
                     else cropRect.Top += e.Y - mouseDownLocation.Y;
                 }
 
+                bool mouseOverAnchorNWSE = mouseOverTL || mouseOverBR,
+                     mouseOverAnchorNESW = mouseOverBL || mouseOverTR;
+
+                if (mouseOverAnchorNWSE) Cursor = Cursors.SizeNWSE;
+                else if (mouseOverAnchorNESW) Cursor = Cursors.SizeNESW;
+                else Cursor = Cursors.SizeAll;
+
                 return;
             }
 
@@ -683,24 +698,38 @@ namespace IMAVD___ImageInfo
                   cropRectBL = new Point(0, cropRect.Height),
                   cropRectBR = new Point(cropRect.Width, cropRect.Height);
 
-            mouseOverTL = pointsAreClose(mousePos, cropRectTL);
-            mouseOverTR = pointsAreClose(mousePos, cropRectTR);
-            mouseOverBL = pointsAreClose(mousePos, cropRectBL);
-            mouseOverBR = pointsAreClose(mousePos, cropRectBR);
+            bool mouseOverTL2 = pointsAreClose(mousePos, cropRectTL),
+                 mouseOverTR2 = pointsAreClose(mousePos, cropRectTR),
+                 mouseOverBL2 = pointsAreClose(mousePos, cropRectBL),
+                 mouseOverBR2 = pointsAreClose(mousePos, cropRectBR);
 
-            bool mouseOverAnchorNWSE = mouseOverTL || mouseOverBR,
-                 mouseOverAnchorNESW = mouseOverBL || mouseOverTR;
+            bool mouseOverAnchorNWSE2 = mouseOverTL2 || mouseOverBR2,
+                 mouseOverAnchorNESW2 = mouseOverBL2 || mouseOverTR2;
 
-            if (mouseOverAnchorNWSE) Cursor = Cursors.SizeNWSE;
-            else if (mouseOverAnchorNESW) Cursor = Cursors.SizeNESW;
+            if (mouseOverAnchorNWSE2) Cursor = Cursors.SizeNWSE;
+            else if (mouseOverAnchorNESW2) Cursor = Cursors.SizeNESW;
             else Cursor = Cursors.SizeAll;
         }
 
         private void cropRect_MouseUp(object sender, MouseEventArgs e)
         {
-            //cropRectOriginalSize.Width = cropRect.Width;
-            //cropRectOriginalSize.Height = cropRect.Height;
+            cropRectOriginalSize = new Size(cropRect.Width, cropRect.Height);
+            mouseOverTL = false;
+            mouseOverTR = false;
+            mouseOverBL = false;
+            mouseOverBR = false;
         }
+
+        private void numericUpDown5_ValueChanged(object sender, EventArgs e) // Width Resize
+        {
+
+        }
+
+        private void numericUpDown4_ValueChanged(object sender, EventArgs e) // Height Resize
+        {
+
+        }
+
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -775,25 +804,7 @@ namespace IMAVD___ImageInfo
             replaceColor();
         }
 
-        
-
-        private void panel5_MouseMove(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void panel5_MouseDown(object sender, MouseEventArgs e)
-        {
-            /*
-            if (pointsAreClose(mousePos, cropRectTL))
-            else if (pointsAreClose(mousePos, cropRectTR))
-            else if (pointsAreClose(mousePos, cropRectBL)
-            else if (pointsAreClose(mousePos, cropRectBR))
-            else if ()
-                                */
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e) // ---------------------------------------------------------------------------------------------------
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) // EXTRA -----------------------------------------------------------------------------------------
         {
             int imgWidth = (int)pictureBox1.Image.Width,
                 imgHeight = (int)pictureBox1.Image.Height;
@@ -809,8 +820,7 @@ namespace IMAVD___ImageInfo
             } else // Resizes freely
             {
 
-            }
-           
+            }          
         }
 
         private void colorValue_ValueChanged(object sender, EventArgs e)

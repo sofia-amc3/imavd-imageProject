@@ -33,14 +33,14 @@ namespace IMAVD___ImageInfo
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(imageEditor));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 3);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("", 4);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("", 5);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("", 6);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 7);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 0);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("", 1);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("", 2);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("", 3);
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("", 4);
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("", 5);
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("", 6);
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("", 7);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ldBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,7 +71,7 @@ namespace IMAVD___ImageInfo
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.cropRect = new System.Windows.Forms.Label();
+            this.cropRect = new System.Windows.Forms.PictureBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
@@ -196,6 +196,7 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cropRect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.tabControl2.SuspendLayout();
@@ -484,7 +485,6 @@ namespace IMAVD___ImageInfo
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_Click);
             this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 
             // tabControl1
             // 
@@ -587,18 +587,18 @@ namespace IMAVD___ImageInfo
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(922, 514);
             this.panel5.TabIndex = 53;
-            this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDown);
-            this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseMove);
             // 
             // cropRect
             // 
-            this.cropRect.BackColor = System.Drawing.Color.Transparent;
-            this.cropRect.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.cropRect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cropRect.Location = new System.Drawing.Point(286, 140);
+            this.cropRect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.cropRect.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.cropRect.Image = ((System.Drawing.Image)(resources.GetObject("cropRect.Image")));
+            this.cropRect.Location = new System.Drawing.Point(304, 139);
             this.cropRect.Name = "cropRect";
             this.cropRect.Size = new System.Drawing.Size(332, 237);
+            this.cropRect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cropRect.TabIndex = 6;
+            this.cropRect.TabStop = false;
             this.cropRect.Visible = false;
             this.cropRect.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cropRect_MouseDown);
             this.cropRect.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cropRect_MouseMove);
@@ -705,14 +705,14 @@ namespace IMAVD___ImageInfo
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16});
             this.listView1.LargeImageList = this.imageList1;
             this.listView1.Location = new System.Drawing.Point(28, 24);
             this.listView1.Name = "listView1";
@@ -851,6 +851,7 @@ namespace IMAVD___ImageInfo
             0,
             0,
             0});
+            this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
             // 
             // label41
             // 
@@ -886,6 +887,7 @@ namespace IMAVD___ImageInfo
             0,
             0,
             0});
+            this.numericUpDown5.ValueChanged += new System.EventHandler(this.numericUpDown5_ValueChanged);
             // 
             // label38
             // 
@@ -2167,6 +2169,7 @@ namespace IMAVD___ImageInfo
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cropRect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.tabControl2.ResumeLayout(false);
@@ -2379,7 +2382,7 @@ namespace IMAVD___ImageInfo
         private RadioButton maintainBtn;
         private RadioButton removeBtn;
         private Panel panel5;
-        private Label cropRect;
+        private PictureBox cropRect;
     }
 }
 
