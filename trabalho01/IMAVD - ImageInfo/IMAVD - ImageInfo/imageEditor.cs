@@ -141,6 +141,8 @@ namespace IMAVD___ImageInfo
             chckClrBtn.Enabled = true;
 
             this.imgResize();
+
+            cropRectImg();
         }
 
 
@@ -589,7 +591,33 @@ namespace IMAVD___ImageInfo
             pictureBox1.Image = newImg;
         }
 
-        private void button3_Click(object sender, EventArgs e) // Crop Image
+        private void cropRectImg() // Draws Crop Grid
+        { 
+            Bitmap img = new Bitmap(cropRect.Width, cropRect.Height);
+            Graphics graphics = Graphics.FromImage(img);
+
+            Color lineColor = Color.White;
+            int lineStroke = 5,
+                verticalSpacing = (int) ((cropRect.Height - (lineStroke * 2)) / 3f),
+                horizontalSpacing = (int)((cropRect.Width - (lineStroke * 2)) / 3f);
+
+            PointF[] points = {
+                new PointF(0, verticalSpacing + lineStroke), new PointF(cropRect.Width, verticalSpacing + lineStroke), // 1ª Linha Vertical
+                new PointF(0, 2 * verticalSpacing + lineStroke), new PointF(cropRect.Width, 2 * verticalSpacing + lineStroke), // 2ª Linha Vertical
+                new PointF(horizontalSpacing + lineStroke, 0), new PointF(horizontalSpacing + lineStroke, cropRect.Height), // 1ª Linha Horizontal
+                new PointF(2 * horizontalSpacing + lineStroke, 0), new PointF(2 * horizontalSpacing + lineStroke, cropRect.Height), // 2ª Linha Horizontal
+            };
+
+            Pen pen = new Pen(lineColor, lineStroke);
+
+            graphics.DrawRectangle(new Pen(Color.Black, 0), new Rectangle(0, 0, img.Width, img.Height));
+            img.MakeTransparent(Color.Black);
+            graphics.DrawLines(pen, points);
+
+            cropRect.Image = img;
+        }
+
+        private void button3_Click(object sender, EventArgs e) // Crop Image Button
         {
             if (button3.Text.Equals("CROP"))
             {
