@@ -71,6 +71,7 @@ namespace IMAVD___ImageInfo
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.cropRect = new System.Windows.Forms.PictureBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@ namespace IMAVD___ImageInfo
             this.detailsProperties = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.detailsDimension = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label40 = new System.Windows.Forms.Label();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.label41 = new System.Windows.Forms.Label();
@@ -188,7 +188,6 @@ namespace IMAVD___ImageInfo
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
-            this.cropRect = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -196,6 +195,7 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cropRect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.tabControl2.SuspendLayout();
@@ -246,7 +246,6 @@ namespace IMAVD___ImageInfo
             this.detailsInsert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cropRect)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -588,6 +587,22 @@ namespace IMAVD___ImageInfo
             this.panel5.Size = new System.Drawing.Size(922, 514);
             this.panel5.TabIndex = 53;
             // 
+            // cropRect
+            // 
+            this.cropRect.BackColor = System.Drawing.Color.Transparent;
+            this.cropRect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.cropRect.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.cropRect.Location = new System.Drawing.Point(284, 130);
+            this.cropRect.Name = "cropRect";
+            this.cropRect.Size = new System.Drawing.Size(332, 237);
+            this.cropRect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cropRect.TabIndex = 6;
+            this.cropRect.TabStop = false;
+            this.cropRect.Visible = false;
+            this.cropRect.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cropRect_MouseDown);
+            this.cropRect.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cropRect_MouseMove);
+            this.cropRect.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cropRect_MouseUp);
+            // 
             // label44
             // 
             this.label44.Location = new System.Drawing.Point(415, 615);
@@ -772,7 +787,6 @@ namespace IMAVD___ImageInfo
             // detailsDimension
             // 
             this.detailsDimension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.detailsDimension.Controls.Add(this.checkBox1);
             this.detailsDimension.Controls.Add(this.label40);
             this.detailsDimension.Controls.Add(this.numericUpDown4);
             this.detailsDimension.Controls.Add(this.label41);
@@ -789,24 +803,12 @@ namespace IMAVD___ImageInfo
             this.detailsDimension.TabIndex = 1;
             this.detailsDimension.Text = "tabPage4";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(32, 97);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(145, 19);
-            this.checkBox1.TabIndex = 49;
-            this.checkBox1.Text = "Maintain Aspect Ratio";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // label40
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label40.ForeColor = System.Drawing.Color.White;
-            this.label40.Location = new System.Drawing.Point(31, 325);
+            this.label40.Location = new System.Drawing.Point(31, 277);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(57, 15);
             this.label40.TabIndex = 48;
@@ -816,33 +818,23 @@ namespace IMAVD___ImageInfo
             // 
             this.numericUpDown4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.numericUpDown4.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown4.Location = new System.Drawing.Point(88, 323);
+            this.numericUpDown4.Location = new System.Drawing.Point(88, 275);
             this.numericUpDown4.Maximum = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
-            this.numericUpDown4.Minimum = new decimal(new int[] {
-            1,
+            5000,
             0,
             0,
             0});
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(78, 21);
             this.numericUpDown4.TabIndex = 47;
-            this.numericUpDown4.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
+            this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown5_ValueChanged);
             // 
             // label41
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label41.ForeColor = System.Drawing.Color.White;
-            this.label41.Location = new System.Drawing.Point(31, 297);
+            this.label41.Location = new System.Drawing.Point(31, 249);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(51, 15);
             this.label41.TabIndex = 46;
@@ -852,25 +844,15 @@ namespace IMAVD___ImageInfo
             // 
             this.numericUpDown5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.numericUpDown5.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown5.Location = new System.Drawing.Point(88, 295);
+            this.numericUpDown5.Location = new System.Drawing.Point(88, 247);
             this.numericUpDown5.Maximum = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
-            this.numericUpDown5.Minimum = new decimal(new int[] {
-            1,
+            5000,
             0,
             0,
             0});
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(78, 21);
             this.numericUpDown5.TabIndex = 45;
-            this.numericUpDown5.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numericUpDown5.ValueChanged += new System.EventHandler(this.numericUpDown5_ValueChanged);
             // 
             // label38
@@ -878,7 +860,7 @@ namespace IMAVD___ImageInfo
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(32, 258);
+            this.label38.Location = new System.Drawing.Point(32, 210);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(99, 15);
             this.label38.TabIndex = 25;
@@ -892,7 +874,7 @@ namespace IMAVD___ImageInfo
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(32, 183);
+            this.button3.Location = new System.Drawing.Point(32, 135);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(236, 32);
             this.button3.TabIndex = 24;
@@ -906,7 +888,7 @@ namespace IMAVD___ImageInfo
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(32, 146);
+            this.label39.Location = new System.Drawing.Point(32, 98);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(85, 15);
             this.label39.TabIndex = 11;
@@ -2130,22 +2112,6 @@ namespace IMAVD___ImageInfo
             this.label37.Text = "INSERT OBJECT";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cropRect
-            // 
-            this.cropRect.BackColor = System.Drawing.Color.Transparent;
-            this.cropRect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.cropRect.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.cropRect.Location = new System.Drawing.Point(284, 130);
-            this.cropRect.Name = "cropRect";
-            this.cropRect.Size = new System.Drawing.Size(332, 237);
-            this.cropRect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cropRect.TabIndex = 6;
-            this.cropRect.TabStop = false;
-            this.cropRect.Visible = false;
-            this.cropRect.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cropRect_MouseDown);
-            this.cropRect.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cropRect_MouseMove);
-            this.cropRect.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cropRect_MouseUp);
-            // 
             // imageEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2169,6 +2135,7 @@ namespace IMAVD___ImageInfo
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cropRect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.tabControl2.ResumeLayout(false);
@@ -2228,7 +2195,6 @@ namespace IMAVD___ImageInfo
             this.detailsInsert.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cropRect)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2341,7 +2307,6 @@ namespace IMAVD___ImageInfo
         private Label label41;
         private NumericUpDown numericUpDown5;
         private Label label38;
-        private CheckBox checkBox1;
         private Label label44;
         private Label label43;
         private Label label42;

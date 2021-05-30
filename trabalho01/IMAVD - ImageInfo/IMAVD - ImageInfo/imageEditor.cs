@@ -132,8 +132,14 @@ namespace IMAVD___ImageInfo
                     imgLoc.Location.Y + imgLoc.Height + 20
                 );
 
-                numericUpDown5.Maximum = pictureBox1.Image.Width;
-                numericUpDown4.Maximum = pictureBox1.Image.Height;
+                numericUpDown5.Minimum = 0;
+                numericUpDown4.Minimum = 0;
+                numericUpDown5.Value = 0;
+                numericUpDown4.Value = 0;
+                numericUpDown5.Value = pictureBox1.Image.Width;
+                numericUpDown4.Value = pictureBox1.Image.Height;
+                numericUpDown5.Minimum = 1;
+                numericUpDown4.Minimum = 1;
 
                 tabControl1.SelectedTab = tabPage2;
             }
@@ -598,21 +604,33 @@ namespace IMAVD___ImageInfo
 
             Color lineColor = Color.White;
             int lineStroke = 5,
+                cornerLineSize = 20,
                 verticalSpacing = (int) ((cropRect.Height - (lineStroke * 2)) / 3f),
                 horizontalSpacing = (int)((cropRect.Width - (lineStroke * 2)) / 3f);
 
-            PointF[] points = {
-                new PointF(0, verticalSpacing + lineStroke), new PointF(cropRect.Width, verticalSpacing + lineStroke), // 1ª Linha Vertical
-                new PointF(0, 2 * verticalSpacing + lineStroke), new PointF(cropRect.Width, 2 * verticalSpacing + lineStroke), // 2ª Linha Vertical
-                new PointF(horizontalSpacing + lineStroke, 0), new PointF(horizontalSpacing + lineStroke, cropRect.Height), // 1ª Linha Horizontal
-                new PointF(2 * horizontalSpacing + lineStroke, 0), new PointF(2 * horizontalSpacing + lineStroke, cropRect.Height), // 2ª Linha Horizontal
+            PointF[,] points = {
+                { new PointF(0, verticalSpacing + lineStroke), new PointF(cropRect.Width, verticalSpacing + lineStroke) }, // 1ª Linha Vertical
+                { new PointF(0, 2 * verticalSpacing + lineStroke), new PointF(cropRect.Width, 2 * verticalSpacing + lineStroke) }, // 2ª Linha Vertical
+                { new PointF(horizontalSpacing + lineStroke, 0), new PointF(horizontalSpacing + lineStroke, cropRect.Height) }, // 1ª Linha Horizontal
+                { new PointF(2 * horizontalSpacing + lineStroke, 0), new PointF(2 * horizontalSpacing + lineStroke, cropRect.Height) }, // 2ª Linha Horizontal
+                { new PointF(0, 0), new PointF(cornerLineSize, 0) },
+                { new PointF(0, 0), new PointF(0, cornerLineSize) },
+                { new PointF(cropRect.Width, 0), new PointF(cropRect.Width - cornerLineSize, 0) },
+                { new PointF(cropRect.Width, 0), new PointF(cropRect.Width, cornerLineSize) },
+                { new PointF(0, cropRect.Height), new PointF(cornerLineSize, cropRect.Height) },
+                { new PointF(0, cropRect.Height), new PointF(0, cropRect.Height - cornerLineSize) },
+                { new PointF(cropRect.Width, cropRect.Height), new PointF(cropRect.Width - cornerLineSize, cropRect.Height) },
+                { new PointF(cropRect.Width, cropRect.Height), new PointF(cropRect.Width, cropRect.Height - cornerLineSize) }
             };
 
             Pen pen = new Pen(lineColor, lineStroke);
 
-            graphics.DrawRectangle(new Pen(Color.Black, 0), new Rectangle(0, 0, img.Width, img.Height));
-            img.MakeTransparent(Color.Black);
-            graphics.DrawLines(pen, points);
+            for(int i = 0; i < points.GetLength(0); i++)
+            {
+                graphics.DrawLine(pen, points[i, 0], points[i, 1]);
+            }
+
+            graphics.Dispose();
 
             cropRect.Image = img;
         }
@@ -664,36 +682,71 @@ namespace IMAVD___ImageInfo
             }
         }
 
-        private void cropRect_MouseMove(object sender, MouseEventArgs e) // FALTAM IF'S DAS MARGENS --------------------------------------------------------------------
+        private void cropRect_MouseMove(object sender, MouseEventArgs e) 
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 if (mouseOverTL)
                 {
                     int width = cropRect.Width - (e.X - mouseDownLocation.X),
-                        height = cropRect.Height - (e.Y - mouseDownLocation.Y);
+                        height = cropRect.Height - (e.Y - mouseDownLocation.Y),
+                        x = cropRect.Left + e.X - mouseDownLocation.X,
+                        y = cropRect.Top + e.Y - mouseDownLocation.Y;
+
+                    if(x < imgHorizontalMargin) 
+                    {
+                        width -= (int)imgHorizontalMargin - x;
+                        x = (int)imgHorizontalMargin;
+                    }
+                    if(y < imgVerticalMargin) 
+                    {
+                        height -= (int)imgVerticalMargin - y;
+                        y = (int)imgVerticalMargin;
+                    }
+
                     cropRect.Size = new Size(width, height);
-                    cropRect.Left += e.X - mouseDownLocation.X;
-                    cropRect.Top += e.Y - mouseDownLocation.Y;
+                    cropRect.Left = x;
+                    cropRect.Top = y;
                 }
                 else if (mouseOverTR)
                 {
                     int width = cropRectOriginalSize.Width + e.X - mouseDownLocation.X,
-                        height = cropRect.Height - (e.Y - mouseDownLocation.Y);
+                        height = cropRect.Height - (e.Y - mouseDownLocation.Y),
+                        y = cropRect.Top + e.Y - mouseDownLocation.Y;
+
+                    if (cropRect.Left + width > panel5.Width - imgHorizontalMargin) width = panel5.Width - (int)imgHorizontalMargin - cropRect.Left;
+                    if (y < imgVerticalMargin)
+                    {
+                        height -= (int)imgVerticalMargin - y;
+                        y = (int)imgVerticalMargin;
+                    }
+
                     cropRect.Size = new Size(width, height);
-                    cropRect.Top += e.Y - mouseDownLocation.Y;
+                    cropRect.Top = y;
                 }
                 else if (mouseOverBL)
                 {
                     int width = cropRect.Width - (e.X - mouseDownLocation.X),
-                        height = cropRectOriginalSize.Height + e.Y - mouseDownLocation.Y;
+                        height = cropRectOriginalSize.Height + e.Y - mouseDownLocation.Y,
+                        x = cropRect.Left + e.X - mouseDownLocation.X;
+
+                    if (cropRect.Top + height > panel5.Height - imgVerticalMargin) height = panel5.Height - (int)imgVerticalMargin - cropRect.Top;
+                    if (x < imgHorizontalMargin)
+                    {
+                        width -= (int)imgHorizontalMargin - x;
+                        x = (int)imgHorizontalMargin;
+                    }
+
                     cropRect.Size = new Size(width, height);
-                    cropRect.Left += e.X - mouseDownLocation.X;
+                    cropRect.Left = x;
                 }
                 else if (mouseOverBR)
                 {
                     int width = cropRectOriginalSize.Width + e.X - mouseDownLocation.X,
                         height = cropRectOriginalSize.Height + e.Y - mouseDownLocation.Y;
+
+                    if (cropRect.Left + width > panel5.Width - imgHorizontalMargin) width = panel5.Width - (int)imgHorizontalMargin - cropRect.Left;
+                    if (cropRect.Top + height > panel5.Height - imgVerticalMargin) height = panel5.Height - (int)imgVerticalMargin - cropRect.Top;
                     cropRect.Size = new Size(width, height);
                 }
                 else
@@ -748,16 +801,15 @@ namespace IMAVD___ImageInfo
             mouseOverBR = false;
         }
 
-        private void numericUpDown5_ValueChanged(object sender, EventArgs e) // Width Resize
+        private void numericUpDown5_ValueChanged(object sender, EventArgs e) // Resize
         {
+            if (numericUpDown5.Value == 0 || numericUpDown4.Value == 0) return;
 
+            Size size = new Size((int)numericUpDown5.Value, (int)numericUpDown4.Value); // numericUpDown5.Value = width, numericUpDown4.Value = height 
+            Bitmap resizedImg = new Bitmap(pictureBox1.Image, size);
+
+            pictureBox1.Image = resizedImg;
         }
-
-        private void numericUpDown4_ValueChanged(object sender, EventArgs e) // Height Resize
-        {
-
-        }
-
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -830,25 +882,6 @@ namespace IMAVD___ImageInfo
         private void updateReplaceColor(object sender, EventArgs e)
         {
             replaceColor();
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e) // EXTRA -----------------------------------------------------------------------------------------
-        {
-            int imgWidth = (int)pictureBox1.Image.Width,
-                imgHeight = (int)pictureBox1.Image.Height;
-
-            numericUpDown4.Value = imgHeight;
-            numericUpDown5.Value = imgWidth;
-            numericUpDown4.Maximum = imgHeight;
-            numericUpDown5.Maximum = imgWidth;
-
-            if (checkBox1.Checked) // Maintains aspect ratio of the image
-            {
-                
-            } else // Resizes freely
-            {
-
-            }          
         }
 
         private void colorValue_ValueChanged(object sender, EventArgs e)
