@@ -298,7 +298,7 @@ namespace IMAVD___ImageInfo
         // Zoom
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) 
         {
-            int zoomValue = Int32.Parse(comboBox1.SelectedItem.ToString().Replace('%', ' ').Trim());  // Converts string to int
+            int zoomValue = Int32.Parse(zoomDropDown.SelectedItem.ToString().Replace('%', ' ').Trim());  // Converts string to int
             Bitmap tempBitmap = new Bitmap(pictureBox1.Image, pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height);
 
             // Set the resolution of the bitmap to match the original resolution.
@@ -319,7 +319,7 @@ namespace IMAVD___ImageInfo
             // Draws the original image on the temporary bitmap, resizing it using
             // the calculated values of targetWidth and targetHeight.
 
-            int HorizLeft = (int)(OriginalImage.Width / 2) - (int)((OriginalImage.Width / 2) / (zoomValue / 100));
+            int HorizLeft = (int)(OriginalImage.Width / 2) - (int)((OriginalImage.Width / 2) / (zoomValue / 100)); 
             int VertiTop = (int)(OriginalImage.Height / 2) - (int)((OriginalImage.Height / 2) / (zoomValue / 100));
 
 
@@ -454,17 +454,18 @@ namespace IMAVD___ImageInfo
             }
         }
 
-        private void setBrightness()
+        private void setBrightnessContrast()
         {
             // Makes the ColorMatrix.
             float b = (float)(brightnessSlider.Value + 255) / 255;
+            float c = (float)(contrastSlider.Value * 255) / 100 / 255;
             ColorMatrix cm = new ColorMatrix(new float[][]
             {
-            new float[] {b, 0, 0, 0, 0},
-            new float[] {0, b, 0, 0, 0},
-            new float[] {0, 0, b, 0, 0},
+            new float[] {c, 0, 0, 0, 0},
+            new float[] {0, c, 0, 0, 0},
+            new float[] {0, 0, c, 0, 0},
             new float[] {0, 0, 0, 1, 0},
-            new float[] {0, 0, 0, 0, 1},
+            new float[] {b, b, b, 0, 1},
             });
             ImageAttributes attributes = new ImageAttributes();
             attributes.SetColorMatrix(cm);
@@ -494,13 +495,25 @@ namespace IMAVD___ImageInfo
         private void brightnessSlider_Scroll(object sender, EventArgs e)
         {
             brightnessValue.Value = brightnessSlider.Value;
-            setBrightness();
+            setBrightnessContrast();
         }
 
         private void brightnessValue_ValueChanged(object sender, EventArgs e)
         {
             brightnessSlider.Value = (int) brightnessValue.Value;
-            setBrightness();
+            setBrightnessContrast();
+        }
+
+        private void contrastSlider_Scroll(object sender, EventArgs e)
+        {
+            contrastValue.Value = contrastSlider.Value;
+            setBrightnessContrast();
+        }
+
+        private void contrastValue_ValueChanged(object sender, EventArgs e)
+        {
+            contrastSlider.Value = (int)contrastValue.Value;
+            setBrightnessContrast();
         }
 
         // Cuts the image in two triangles
@@ -832,6 +845,11 @@ namespace IMAVD___ImageInfo
 
             imageMultiply.Dispose();
             pictureBox1.Image = newImage;
+        }
+
+        private void imageEditor_Load(object sender, EventArgs e)
+        {
+            zoomDropDown.SelectedItem = 1;
         }
 
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)

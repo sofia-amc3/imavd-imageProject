@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj": {}
+    "C:\\Users\\tomas\\ISEP\\2oSemestre\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj": {}
   },
   "projects": {
-    "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj": {
+    "C:\\Users\\tomas\\ISEP\\2oSemestre\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj",
+        "projectUniqueName": "C:\\Users\\tomas\\ISEP\\2oSemestre\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj",
         "projectName": "IMAVD - ImageInfo",
-        "projectPath": "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj",
-        "packagesPath": "C:\\Users\\SAP-PSC6-G7\\.nuget\\packages\\",
-        "outputPath": "D:\\01. Work\\01. University - ISEP (MEI)\\01. Pré-Requisitos\\09. Imagem, Áudio e Vídeo Digital\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\obj\\",
+        "projectPath": "C:\\Users\\tomas\\ISEP\\2oSemestre\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\IMAVD - ImageInfo.csproj",
+        "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomas\\ISEP\\2oSemestre\\imavd-trabalhoGrupo\\trabalho01\\IMAVD - ImageInfo\\IMAVD - ImageInfo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SAP-PSC6-G7\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
