@@ -26,7 +26,7 @@ namespace IMAVD___ImageInfo
         }
 
         FileInfo OriginalImage_info;
-        Bitmap OriginalImage;
+        Bitmap OriginalImage, previousImage;
         Bitmap CheckColorImage;
         bool canSelectColor = false;
         bool mouseOverTL, mouseOverTR, mouseOverBL, mouseOverBR;
@@ -147,6 +147,8 @@ namespace IMAVD___ImageInfo
             chckClrBtn.Enabled = true;
 
             this.imgResize();
+
+            previousImage = new Bitmap(OriginalImage);
 
             cropRectImg();
         }
@@ -294,17 +296,17 @@ namespace IMAVD___ImageInfo
                 }
             }
         }
-
+        
         // Zoom
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) 
         {
             int zoomValue = Int32.Parse(zoomDropDown.SelectedItem.ToString().Replace('%', ' ').Trim());  // Converts string to int
-            Bitmap tempBitmap = new Bitmap(pictureBox1.Image, pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height);
+            Bitmap tempBitmap = new Bitmap(pictureBox1.Image, pictureBox1.Image.Width, pictureBox1.Image.Height);
 
             // Set the resolution of the bitmap to match the original resolution.
-
+            /*
             tempBitmap.SetResolution(OriginalImage.HorizontalResolution,
-                                     OriginalImage.VerticalResolution);
+                                     OriginalImage.VerticalResolution);*/
 
             // Create a Graphics object to further edit the temporary bitmap
 
@@ -319,16 +321,8 @@ namespace IMAVD___ImageInfo
             // Draws the original image on the temporary bitmap, resizing it using
             // the calculated values of targetWidth and targetHeight.
 
-            int HorizLeft = (int)(OriginalImage.Width / 2) - (int)((OriginalImage.Width / 2) / (zoomValue / 100)); 
-            int VertiTop = (int)(OriginalImage.Height / 2) - (int)((OriginalImage.Height / 2) / (zoomValue / 100));
-
-
-            int HorizRight = (int)(OriginalImage.Width / 2) + (int)((OriginalImage.Width / 2) / (zoomValue / 100));
-            int VertiBottom = (int)(OriginalImage.Height / 2) + (int)((OriginalImage.Height / 2) / (zoomValue / 100));
-
-
             bmGraphics.DrawImage(OriginalImage,
-                                 new Rectangle(0, 0, (int)(pictureBox1.ClientSize.Width * (zoomValue / 100)), (int)(pictureBox1.ClientSize.Height * (zoomValue / 100))),
+                                 new Rectangle(0, 0, (int)(pictureBox1.Image.Width * zoomValue / 100), (int)(pictureBox1.Image.Height * zoomValue / 100)),
                                  new Rectangle(0, 0, OriginalImage.Width, OriginalImage.Height),
                                  GraphicsUnit.Pixel);
 
@@ -457,8 +451,8 @@ namespace IMAVD___ImageInfo
         private void setBrightnessContrast()
         {
             // Makes the ColorMatrix.
-            float b = (float)(brightnessSlider.Value + 255) / 255;
-            float c = (float)(contrastSlider.Value * 255) / 100 / 255;
+            float b = (float)((brightnessSlider.Value + 255) / 255);
+            float c = (float)((contrastSlider.Value + 100) * 255 / 100 / 255);
             ColorMatrix cm = new ColorMatrix(new float[][]
             {
             new float[] {c, 0, 0, 0, 0},
@@ -468,8 +462,9 @@ namespace IMAVD___ImageInfo
             new float[] {b, b, b, 0, 1},
             });
             ImageAttributes attributes = new ImageAttributes();
-            attributes.SetColorMatrix(cm);
-
+            attributes.ClearColorMatrix();
+            attributes.SetColorMatrix(cm, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+            /*
             // Draws the image onto the new bitmap while applying
             // the new ColorMatrix.
             Point[] points =
@@ -477,16 +472,22 @@ namespace IMAVD___ImageInfo
             new Point(0, 0),
             new Point(OriginalImage.Width, 0),
             new Point(0, OriginalImage.Height),
-            };
+            };    
             Rectangle rect = new Rectangle(0, 0, OriginalImage.Width, OriginalImage.Height);
 
             // Makes the result bitmap.
-            Bitmap bm = new Bitmap(OriginalImage.Width, OriginalImage.Height);
+            Bitmap bm = new Bitmap(OriginalImage);
             using (Graphics gr = Graphics.FromImage(bm))
             {
                 gr.DrawImage(OriginalImage, points, rect,
                     GraphicsUnit.Pixel, attributes);
-            }
+            }*/
+
+            Bitmap bm = new Bitmap(OriginalImage);
+            Graphics g = Graphics.FromImage(bm);
+            g.DrawImage(OriginalImage, new Rectangle(0, 0, pictureBox1.Image.Width, pictureBox1.Image.Height)
+                , 0, 0, OriginalImage.Width, OriginalImage.Height,
+                GraphicsUnit.Pixel, attributes);
 
             // Returns the result.
             pictureBox1.Image = bm;
@@ -824,11 +825,25 @@ namespace IMAVD___ImageInfo
             pictureBox1.Image = resizedImg;
         }
 
+        private void undoBtn_Click(object sender, EventArgs e)
+        {
+            Bitmap TempImage;
+            TempImage = new Bitmap(OriginalImage);
+            OriginalImage = new Bitmap(previousImage);
+            pictureBox1.Image = new Bitmap(TempImage);
+        }
+
+        private void pictureBox1_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            previousImage = new Bitmap(OriginalImage);
+            OriginalImage = new Bitmap(pictureBox1.Image);
+        }
+
         private void button6_Click(object sender, EventArgs e)
         {
             Image originalImage = pictureBox1.Image;
-            int rows = (int) numericUpDown8.Value,
-                columns = (int) numericUpDown7.Value;
+            int rows = (int)numericUpDown8.Value,
+                columns = (int)numericUpDown7.Value;
             int imgWidth = originalImage.Width / columns,
                 imgHeight = originalImage.Height * imgWidth / originalImage.Width; // altura original -> width original, nova altura -> nova width
             Bitmap newImage = new Bitmap(originalImage.Width, (int)imgHeight * rows);
@@ -845,11 +860,6 @@ namespace IMAVD___ImageInfo
 
             imageMultiply.Dispose();
             pictureBox1.Image = newImage;
-        }
-
-        private void imageEditor_Load(object sender, EventArgs e)
-        {
-            zoomDropDown.SelectedItem = 1;
         }
 
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
@@ -907,56 +917,5 @@ namespace IMAVD___ImageInfo
             Color color = Color.FromArgb(255, (int) redValue.Value, (int) greenValue.Value, (int) blueValue.Value);
             colorSelected.BackColor = color;
         }
-
-
-        /*private void zoomValue_Enter(object sender, EventArgs e)
-        {
-            if (zoomValue.Value < 50)
-            {
-                zoomValue.Value = 50;
-            }
-            if (zoomValue.Value > 500)
-            {
-                zoomValue.Value = 500;
-            }
-
-            Bitmap tempBitmap = new Bitmap(pictureBox1.Image, pictureBox1.ClientSize.Width, pictureBox1.ClientSize.Height);
-
-            // Set the resolution of the bitmap to match the original resolution.
-
-            tempBitmap.SetResolution(OriginalImage.HorizontalResolution,
-                                     OriginalImage.VerticalResolution);
-
-            // Create a Graphics object to further edit the temporary bitmap
-
-            Graphics bmGraphics = Graphics.FromImage(tempBitmap);
-
-            // First clear the image with the current backcolor
-
-            //bmGraphics.Clear(_BackColor);
-
-            // Set the interpolationmode since we are resizing an image here
-
-            bmGraphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-
-            // Draw the original image on the temporary bitmap, resizing it using
-
-            // the calculated values of targetWidth and targetHeight.
-
-            int HorizLeft = (int)(OriginalImage.Width / 2) - ((int)(OriginalImage.Width / 2) / (int)(zoomValue.Value / 100));
-            int VertiTop = (int)(OriginalImage.Height / 2) - ((int)(OriginalImage.Width / 2) / (int)(zoomValue.Value / 100));
-
-
-            int HorizRight = (int)(OriginalImage.Width / 2) + ((int)(OriginalImage.Width / 2) / (int)(zoomValue.Value / 100));
-            int VertiBottom = (int)(OriginalImage.Height / 2) + ((int)(OriginalImage.Width / 2) / (int)(zoomValue.Value / 100));
-
-
-            bmGraphics.DrawImage(OriginalImage,
-                                 new Rectangle(HorizLeft, VertiTop, HorizRight, VertiBottom),
-                                 new Rectangle(0, 0, OriginalImage.Width, OriginalImage.Height),
-                                 GraphicsUnit.Pixel);
-
-            pictureBox2.Refresh();
-        }*/
     }
 }
