@@ -33,14 +33,14 @@ namespace IMAVD___ImageInfo
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(imageEditor));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("", 0);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("", 1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("", 2);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("", 3);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("", 4);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("", 5);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("", 6);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("", 7);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("", 0);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("", 1);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("", 2);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("", 3);
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("", 4);
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("", 5);
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("", 6);
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("", 7);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ldBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -160,12 +160,7 @@ namespace IMAVD___ImageInfo
             this.label54 = new System.Windows.Forms.Label();
             this.detailsFilters = new System.Windows.Forms.TabPage();
             this.label55 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label31 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label32 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.gammaValue = new System.Windows.Forms.NumericUpDown();
             this.label33 = new System.Windows.Forms.Label();
             this.contrastValue = new System.Windows.Forms.NumericUpDown();
             this.brightnessValue = new System.Windows.Forms.NumericUpDown();
@@ -187,6 +182,7 @@ namespace IMAVD___ImageInfo
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
+            this.gammaSlider = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -234,9 +230,7 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.detailsFilters.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gammaValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contrastValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brightnessValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contrastSlider)).BeginInit();
@@ -244,6 +238,7 @@ namespace IMAVD___ImageInfo
             this.detailsInsert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gammaSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -690,14 +685,14 @@ namespace IMAVD___ImageInfo
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16});
             this.listView1.LargeImageList = this.imageList1;
             this.listView1.Location = new System.Drawing.Point(28, 24);
             this.listView1.Name = "listView1";
@@ -1673,13 +1668,9 @@ namespace IMAVD___ImageInfo
             // detailsFilters
             // 
             this.detailsFilters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.detailsFilters.Controls.Add(this.gammaSlider);
             this.detailsFilters.Controls.Add(this.label55);
-            this.detailsFilters.Controls.Add(this.label29);
-            this.detailsFilters.Controls.Add(this.numericUpDown1);
-            this.detailsFilters.Controls.Add(this.label31);
-            this.detailsFilters.Controls.Add(this.numericUpDown2);
-            this.detailsFilters.Controls.Add(this.label32);
-            this.detailsFilters.Controls.Add(this.numericUpDown3);
+            this.detailsFilters.Controls.Add(this.gammaValue);
             this.detailsFilters.Controls.Add(this.label33);
             this.detailsFilters.Controls.Add(this.contrastValue);
             this.detailsFilters.Controls.Add(this.brightnessValue);
@@ -1712,113 +1703,36 @@ namespace IMAVD___ImageInfo
             this.label55.TabIndex = 47;
             this.label55.Text = "Color Inversion:";
             // 
-            // label29
+            // gammaValue
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(36, 379);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(40, 15);
-            this.label29.TabIndex = 46;
-            this.label29.Text = "Blue:";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.numericUpDown1.DecimalPlaces = 1;
-            this.numericUpDown1.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown1.Location = new System.Drawing.Point(90, 377);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.gammaValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.gammaValue.DecimalPlaces = 1;
+            this.gammaValue.ForeColor = System.Drawing.Color.White;
+            this.gammaValue.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.gammaValue.Location = new System.Drawing.Point(39, 314);
+            this.gammaValue.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.gammaValue.Minimum = new decimal(new int[] {
             2,
             0,
             0,
             65536});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(51, 21);
-            this.numericUpDown1.TabIndex = 45;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            65536});
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(36, 351);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(54, 15);
-            this.label31.TabIndex = 44;
-            this.label31.Text = "Green: ";
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.numericUpDown2.DecimalPlaces = 1;
-            this.numericUpDown2.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown2.Location = new System.Drawing.Point(90, 349);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            5,
+            this.gammaValue.Name = "gammaValue";
+            this.gammaValue.Size = new System.Drawing.Size(51, 21);
+            this.gammaValue.TabIndex = 41;
+            this.gammaValue.Value = new decimal(new int[] {
+            1,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            65536});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(51, 21);
-            this.numericUpDown2.TabIndex = 43;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            65536});
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label32.ForeColor = System.Drawing.Color.White;
-            this.label32.Location = new System.Drawing.Point(36, 323);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(41, 15);
-            this.label32.TabIndex = 42;
-            this.label32.Text = "Red: ";
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.numericUpDown3.DecimalPlaces = 1;
-            this.numericUpDown3.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown3.Location = new System.Drawing.Point(90, 321);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numericUpDown3.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            65536});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(51, 21);
-            this.numericUpDown3.TabIndex = 41;
-            this.numericUpDown3.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            65536});
+            this.gammaValue.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
             // 
             // label33
             // 
@@ -2095,6 +2009,20 @@ namespace IMAVD___ImageInfo
             this.label37.Text = "INSERT OBJECT";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // gammaSlider
+            // 
+            this.gammaSlider.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.gammaSlider.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gammaSlider.LargeChange = 1;
+            this.gammaSlider.Location = new System.Drawing.Point(95, 308);
+            this.gammaSlider.Maximum = 50;
+            this.gammaSlider.Minimum = 2;
+            this.gammaSlider.Name = "gammaSlider";
+            this.gammaSlider.Size = new System.Drawing.Size(176, 45);
+            this.gammaSlider.TabIndex = 48;
+            this.gammaSlider.Value = 10;
+            this.gammaSlider.Scroll += new System.EventHandler(this.trackBar3_Scroll);
+            // 
             // imageEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2167,9 +2095,7 @@ namespace IMAVD___ImageInfo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.detailsFilters.ResumeLayout(false);
             this.detailsFilters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gammaValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contrastValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.brightnessValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contrastSlider)).EndInit();
@@ -2177,6 +2103,7 @@ namespace IMAVD___ImageInfo
             this.detailsInsert.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gammaSlider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2257,12 +2184,7 @@ namespace IMAVD___ImageInfo
         private System.Windows.Forms.Panel panel2;
         private NumericUpDown brightnessValue;
         private NumericUpDown contrastValue;
-        private Label label29;
-        private NumericUpDown numericUpDown1;
-        private Label label31;
-        private NumericUpDown numericUpDown2;
-        private Label label32;
-        private NumericUpDown numericUpDown3;
+        private NumericUpDown gammaValue;
         private Label label33;
         private TabPage detailsCut;
         private Label label34;
@@ -2329,6 +2251,7 @@ namespace IMAVD___ImageInfo
         private RadioButton removeBtn;
         private Panel panel5;
         private PictureBox cropRect;
+        private TrackBar gammaSlider;
     }
 }
 

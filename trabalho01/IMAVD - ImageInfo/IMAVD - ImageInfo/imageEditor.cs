@@ -464,6 +464,8 @@ namespace IMAVD___ImageInfo
             ImageAttributes attributes = new ImageAttributes();
             attributes.ClearColorMatrix();
             attributes.SetColorMatrix(cm, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+            attributes.ClearGamma();
+            attributes.SetGamma((float) gammaValue.Value, ColorAdjustType.Bitmap);
             /*
             // Draws the image onto the new bitmap while applying
             // the new ColorMatrix.
@@ -837,6 +839,18 @@ namespace IMAVD___ImageInfo
         {
             previousImage = new Bitmap(OriginalImage);
             OriginalImage = new Bitmap(pictureBox1.Image);
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            gammaSlider.Value = (int)(gammaValue.Value * 10);
+            setBrightnessContrast();
+        }
+
+        private void trackBar3_Scroll(object sender, EventArgs e)
+        {
+            gammaValue.Value = (decimal) (gammaSlider.Value / 10.0f);
+            setBrightnessContrast();
         }
 
         private void button6_Click(object sender, EventArgs e)
